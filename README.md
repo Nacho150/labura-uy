@@ -217,3 +217,4 @@ Ver mas detalle en `docs/ARCHITECTURE.md`.
 - Permitir descargar el mini CV.
 - Sumar ofertas reales o alianzas con empresas.
 - Agregar filtros por departamento y rubro.
+Deploy preparado para Vercel.
