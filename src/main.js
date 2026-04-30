@@ -16,6 +16,16 @@ const interests = [
   "Trabajos zafrales",
 ];
 
+const assets = {
+  logo: "/src/assets/logo-labura-uy.png",
+  checklist: "/src/assets/icon-checklist.png",
+  messageCv: "/src/assets/icon-message-cv.png",
+  companyLocation: "/src/assets/icon-company-location.png",
+  opportunity: "/src/assets/icon-opportunity.png",
+  trust: "/src/assets/icon-trust.png",
+  profile: "/src/assets/icon-profile.png",
+};
+
 let profile = { ...emptyProfile };
 let step = "home";
 let formError = "";
@@ -26,7 +36,7 @@ function render() {
   app.innerHTML = `
     <main>
       ${Header()}
-      ${step === "home" ? `${Hero()}${HowItWorks()}${WhoIsItFor()}` : ""}
+      ${step === "home" ? `${Hero()}${HowItWorks()}${WhoIsItFor()}${TrustSection()}` : ""}
       ${step === "form" ? ProfileForm(profile) : ""}
       ${step === "results" ? Results(profile, createRecommendationResult(profile)) : ""}
       ${Footer()}
@@ -39,9 +49,12 @@ function Header() {
   return `
     <header class="site-header">
       <a class="brand" href="#" data-action="home" aria-label="Labura UY inicio">
-        <span class="brand-icon" aria-hidden="true">LU</span>
-        <span>Labura UY</span>
+        <span class="brand-mark" aria-hidden="true">
+          <img src="${assets.profile}" alt="" />
+        </span>
+        <img class="brand-logo" src="${assets.logo}" alt="Labura UY" />
       </a>
+      <span class="header-badge">Uruguay</span>
       <button class="header-action" type="button" data-action="start">Empezar</button>
     </header>
   `;
@@ -51,9 +64,10 @@ function Hero() {
   return `
     <section class="hero">
       <div class="hero-content">
-        <div class="hero-kicker">Herramienta simple para buscar laburo en Uruguay</div>
-        <h1>Descubri que trabajos encajan con lo que ya sabes hacer.</h1>
-        <p>Conta tu experiencia real, tu zona y tus horarios. Labura UY te devuelve puestos posibles, donde postularte y un mensaje listo para mandar.</p>
+        <img class="hero-logo" src="${assets.logo}" alt="Labura UY" />
+        <div class="hero-kicker">Herramienta simple para buscar trabajo en Uruguay</div>
+        <h1>Converti tu experiencia en mejores postulaciones.</h1>
+        <p>Contanos que sabes hacer, donde estas y cuando podes trabajar. Labura UY te orienta con puestos recomendados, lugares donde postularte y mensajes listos para enviar.</p>
         <div class="hero-actions">
           <button class="primary-button" type="button" data-action="start">Empezar ahora</button>
           <button class="secondary-button" type="button" data-action="example">Ver ejemplo</button>
@@ -65,12 +79,21 @@ function Hero() {
         </div>
       </div>
       <div class="hero-panel" aria-label="Vista previa del resultado">
-        <span class="panel-label">Vista previa</span>
+        <img class="hero-panel-art" src="${assets.opportunity}" alt="" />
+        <div class="hero-panel-header">
+          <span class="panel-label">Resultado orientativo</span>
+          <strong>Perfil listo para postular</strong>
+        </div>
         <h2>Con tu experiencia, estos trabajos pueden ser buenos para vos.</h2>
-        <div class="preview-list"><span>Vendedor/a de local</span><strong>alto</strong></div>
-        <div class="preview-list"><span>Auxiliar de limpieza</span><strong>medio</strong></div>
-        <div class="preview-list"><span>Repositor/a</span><strong>medio</strong></div>
+        <div class="preview-list"><span>Vendedor/a de local</span><strong>Alta</strong></div>
+        <div class="preview-list"><span>Auxiliar de limpieza</span><strong>Media</strong></div>
+        <div class="preview-list"><span>Repositor/a</span><strong>Media</strong></div>
         <div class="hero-mini-note">Tu experiencia tambien vale, aunque no tengas un CV armado.</div>
+        <div class="hero-stats">
+          <span><strong>5</strong> puestos</span>
+          <span><strong>1</strong> mensaje</span>
+          <span><strong>0</strong> vueltas</span>
+        </div>
       </div>
     </section>
   `;
@@ -79,14 +102,17 @@ function Hero() {
 function HowItWorks() {
   const steps = [
     {
+      icon: assets.checklist,
       title: "Contanos tu experiencia",
       text: "Escribis trabajos anteriores, changas, tareas que sabes hacer, tu zona y tus horarios.",
     },
     {
+      icon: assets.opportunity,
       title: "Recibi trabajos recomendados",
       text: "Te mostramos puestos que pueden encajar con tu perfil y por que podrian servirte.",
     },
     {
+      icon: assets.messageCv,
       title: "Copia tu mensaje o CV y postulate",
       text: "Te llevas un mensaje para WhatsApp, un mini CV y lugares donde podrias postularte.",
     },
@@ -106,8 +132,11 @@ function HowItWorks() {
           .map(
             (step, index) => `
               <article class="info-card">
-                <span class="info-number">${index + 1}</span>
-                <h3>${step.title}</h3>
+                <div class="info-card-head">
+                  <span class="info-number">${index + 1}</span>
+                  <h3>${step.title}</h3>
+                  <img class="card-icon" src="${step.icon}" alt="" />
+                </div>
                 <p>${step.text}</p>
               </article>
             `,
@@ -129,12 +158,38 @@ function WhoIsItFor() {
   return `
     <section class="audience-section">
       <div class="audience-panel">
-        <span class="panel-label">Para quien es</span>
-        <h2>Hecho para gente que quiere buscar mejor, sin complicarse.</h2>
+        <div class="split-section">
+          <div>
+            <span class="panel-label">Para quien es</span>
+            <h2>Hecho para gente que quiere buscar mejor, sin complicarse.</h2>
+          </div>
+          <img class="section-art" src="${assets.profile}" alt="" />
+        </div>
         <div class="audience-list">
-          ${items.map((item) => `<p>${item}</p>`).join("")}
+          ${items.map((item) => `<p><span aria-hidden="true"><img src="${assets.profile}" alt="" /></span>${item}</p>`).join("")}
         </div>
         <button class="primary-button" type="button" data-action="start">Armar mi perfil</button>
+      </div>
+    </section>
+  `;
+}
+
+function TrustSection() {
+  return `
+    <section class="trust-section">
+      <div class="trust-card">
+        <div class="split-section">
+          <div>
+            <span class="panel-label">Confianza y claridad</span>
+            <h2>Una ayuda concreta para presentarte mejor.</h2>
+          </div>
+          <img class="section-art" src="${assets.trust}" alt="" />
+        </div>
+        <div class="trust-grid">
+          <p><strong>Privado por ahora.</strong>No vendemos tus datos ni pedimos cuenta para usar la herramienta.</p>
+          <p><strong>Practico.</strong>Esto no reemplaza una entrevista, pero te ayuda a llegar mejor preparado.</p>
+          <p><strong>Local.</strong>La recomendacion es orientativa y esta pensada para rubros reales de Uruguay.</p>
+        </div>
       </div>
     </section>
   `;
@@ -144,9 +199,9 @@ function ProfileForm(current) {
   return `
     <section class="form-section" id="formulario">
       <div class="section-heading">
-        <span class="section-icon" aria-hidden="true">01</span>
+        <span class="section-icon image-icon" aria-hidden="true"><img src="${assets.checklist}" alt="" /></span>
         <div>
-          <h1>Contanos que sabes hacer</h1>
+          <h1>Armemos tu perfil laboral</h1>
           <p>Con unas pocas respuestas armamos una recomendacion clara, sin palabras raras ni formularios eternos.</p>
         </div>
       </div>
@@ -155,6 +210,7 @@ function ProfileForm(current) {
       </div>
       ${formError ? `<div class="form-error" role="alert">${formError}</div>` : ""}
 
+      <div class="form-card">
       <form class="profile-form" id="profile-form">
         ${TextField("name", "Tu nombre", current.name, "Ej: Andrea", true, "", "Solo para personalizar el resultado.")}
         ${TextField("location", "Zona o departamento", current.location, "Ej: Montevideo, Salto, Maldonado", true, "", "Asi podemos sugerir lugares cercanos o zonas con temporada.")}
@@ -196,6 +252,7 @@ function ProfileForm(current) {
           <button class="secondary-button" type="button" data-action="example">Probar con datos de ejemplo</button>
         </div>
       </form>
+      </div>
     </section>
   `;
 }
@@ -255,6 +312,7 @@ function Results(current, result) {
   return `
     <section class="results-section">
       <div class="results-heading">
+        <img class="results-art" src="${assets.opportunity}" alt="" />
         <span class="eyebrow">Resultado para ${escapeHtml(current.name || "tu perfil")}</span>
         <h1>${escapeHtml(current.name || "Tu perfil")}, estas opciones pueden encajar contigo.</h1>
           <p>${escapeHtml(result.summary)}</p>
@@ -284,12 +342,13 @@ function Results(current, result) {
             (job) => `
               <article class="job-card">
                 <div class="job-card-top">
-                  <div>
-                    <span class="job-area">${job.area}</span>
-                    <h2>${job.title}</h2>
-                  </div>
-                  <span class="compatibility ${job.compatibility}">${compatibilityText(job.compatibility)}</span>
+                <div>
+                  <span class="job-area">${job.area}</span>
+                  <h2>${job.title}</h2>
                 </div>
+                <span class="compatibility ${job.compatibility}">${compatibilityText(job.compatibility)}</span>
+              </div>
+                <div class="score-bar" aria-hidden="true"><span style="--score: ${compatibilityScore(job.compatibility)}%"></span></div>
                 <p><strong>Por que puede servirte:</strong> ${job.reason}</p>
                 <div class="job-tip"><span>${job.tip}</span></div>
               </article>
@@ -308,6 +367,7 @@ function Results(current, result) {
           <span class="panel-label">Donde podrias postularte</span>
           <h2>Tipos de empresas para buscar cerca tuyo</h2>
         </div>
+        <img class="section-art small" src="${assets.companyLocation}" alt="" />
         <div class="company-grid">
           ${result.companySuggestions.map((suggestion) => CompanySuggestionCard(suggestion)).join("")}
         </div>
@@ -356,6 +416,7 @@ function BestOpportunity(job) {
         </div>
         <span class="compatibility ${job.compatibility}">${compatibilityText(job.compatibility)}</span>
       </div>
+      <div class="score-bar" aria-hidden="true"><span style="--score: ${compatibilityScore(job.compatibility)}%"></span></div>
       <p>${job.reason}</p>
       <div class="job-tip"><span>${job.tip}</span></div>
     </section>
@@ -365,8 +426,10 @@ function BestOpportunity(job) {
 function Footer() {
   return `
     <footer class="site-footer">
-      <strong>Labura UY</strong>
-      <p>MVP sin base de datos ni login. Pensado para ayudar a ordenar la busqueda laboral en Uruguay.</p>
+      <div class="footer-brand">
+        <img class="footer-logo" src="${assets.logo}" alt="Labura UY" />
+      </div>
+      <p>Herramienta simple para ordenar la busqueda laboral en Uruguay. Sin base de datos, sin login y sin pagos en esta version.</p>
     </footer>
   `;
 }
@@ -557,6 +620,12 @@ function compatibilityText(value) {
   if (value === "alto") return "Compatibilidad alta";
   if (value === "medio") return "Compatibilidad media";
   return "Compatibilidad baja";
+}
+
+function compatibilityScore(value) {
+  if (value === "alto") return 92;
+  if (value === "medio") return 66;
+  return 38;
 }
 
 function formatWorkType(value) {
