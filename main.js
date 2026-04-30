@@ -45,6 +45,7 @@ function Header() {
           <small>Orientador laboral</small>
         </span>
       </a>
+      <span class="header-badge">Uruguay</span>
       <button class="header-action" type="button" data-action="start">Empezar</button>
     </header>
   `;
@@ -117,8 +118,10 @@ function HowItWorks() {
           .map(
             (step, index) => `
               <article class="info-card">
-                <span class="info-number">${index + 1}</span>
-                <h3>${step.title}</h3>
+                <div class="info-card-head">
+                  <span class="info-number">${index + 1}</span>
+                  <h3>${step.title}</h3>
+                </div>
                 <p>${step.text}</p>
               </article>
             `,
@@ -143,7 +146,7 @@ function WhoIsItFor() {
         <span class="panel-label">Para quien es</span>
         <h2>Hecho para gente que quiere buscar mejor, sin complicarse.</h2>
         <div class="audience-list">
-          ${items.map((item) => `<p>${item}</p>`).join("")}
+          ${items.map((item) => `<p><span aria-hidden="true">OK</span>${item}</p>`).join("")}
         </div>
         <button class="primary-button" type="button" data-action="start">Armar mi perfil</button>
       </div>
@@ -158,9 +161,9 @@ function TrustSection() {
         <span class="panel-label">Confianza y claridad</span>
         <h2>Una ayuda concreta para presentarte mejor.</h2>
         <div class="trust-grid">
-          <p>No vendemos tus datos ni pedimos cuenta para usar la herramienta.</p>
-          <p>Esto no reemplaza una entrevista, pero te ayuda a llegar mejor preparado.</p>
-          <p>La recomendacion es orientativa y esta pensada para rubros reales de Uruguay.</p>
+          <p><strong>Privado por ahora.</strong>No vendemos tus datos ni pedimos cuenta para usar la herramienta.</p>
+          <p><strong>Practico.</strong>Esto no reemplaza una entrevista, pero te ayuda a llegar mejor preparado.</p>
+          <p><strong>Local.</strong>La recomendacion es orientativa y esta pensada para rubros reales de Uruguay.</p>
         </div>
       </div>
     </section>
@@ -182,6 +185,7 @@ function ProfileForm(current) {
       </div>
       ${formError ? `<div class="form-error" role="alert">${formError}</div>` : ""}
 
+      <div class="form-card">
       <form class="profile-form" id="profile-form">
         ${TextField("name", "Tu nombre", current.name, "Ej: Andrea", true, "", "Solo para personalizar el resultado.")}
         ${TextField("location", "Zona o departamento", current.location, "Ej: Montevideo, Salto, Maldonado", true, "", "Asi podemos sugerir lugares cercanos o zonas con temporada.")}
@@ -223,6 +227,7 @@ function ProfileForm(current) {
           <button class="secondary-button" type="button" data-action="example">Probar con datos de ejemplo</button>
         </div>
       </form>
+      </div>
     </section>
   `;
 }
@@ -311,12 +316,13 @@ function Results(current, result) {
             (job) => `
               <article class="job-card">
                 <div class="job-card-top">
-                  <div>
-                    <span class="job-area">${job.area}</span>
-                    <h2>${job.title}</h2>
-                  </div>
-                  <span class="compatibility ${job.compatibility}">${compatibilityText(job.compatibility)}</span>
+                <div>
+                  <span class="job-area">${job.area}</span>
+                  <h2>${job.title}</h2>
                 </div>
+                <span class="compatibility ${job.compatibility}">${compatibilityText(job.compatibility)}</span>
+              </div>
+                <div class="score-bar" aria-hidden="true"><span style="--score: ${compatibilityScore(job.compatibility)}%"></span></div>
                 <p><strong>Por que puede servirte:</strong> ${job.reason}</p>
                 <div class="job-tip"><span>${job.tip}</span></div>
               </article>
@@ -383,6 +389,7 @@ function BestOpportunity(job) {
         </div>
         <span class="compatibility ${job.compatibility}">${compatibilityText(job.compatibility)}</span>
       </div>
+      <div class="score-bar" aria-hidden="true"><span style="--score: ${compatibilityScore(job.compatibility)}%"></span></div>
       <p>${job.reason}</p>
       <div class="job-tip"><span>${job.tip}</span></div>
     </section>
@@ -587,6 +594,12 @@ function compatibilityText(value) {
   if (value === "alto") return "Compatibilidad alta";
   if (value === "medio") return "Compatibilidad media";
   return "Compatibilidad baja";
+}
+
+function compatibilityScore(value) {
+  if (value === "alto") return 92;
+  if (value === "medio") return 66;
+  return 38;
 }
 
 function formatWorkType(value) {

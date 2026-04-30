@@ -18,6 +18,7 @@
   --danger-soft: #fff1f2;
   --shadow: 0 18px 50px rgba(15, 23, 42, 0.1);
   --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.07);
+  --shadow-blue: 0 22px 52px rgba(29, 78, 216, 0.2);
   --radius: 14px;
   --radius-sm: 10px;
   color: var(--text);
@@ -37,9 +38,16 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.25), transparent 26rem),
-    radial-gradient(circle at 100% 8%, rgba(29, 78, 216, 0.14), transparent 30rem),
-    linear-gradient(180deg, #f8fafc 0%, #eef6ff 42%, #f8fafc 100%);
+    linear-gradient(90deg, rgba(30, 58, 138, 0.06) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(30, 58, 138, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.3), transparent 25rem),
+    radial-gradient(circle at 100% 6%, rgba(29, 78, 216, 0.18), transparent 31rem),
+    linear-gradient(180deg, #f8fafc 0%, #edf6ff 46%, #f8fafc 100%);
+  background-size: 48px 48px, 48px 48px, auto, auto, auto;
+}
+
+main {
+  overflow: hidden;
 }
 
 button,
@@ -67,6 +75,7 @@ textarea:focus-visible {
   border-bottom: 1px solid rgba(226, 232, 240, 0.95);
   display: flex;
   justify-content: space-between;
+  gap: 10px;
   padding: 12px 16px;
   position: sticky;
   top: 0;
@@ -86,8 +95,8 @@ textarea:focus-visible {
 .brand-icon {
   align-items: center;
   background: linear-gradient(135deg, var(--blue-dark), var(--blue), var(--sky));
-  border-radius: 12px;
-  box-shadow: 0 10px 24px rgba(29, 78, 216, 0.25);
+  border-radius: 13px;
+  box-shadow: 0 12px 28px rgba(29, 78, 216, 0.28);
   color: #ffffff;
   display: inline-flex;
   font-size: 0.78rem;
@@ -95,6 +104,18 @@ textarea:focus-visible {
   height: 42px;
   justify-content: center;
   min-width: 42px;
+}
+
+.header-badge {
+  background: var(--sky-soft);
+  border: 1px solid #bae6fd;
+  border-radius: 999px;
+  color: var(--blue-dark);
+  display: none;
+  font-size: 0.78rem;
+  font-weight: 950;
+  margin-left: auto;
+  padding: 8px 12px;
 }
 
 .brand-copy {
@@ -122,7 +143,7 @@ textarea:focus-visible {
   font-weight: 850;
   min-height: 42px;
   padding: 0 18px;
-  box-shadow: 0 10px 22px rgba(30, 58, 138, 0.18);
+  box-shadow: 0 12px 26px rgba(30, 58, 138, 0.2);
 }
 
 .hero,
@@ -147,6 +168,7 @@ textarea:focus-visible {
 .audience-panel,
 .trust-card,
 .results-heading,
+.form-card,
 .best-card,
 .trust-panel,
 .guidance,
@@ -168,9 +190,9 @@ fieldset,
 
 .hero-content {
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(224, 242, 254, 0.84)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.97), rgba(224, 242, 254, 0.9)),
     #ffffff;
-  padding: 22px;
+  padding: 24px;
   position: relative;
   overflow: hidden;
 }
@@ -184,6 +206,18 @@ fieldset,
   right: -70px;
   top: -70px;
   width: 160px;
+}
+
+.hero-content::before {
+  background: linear-gradient(180deg, var(--sky), var(--blue));
+  border-radius: 999px;
+  content: "";
+  height: calc(100% - 48px);
+  left: 0;
+  opacity: 0.85;
+  position: absolute;
+  top: 24px;
+  width: 5px;
 }
 
 .hero-kicker,
@@ -207,7 +241,7 @@ fieldset,
   font-size: clamp(2.25rem, 12vw, 3.45rem);
   letter-spacing: 0;
   line-height: 1.02;
-  margin: 16px 0 12px;
+  margin: 18px 0 14px;
   max-width: 860px;
 }
 
@@ -218,7 +252,7 @@ fieldset,
   font-size: clamp(1.85rem, 9vw, 2.8rem);
   letter-spacing: 0;
   line-height: 1.06;
-  margin: 10px 0;
+  margin: 12px 0;
 }
 
 .hero-content p,
@@ -259,13 +293,29 @@ fieldset,
   background: linear-gradient(135deg, var(--blue-dark), var(--blue));
   border: 1px solid var(--blue);
   color: #ffffff;
-  box-shadow: 0 14px 28px rgba(29, 78, 216, 0.25);
+  box-shadow: var(--shadow-blue);
+  position: relative;
+  transform: translateY(0);
+  transition: box-shadow 160ms ease, transform 160ms ease, border-color 160ms ease;
 }
 
 .secondary-button {
   background: #ffffff;
   border: 1px solid var(--border);
   color: var(--blue-dark);
+}
+
+.primary-button:hover,
+.header-action:hover,
+.copy-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 26px 56px rgba(29, 78, 216, 0.25);
+}
+
+.secondary-button:hover,
+.chip:hover {
+  border-color: #93c5fd;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
 }
 
 .copy-button {
@@ -300,6 +350,7 @@ fieldset,
 
 .hero-panel {
   background:
+    radial-gradient(circle at 88% 10%, rgba(56, 189, 248, 0.32), transparent 14rem),
     linear-gradient(180deg, rgba(30, 58, 138, 0.98), rgba(29, 78, 216, 0.94)),
     var(--blue-dark);
   border-color: rgba(125, 211, 252, 0.3);
@@ -398,7 +449,7 @@ fieldset,
 .section-heading {
   display: grid;
   gap: 12px;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 
 .section-heading.compact {
@@ -439,8 +490,28 @@ fieldset,
 
 .info-card {
   display: grid;
+  gap: 14px;
+  padding: 20px;
+  position: relative;
+}
+
+.info-card::after,
+.job-card::after,
+.company-card::after {
+  background: linear-gradient(90deg, var(--sky), transparent);
+  content: "";
+  height: 3px;
+  left: 16px;
+  opacity: 0.7;
+  position: absolute;
+  right: 16px;
+  top: 0;
+}
+
+.info-card-head {
+  align-items: center;
+  display: flex;
   gap: 12px;
-  padding: 18px;
 }
 
 .info-card h3 {
@@ -468,8 +539,8 @@ fieldset,
     linear-gradient(135deg, rgba(224, 242, 254, 0.84), rgba(255, 255, 255, 0.94)),
     #ffffff;
   display: grid;
-  gap: 16px;
-  padding: 20px;
+  gap: 18px;
+  padding: 22px;
 }
 
 .audience-list p,
@@ -478,8 +549,34 @@ fieldset,
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   color: var(--text);
+  display: flex;
+  gap: 10px;
   font-weight: 760;
   padding: 13px;
+}
+
+.audience-list span {
+  align-items: center;
+  background: var(--blue-dark);
+  border-radius: 999px;
+  color: #ffffff;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 0.68rem;
+  font-weight: 950;
+  height: 28px;
+  justify-content: center;
+  width: 28px;
+}
+
+.trust-grid p {
+  display: grid;
+}
+
+.trust-grid strong {
+  color: var(--blue-dark);
+  display: block;
+  margin-bottom: 2px;
 }
 
 .form-helper,
@@ -488,6 +585,10 @@ fieldset,
   line-height: 1.5;
   margin-bottom: 14px;
   padding: 14px;
+}
+
+.form-card {
+  padding: 12px;
 }
 
 .form-helper {
@@ -522,7 +623,15 @@ fieldset {
   font-weight: 900;
   gap: 8px;
   margin: 0;
-  padding: 16px;
+  padding: 17px;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+label:focus-within,
+fieldset:focus-within {
+  border-color: #bae6fd;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+  transform: translateY(-1px);
 }
 
 fieldset {
@@ -627,11 +736,14 @@ textarea {
 
 .results-heading {
   background:
+    radial-gradient(circle at 90% 0%, rgba(56, 189, 248, 0.32), transparent 18rem),
     linear-gradient(135deg, rgba(30, 58, 138, 0.96), rgba(29, 78, 216, 0.9)),
     var(--blue-dark);
   border-color: rgba(56, 189, 248, 0.24);
   color: #ffffff;
-  padding: 20px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
 }
 
 .results-heading .eyebrow {
@@ -684,6 +796,7 @@ textarea {
   display: grid;
   gap: 13px;
   border-color: #bfdbfe;
+  box-shadow: 0 20px 48px rgba(29, 78, 216, 0.13);
 }
 
 .best-card h2 {
@@ -734,6 +847,16 @@ textarea {
   display: grid;
   gap: 12px;
   padding: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.job-card:hover,
+.company-card:hover {
+  border-color: #bfdbfe;
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.1);
+  transform: translateY(-2px);
 }
 
 .job-card-top {
@@ -766,6 +889,21 @@ textarea {
 
 .compatibility {
   flex: 0 0 auto;
+}
+
+.score-bar {
+  background: #e2e8f0;
+  border-radius: 999px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.score-bar span {
+  background: linear-gradient(90deg, var(--blue-dark), var(--sky));
+  border-radius: inherit;
+  display: block;
+  height: 100%;
+  width: var(--score);
 }
 
 .alto {
@@ -847,6 +985,12 @@ textarea {
   display: flex;
   gap: 12px;
   padding: 12px;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.step-card:hover {
+  border-color: #bfdbfe;
+  transform: translateY(-1px);
 }
 
 .output-heading {
@@ -876,7 +1020,7 @@ textarea {
   color: var(--muted);
   margin: 20px auto 0;
   max-width: 1160px;
-  padding: 24px 16px 32px;
+  padding: 28px 16px 36px;
 }
 
 .footer-brand {
@@ -900,6 +1044,10 @@ textarea {
 @media (min-width: 680px) {
   .site-header {
     padding: 14px 28px;
+  }
+
+  .header-badge {
+    display: inline-flex;
   }
 
   .hero,
@@ -946,6 +1094,10 @@ textarea {
   .recommendations .job-card:first-child {
     grid-column: 1 / -1;
   }
+
+  .form-card {
+    padding: 16px;
+  }
 }
 
 @media (min-width: 940px) {
@@ -971,11 +1123,15 @@ textarea {
   }
 
   .hero-content {
-    padding: 32px;
+    padding: 38px;
   }
 
   .hero-panel {
-    padding: 24px;
+    padding: 28px;
+  }
+
+  .results-heading {
+    padding: 32px;
   }
 
   .hero-content h1,
