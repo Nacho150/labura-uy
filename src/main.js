@@ -1,5 +1,6 @@
 import { exampleProfile } from "./data/exampleProfile.js";
 import { createRecommendationResult, emptyProfile } from "./logic/recommendations.js";
+import { saveCompanyInterest, saveProfile } from "./services/profiles/profileRepository.js";
 
 const interests = [
   "Atencion al cliente",
@@ -29,6 +30,9 @@ const assets = {
 let profile = { ...emptyProfile };
 let step = "home";
 let formError = "";
+let savedProfile = null;
+let saveStatus = "";
+let companyStatus = "";
 
 const app = document.getElementById("root");
 
@@ -36,9 +40,12 @@ function render() {
   app.innerHTML = `
     <main>
       ${Header()}
-      ${step === "home" ? `${Hero()}${HowItWorks()}${WhoIsItFor()}${TrustSection()}` : ""}
+      ${step === "home" ? `${Hero()}${HowItWorks()}${WhoIsItFor()}${FeaturedCategories()}${TrustSection()}${CompanyCta()}${FinalCta()}` : ""}
       ${step === "form" ? ProfileForm(profile) : ""}
       ${step === "results" ? Results(profile, createRecommendationResult(profile)) : ""}
+      ${step === "saved" ? SavedProfile(savedProfile) : ""}
+      ${step === "profile" ? MyProfile(savedProfile || { profile, result: createRecommendationResult(profile), source: "local" }) : ""}
+      ${step === "company" ? CompanyInterestForm() : ""}
       ${Footer()}
     </main>
   `;
@@ -66,11 +73,11 @@ function Hero() {
       <div class="hero-content">
         <img class="hero-logo" src="${assets.logo}" alt="Labura UY" />
         <div class="hero-kicker">Herramienta simple para buscar trabajo en Uruguay</div>
-        <h1>Converti tu experiencia en mejores postulaciones.</h1>
-        <p>Contanos que sabes hacer, donde estas y cuando podes trabajar. Labura UY te orienta con puestos recomendados, lugares donde postularte y mensajes listos para enviar.</p>
+        <h1>Encontra oportunidades laborales segun tu experiencia real.</h1>
+        <p>Labura UY te ayuda a descubrir trabajos posibles, armar tu perfil y postularte mejor, aunque no tengas un CV perfecto.</p>
         <div class="hero-actions">
-          <button class="primary-button" type="button" data-action="start">Empezar ahora</button>
-          <button class="secondary-button" type="button" data-action="example">Ver ejemplo</button>
+          <button class="primary-button" type="button" data-action="start">Crear mi perfil</button>
+          <a class="secondary-button" href="#como-funciona">Ver como funciona</a>
         </div>
         <div class="trust-strip" aria-label="Beneficios principales">
           <span>Sin registro</span>
@@ -113,18 +120,23 @@ function HowItWorks() {
     },
     {
       icon: assets.messageCv,
-      title: "Copia tu mensaje o CV y postulate",
+      title: "Arma tu perfil laboral",
+      text: "Ordenamos tu experiencia, tus habilidades y tus rubros recomendados en una vista clara.",
+    },
+    {
+      icon: assets.companyLocation,
+      title: "Postulate con un mensaje listo",
       text: "Te llevas un mensaje para WhatsApp, un mini CV y lugares donde podrias postularte.",
     },
   ];
 
   return `
-    <section class="info-section">
+    <section class="info-section" id="como-funciona">
       <div class="section-heading compact">
         <span class="section-icon" aria-hidden="true">02</span>
         <div>
           <h2>Como funciona</h2>
-          <p>Tres pasos simples para pasar de "no se que mandar" a tener una busqueda mas ordenada.</p>
+          <p>Cuatro pasos simples para pasar de "no se que mandar" a tener una busqueda mas ordenada.</p>
         </div>
       </div>
       <div class="info-grid">
@@ -149,10 +161,12 @@ function HowItWorks() {
 
 function WhoIsItFor() {
   const items = [
-    "Personas que trabajaron en comercio, limpieza, gastronomia, hoteleria o servicios.",
-    "Quienes tienen experiencia informal, changas o tareas familiares y no saben como presentarlas.",
-    "Personas que quieren buscar por WhatsApp, Google Maps o Instagram sin entrar en portales complejos.",
-    "Quienes estan empezando y necesitan opciones de entrada como auxiliar, repositor, cadete o aprendiz.",
+    "Personas sin experiencia formal que quieren empezar por puestos de entrada.",
+    "Trabajadores de temporada, zafrales o changas.",
+    "Personas con experiencia en ventas, atencion al publico o caja.",
+    "Hoteleria, gastronomia, limpieza y servicios.",
+    "Choferes, cadetes, reparto, mantenimiento y construccion.",
+    "Quienes quieren buscar por WhatsApp, Google Maps o Instagram sin portales complejos.",
   ];
 
   return `
@@ -174,6 +188,37 @@ function WhoIsItFor() {
   `;
 }
 
+function FeaturedCategories() {
+  const categories = [
+    "Atencion al cliente",
+    "Ventas",
+    "Gastronomia",
+    "Hoteleria",
+    "Limpieza",
+    "Seguridad",
+    "Reparto",
+    "Mantenimiento",
+    "Administracion basica",
+    "Cuidado de personas",
+    "Temporada en Maldonado / Punta del Este",
+  ];
+
+  return `
+    <section class="category-section">
+      <div class="section-heading compact">
+        <span class="section-icon image-icon" aria-hidden="true"><img src="${assets.companyLocation}" alt="" /></span>
+        <div>
+          <h2>Rubros destacados en Uruguay</h2>
+          <p>La recomendacion se enfoca en rubros reales, de alta demanda y faciles de entender.</p>
+        </div>
+      </div>
+      <div class="category-grid">
+        ${categories.map((category) => `<span class="category-badge">${category}</span>`).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function TrustSection() {
   return `
     <section class="trust-section">
@@ -189,8 +234,37 @@ function TrustSection() {
           <p><strong>Privado por ahora.</strong>No vendemos tus datos ni pedimos cuenta para usar la herramienta.</p>
           <p><strong>Practico.</strong>Esto no reemplaza una entrevista, pero te ayuda a llegar mejor preparado.</p>
           <p><strong>Local.</strong>La recomendacion es orientativa y esta pensada para rubros reales de Uruguay.</p>
+          <p><strong>Control.</strong>Tus datos se usan para crear tu perfil laboral y mas adelante vas a poder editarlo o borrarlo.</p>
+          <p><strong>Permiso.</strong>No compartimos tu informacion publicamente sin tu permiso.</p>
         </div>
       </div>
+    </section>
+  `;
+}
+
+function CompanyCta() {
+  return `
+    <section class="company-cta">
+      <div>
+        <span class="panel-label">Para empresas</span>
+        <h2>Sos empresa o comercio?</h2>
+        <p>Mas adelante vas a poder encontrar candidatos segun zona, experiencia y disponibilidad.</p>
+      </div>
+      <button class="secondary-button" type="button" data-action="company">Quiero recibir candidatos</button>
+    </section>
+  `;
+}
+
+function FinalCta() {
+  return `
+    <section class="final-cta">
+      <img src="${assets.opportunity}" alt="" />
+      <div>
+        <span class="panel-label">Empeza simple</span>
+        <h2>Crea tu perfil laboral en pocos minutos</h2>
+        <p>No necesitas tener todo perfecto. Empeza con lo que ya sabes hacer.</p>
+      </div>
+      <button class="primary-button" type="button" data-action="start">Empezar ahora</button>
     </section>
   `;
 }
@@ -213,7 +287,8 @@ function ProfileForm(current) {
       <div class="form-card">
       <form class="profile-form" id="profile-form">
         ${TextField("name", "Tu nombre", current.name, "Ej: Andrea", true, "", "Solo para personalizar el resultado.")}
-        ${TextField("location", "Zona o departamento", current.location, "Ej: Montevideo, Salto, Maldonado", true, "", "Asi podemos sugerir lugares cercanos o zonas con temporada.")}
+        ${TextField("location", "Ciudad o zona", current.location, "Ej: Pocitos, San Carlos, Las Piedras", true, "", "Asi podemos sugerir lugares cercanos.")}
+        ${TextField("department", "Departamento", current.department, "Ej: Montevideo, Canelones, Maldonado", false, "", "Ayuda a mejorar recomendaciones por temporada y zona.")}
         ${TextField("age", "Edad (opcional)", current.age, "Ej: 29", false, "", "Si no queres ponerla, dejala vacia.")}
         ${TextArea("experience", "Experiencia o changas", current.experience, "Ej: trabaje en comercio, hice limpieza, cuide personas, ayude en obra...", "Puede ser trabajo formal, informal, familiar o changas.")}
         ${TextArea("skills", "Tareas que sabes hacer", current.skills, "Ej: atencion al publico, caja, cocina, pintura, computadora basica...", "Escribi tareas concretas, aunque parezcan simples.")}
@@ -246,7 +321,7 @@ function ProfileForm(current) {
               .join("")}
           </div>
         </div>
-        ${TextField("contact", "Telefono o email (opcional)", current.contact, "Ej: 099 123 456 o tu email", false, "wide", "Queda solo en esta pantalla por ahora; no se guarda en ninguna base de datos.")}
+        ${TextField("contact", "Telefono o email (opcional)", current.contact, "Ej: 099 123 456 o tu email", false, "wide", "Se usa para armar tu perfil laboral si decidis guardarlo.")}
         <div class="form-actions wide">
           <button class="primary-button" type="submit">Ver mis trabajos recomendados</button>
           <button class="secondary-button" type="button" data-action="example">Probar con datos de ejemplo</button>
@@ -350,6 +425,8 @@ function Results(current, result) {
               </div>
                 <div class="score-bar" aria-hidden="true"><span style="--score: ${compatibilityScore(job.compatibility)}%"></span></div>
                 <p><strong>Por que puede servirte:</strong> ${job.reason}</p>
+                <p><strong>Que destacar:</strong> ${job.highlight}</p>
+                <p><strong>Donde postularte:</strong> ${job.companies}</p>
                 <div class="job-tip"><span>${job.tip}</span></div>
               </article>
             `,
@@ -398,9 +475,12 @@ function Results(current, result) {
       </div>
 
       <div class="bottom-actions">
+        <button class="primary-button" type="button" data-action="save-profile">${saveStatus === "saving" ? "Guardando..." : "Guardar mi perfil"}</button>
+        ${savedProfile ? `<button class="secondary-button" type="button" data-action="profile">Ver mi perfil</button>` : ""}
         <button class="primary-button" type="button" data-action="edit">Ajustar mis datos</button>
         <button class="secondary-button" type="button" data-action="restart">Empezar de nuevo</button>
       </div>
+      ${saveStatus === "error" ? `<div class="form-error">No se pudo guardar. Revisa la configuracion de Supabase o proba de nuevo.</div>` : ""}
     </section>
   `;
 }
@@ -418,7 +498,88 @@ function BestOpportunity(job) {
       </div>
       <div class="score-bar" aria-hidden="true"><span style="--score: ${compatibilityScore(job.compatibility)}%"></span></div>
       <p>${job.reason}</p>
+      <p><strong>Que destacar:</strong> ${job.highlight}</p>
+      <p><strong>Donde postularte:</strong> ${job.companies}</p>
       <div class="job-tip"><span>${job.tip}</span></div>
+    </section>
+  `;
+}
+
+function SavedProfile(saved) {
+  return `
+    <section class="results-section">
+      <div class="results-heading">
+        <img class="results-art" src="${assets.trust}" alt="" />
+        <span class="eyebrow">Perfil creado</span>
+        <h1>Tu perfil fue creado correctamente.</h1>
+        <p>${saved?.source === "supabase" ? "Quedo guardado en la base de datos de Labura UY." : "Quedo guardado en este navegador porque Supabase aun no esta configurado."}</p>
+      </div>
+      ${MyProfile(saved, false)}
+    </section>
+  `;
+}
+
+function MyProfile(saved, wrap = true) {
+  const currentProfile = saved?.profile || profile;
+  const result = saved?.result || createRecommendationResult(currentProfile);
+  const topJobs = result.recommendations.map((job) => job.title).join(", ");
+  const content = `
+    <section class="profile-summary">
+      <div class="split-section">
+        <div>
+          <span class="panel-label">Mi perfil</span>
+          <h2>${escapeHtml(currentProfile.name || "Perfil laboral")}</h2>
+          <p>${escapeHtml([currentProfile.location, currentProfile.department].filter(Boolean).join(", ") || "Uruguay")}</p>
+        </div>
+        <img class="section-art" src="${assets.profile}" alt="" />
+      </div>
+      <div class="profile-detail-grid">
+        <p><strong>Rubros recomendados:</strong> ${result.recommendations.map((job) => job.area).filter((item, index, list) => list.indexOf(item) === index).join(", ")}</p>
+        <p><strong>Puestos recomendados:</strong> ${topJobs}</p>
+        <p><strong>Experiencia:</strong> ${escapeHtml(currentProfile.experience)}</p>
+        <p><strong>Habilidades:</strong> ${escapeHtml(currentProfile.skills)}</p>
+        <p><strong>Disponibilidad:</strong> ${escapeHtml(currentProfile.availability)}</p>
+      </div>
+    </section>
+    <div class="output-grid">
+      ${TextOutput("perfil-mensaje", "Mensaje listo para postularte", "Copialo para escribirle a una empresa.", result.whatsappMessage, "Copiar mensaje")}
+      ${TextOutput("perfil-cv", "Mini CV", "Una version simple para mandar por WhatsApp o pegar en una postulacion.", result.miniCv, "Copiar mini CV")}
+    </div>
+    <div class="bottom-actions">
+      <button class="primary-button" type="button" data-action="edit">Editar perfil</button>
+      <button class="secondary-button" type="button" data-action="restart">Crear nuevo perfil</button>
+    </div>
+  `;
+
+  return wrap ? `<section class="results-section">${content}</section>` : content;
+}
+
+function CompanyInterestForm() {
+  return `
+    <section class="form-section">
+      <div class="section-heading">
+        <span class="section-icon image-icon" aria-hidden="true"><img src="${assets.companyLocation}" alt="" /></span>
+        <div>
+          <h1>Interes para empresas</h1>
+          <p>Dejanos tus datos y necesidades de contratacion. Por ahora queda como lista de interes para la proxima etapa.</p>
+        </div>
+      </div>
+      ${companyStatus === "saved" ? `<div class="form-helper"><strong>Listo:</strong> recibimos el interes de la empresa.</div>` : ""}
+      ${companyStatus === "error" ? `<div class="form-error">No se pudo guardar el interes. Proba de nuevo.</div>` : ""}
+      <div class="form-card">
+        <form class="profile-form" id="company-form">
+          ${TextField("companyName", "Nombre de la empresa", "", "Ej: Supermercado La Costa", true)}
+          ${TextField("contactName", "Persona de contacto", "", "Ej: Martin", false)}
+          ${TextField("email", "Email", "", "empresa@email.com", true)}
+          ${TextField("phone", "Telefono", "", "099 123 456", false)}
+          ${TextField("city", "Ciudad o zona", "", "Ej: Maldonado, Cordón, Las Piedras", false)}
+          ${TextArea("hiringNeeds", "Que perfiles te interesaria recibir?", "", "Ej: vendedores, limpieza, mozos para temporada, cadetes con libreta...", "Esto ayuda a preparar el futuro panel de empresas.")}
+          <div class="form-actions wide">
+            <button class="primary-button" type="submit">${companyStatus === "saving" ? "Guardando..." : "Enviar interes"}</button>
+            <button class="secondary-button" type="button" data-action="home">Volver al inicio</button>
+          </div>
+        </form>
+      </div>
     </section>
   `;
 }
@@ -429,7 +590,7 @@ function Footer() {
       <div class="footer-brand">
         <img class="footer-logo" src="${assets.logo}" alt="Labura UY" />
       </div>
-      <p>Herramienta simple para ordenar la busqueda laboral en Uruguay. Sin base de datos, sin login y sin pagos en esta version.</p>
+      <p>Herramienta simple para ordenar la busqueda laboral en Uruguay. Sin pagos, sin scraping y preparada para crecer con perfiles guardados.</p>
     </footer>
   `;
 }
@@ -512,6 +673,7 @@ function bindEvents() {
     const nextProfile = {
       name: data.get("name").trim(),
       location: data.get("location").trim(),
+      department: data.get("department").trim(),
       age: data.get("age").trim(),
       experience: data.get("experience").trim(),
       skills: data.get("skills").trim(),
@@ -532,6 +694,30 @@ function bindEvents() {
 
     formError = "";
     step = "results";
+    render();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  document.getElementById("company-form")?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    companyStatus = "saving";
+    render();
+
+    try {
+      await saveCompanyInterest({
+        companyName: data.get("companyName").trim(),
+        contactName: data.get("contactName").trim(),
+        email: data.get("email").trim(),
+        phone: data.get("phone").trim(),
+        city: data.get("city").trim(),
+        hiringNeeds: data.get("hiringNeeds").trim(),
+      });
+      companyStatus = "saved";
+    } catch {
+      companyStatus = "error";
+    }
+
     render();
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
@@ -571,16 +757,49 @@ function handleAction(event) {
 
   if (action === "home") step = "home";
   if (action === "start") step = "form";
+  if (action === "company") {
+    companyStatus = "";
+    step = "company";
+  }
   if (action === "example") {
     profile = { ...exampleProfile };
     formError = "";
     step = "results";
   }
   if (action === "edit") step = "form";
+  if (action === "profile") step = "profile";
+  if (action === "save-profile") {
+    saveCurrentProfile();
+    return;
+  }
   if (action === "restart") {
     profile = { ...emptyProfile };
     formError = "";
+    savedProfile = null;
+    saveStatus = "";
     step = "form";
+  }
+
+  render();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+async function saveCurrentProfile() {
+  saveStatus = "saving";
+  render();
+
+  const result = createRecommendationResult(profile);
+  try {
+    const saved = await saveProfile(profile, result);
+    savedProfile = {
+      ...saved,
+      profile: { ...profile },
+      result,
+    };
+    saveStatus = "";
+    step = "saved";
+  } catch {
+    saveStatus = "error";
   }
 
   render();

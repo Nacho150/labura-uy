@@ -176,6 +176,9 @@ textarea:focus-visible {
 .info-section,
 .audience-section,
 .trust-section,
+.category-section,
+.company-cta,
+.final-cta,
 .form-section,
 .results-section {
   margin: 0 auto;
@@ -193,9 +196,12 @@ textarea:focus-visible {
 .hero-panel,
 .audience-panel,
 .trust-card,
+.company-cta,
+.final-cta,
 .results-heading,
 .form-card,
 .best-card,
+.profile-summary,
 .trust-panel,
 .guidance,
 .company-section,
@@ -549,19 +555,46 @@ fieldset,
 
 .info-section,
 .audience-section,
-.trust-section {
+.trust-section,
+.category-section {
   padding-top: 18px;
 }
 
 .info-grid,
 .audience-list,
 .trust-grid,
+.category-grid,
 .recommendations,
 .output-grid,
 .company-grid,
 .steps-list {
   display: grid;
   gap: 12px;
+}
+
+.category-section {
+  background: rgba(255, 255, 255, 0.44);
+  border-radius: 24px;
+}
+
+.category-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.category-badge {
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--blue-dark);
+  display: inline-flex;
+  font-size: 0.9rem;
+  font-weight: 900;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 12px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
 }
 
 .info-card {
@@ -1071,9 +1104,69 @@ textarea {
 }
 
 .company-section,
-.next-steps {
+.next-steps,
+.profile-summary {
   display: grid;
   gap: 14px;
+}
+
+.company-cta,
+.final-cta {
+  align-items: center;
+  display: grid;
+  gap: 16px;
+  margin: 20px auto;
+  max-width: 1160px;
+  padding: 22px 16px;
+}
+
+.company-cta {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(224, 242, 254, 0.88)),
+    #ffffff;
+}
+
+.final-cta {
+  background:
+    radial-gradient(circle at 92% 12%, rgba(56, 189, 248, 0.22), transparent 16rem),
+    linear-gradient(135deg, rgba(30, 58, 138, 0.96), rgba(29, 78, 216, 0.9));
+  color: #ffffff;
+}
+
+.final-cta h2,
+.final-cta p {
+  color: #ffffff;
+}
+
+.final-cta img {
+  filter: drop-shadow(0 20px 28px rgba(15, 23, 42, 0.2));
+  justify-self: start;
+  max-width: 130px;
+  width: 38vw;
+}
+
+.profile-summary {
+  margin-top: 14px;
+  padding: 16px;
+}
+
+.profile-detail-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.profile-detail-grid p {
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+  padding: 12px;
+}
+
+.profile-detail-grid strong {
+  color: var(--text);
 }
 
 .company-card {
@@ -1188,6 +1281,9 @@ textarea {
   .info-section,
   .audience-section,
   .trust-section,
+  .category-section,
+  .company-cta,
+  .final-cta,
   .form-section,
   .results-section {
     padding: 44px 28px;
@@ -1217,12 +1313,25 @@ textarea {
   .company-grid,
   .output-grid,
   .audience-list,
-  .trust-grid {
+  .trust-grid,
+  .profile-detail-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .info-grid {
+  .info-grid,
+  .category-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .company-cta,
+  .final-cta {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .final-cta {
+    grid-template-columns: 130px minmax(0, 1fr) auto;
   }
 
   .recommendations .job-card:first-child {
@@ -1254,6 +1363,9 @@ textarea {
   .info-section,
   .audience-section,
   .trust-section,
+  .category-section,
+  .company-cta,
+  .final-cta,
   .form-section,
   .results-section {
     padding: 64px 56px;
@@ -1295,5 +1407,9 @@ textarea {
 
   .steps-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }

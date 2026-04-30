@@ -1,6 +1,7 @@
 export const emptyProfile = {
   name: "",
   location: "",
+  department: "",
   age: "",
   experience: "",
   skills: "",
@@ -378,7 +379,12 @@ export function createRecommendationResult(profile) {
 
   const recommendations = [...ranked, ...fallback]
     .filter((role, index, list) => list.findIndex((item) => item.title === role.title) === index)
-    .slice(0, 5);
+    .slice(0, 5)
+    .map((role) => ({
+      ...role,
+      companies: companiesForArea(role.area),
+      highlight: highlightForArea(role.area),
+    }));
 
   return {
     summary: createProfileSummary(profile, recommendations),
@@ -436,9 +442,49 @@ function createMapsTip(location, type) {
 
 function createProfileSummary(profile, recommendations) {
   const firstAreas = recommendations.map((item) => item.area).slice(0, 3).join(", ");
-  const location = profile.location || "Uruguay";
+  const location = [profile.location, profile.department].filter(Boolean).join(", ") || "Uruguay";
   const availability = profile.availability || "disponibilidad a coordinar";
   return `${profile.name || "Tu perfil"} tiene experiencia y habilidades que pueden servir para ${firstAreas || "trabajos de entrada"}. La busqueda esta enfocada en ${location}, con ${availability}.`;
+}
+
+function companiesForArea(area) {
+  const map = {
+    Ventas: "Supermercados, comercios, shoppings, tiendas y locales de barrio.",
+    "Atencion al cliente": "Hoteles, inmobiliarias, clinicas, comercios y oficinas.",
+    Limpieza: "Empresas de limpieza, edificios, hoteles, residenciales y casas particulares.",
+    Hoteleria: "Hoteles, apart hoteles, hostels, inmobiliarias turisticas y servicios de temporada.",
+    Gastronomia: "Restaurantes, bares, cafeterias, rotiserias, hoteles y eventos.",
+    Choferes: "Repartos, cadeteria, depositos, comercios, delivery y logistica.",
+    Logistica: "Depositos, supermercados, distribuidoras, repartos y empresas de carga.",
+    Mantenimiento: "Edificios, hoteles, empresas de servicios, casas y locales comerciales.",
+    Construccion: "Obras, constructoras, reformas, barracas y mantenimiento.",
+    "Administracion basica": "Oficinas, inmobiliarias, comercios, estudios y empresas chicas.",
+    "Cuidado de personas": "Residenciales, cuidados particulares, familias y acompanamiento.",
+    "Trabajos zafrales": "Hoteles, restaurantes, comercios, eventos, turismo y temporada.",
+    "Entrada laboral": "Supermercados, comercios, limpieza, depositos y servicios generales.",
+  };
+
+  return map[area] || "Comercios, empresas de servicios y oportunidades cercanas a tu zona.";
+}
+
+function highlightForArea(area) {
+  const map = {
+    Ventas: "Tu trato con personas, responsabilidad, prolijidad y ganas de vender.",
+    "Atencion al cliente": "Tu buena comunicacion, paciencia, presencia y disponibilidad horaria.",
+    Limpieza: "Tu prolijidad, responsabilidad, rapidez y referencias si las tenes.",
+    Hoteleria: "Tu presencia, puntualidad, detalle y disponibilidad para temporada o fines de semana.",
+    Gastronomia: "Tu ritmo de trabajo, orden, disponibilidad y capacidad de apoyar al equipo.",
+    Choferes: "Tu libreta, movilidad, conocimiento de zonas y responsabilidad.",
+    Logistica: "Tu orden, fuerza fisica si aplica, puntualidad y manejo de stock.",
+    Mantenimiento: "Las herramientas que sabes usar y ejemplos concretos de arreglos.",
+    Construccion: "Tu experiencia en obra, puntualidad, fuerza y disponibilidad temprana.",
+    "Administracion basica": "Tu orden, computadora basica, manejo de datos y buena comunicacion.",
+    "Cuidado de personas": "Tu paciencia, responsabilidad, confianza y disponibilidad.",
+    "Trabajos zafrales": "Tu flexibilidad, disponibilidad inmediata y ganas de trabajar.",
+    "Entrada laboral": "Tus ganas de aprender, puntualidad y buena disposicion.",
+  };
+
+  return map[area] || "Tu experiencia real, disponibilidad y ganas de trabajar.";
 }
 
 function createAdvice(profile, recommendations) {

@@ -1,6 +1,7 @@
 export const exampleProfile = {
   name: "Mariana",
-  location: "Canelones",
+  location: "Las Piedras",
+  department: "Canelones",
   age: "34",
   experience:
     "Trabaje en comercio, atencion al publico, ventas, reposicion y caja. Tambien hice limpieza en casas particulares.",
