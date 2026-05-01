@@ -20,7 +20,7 @@ async function insertSupabase(table, payload) {
       apikey: config.supabaseAnonKey,
       Authorization: `Bearer ${config.supabaseAnonKey}`,
       "Content-Type": "application/json",
-      Prefer: "return=representation",
+      Prefer: "return=minimal",
     },
     body: JSON.stringify(payload),
   });
@@ -30,10 +30,9 @@ async function insertSupabase(table, payload) {
     throw new Error(details || "No se pudo guardar en Supabase.");
   }
 
-  const data = await response.json();
   return {
     source: "supabase",
-    record: Array.isArray(data) ? data[0] : data,
+    record: payload,
   };
 }
 
