@@ -1,29 +1,14 @@
-const CONFIG_PATH = "/src/labura-config.json";
+import { PUBLIC_CONFIG } from "../../env.js";
+
 const LOCAL_PROFILES_KEY = "laburaUyProfiles";
 const LOCAL_COMPANIES_KEY = "laburaUyCompanyInterest";
-
-let cachedConfig;
-
-async function getConfig() {
-  if (cachedConfig) return cachedConfig;
-
-  try {
-    const response = await fetch(CONFIG_PATH, { cache: "no-store" });
-    if (!response.ok) throw new Error("Config not found");
-    cachedConfig = await response.json();
-  } catch {
-    cachedConfig = {};
-  }
-
-  return cachedConfig;
-}
 
 function hasSupabase(config) {
   return Boolean(config.supabaseUrl && config.supabaseAnonKey);
 }
 
 async function insertSupabase(table, payload) {
-  const config = await getConfig();
+  const config = PUBLIC_CONFIG;
 
   if (!hasSupabase(config)) {
     return saveLocal(table, payload);
@@ -35,7 +20,7 @@ async function insertSupabase(table, payload) {
       apikey: config.supabaseAnonKey,
       Authorization: `Bearer ${config.supabaseAnonKey}`,
       "Content-Type": "application/json",
-      Prefer: "return=representation",
+      Prefer: "return=minimal",
     },
     body: JSON.stringify(payload),
   });
@@ -45,10 +30,9 @@ async function insertSupabase(table, payload) {
     throw new Error(details || "No se pudo guardar en Supabase.");
   }
 
-  const data = await response.json();
   return {
     source: "supabase",
-    record: Array.isArray(data) ? data[0] : data,
+    record: payload,
   };
 }
 
