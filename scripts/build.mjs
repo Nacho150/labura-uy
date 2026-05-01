@@ -20,6 +20,9 @@ const publicConfig = {
   supabaseAnonKey: process.env.SUPABASE_ANON_KEY || "",
 };
 
-await writeFile(join(dist, "src", "labura-config.json"), JSON.stringify(publicConfig, null, 2));
+await writeFile(
+  join(dist, "src", "env.js"),
+  `export const PUBLIC_CONFIG = ${JSON.stringify(publicConfig, null, 2)};\n`,
+);
 
 console.log("Build OK. Static site generated in dist/.");
