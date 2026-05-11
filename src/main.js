@@ -853,7 +853,7 @@ function Footer() {
       <div class="footer-brand">
         <img class="footer-logo" src="${assets.logo}" alt="Laburá UY" />
       </div>
-      <p>Herramienta simple para ordenar la búsqueda laboral en Uruguay. Sin pagos, sin scraping y preparada para crecer con perfiles guardados.</p>
+      <p>Herramienta simple para ordenar la búsqueda laboral, hecha por Uruguayos, para Uruguayos.</p>
     </footer>
   `;
 }
