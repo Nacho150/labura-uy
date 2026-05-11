@@ -126,6 +126,43 @@ Ese SQL crea o actualiza:
 12. Verificar que carga el perfil guardado.
 13. Editar datos y guardar otra vez.
 
+## Carga y edición de perfil guardado
+
+Cuando un usuario inicia sesión, Laburá UY consulta Supabase Auth para obtener el usuario actual y después busca en la tabla `profiles` una fila con el mismo `user_id`.
+
+Si el perfil existe:
+
+- Se cargan sus datos guardados.
+- La pantalla `Mi perfil` muestra la información actual.
+- El botón `Editar perfil` abre el formulario prellenado.
+- Al guardar, se actualiza el perfil existente.
+- Las recomendaciones se muestran desde lo guardado o se recalculan si falta información.
+
+Si el perfil no existe:
+
+- Se muestra el formulario vacío.
+- La app avisa que todavía no se creó el perfil laboral.
+
+Para evitar duplicados, `profiles.user_id` debe ser único. El archivo `docs/supabase.sql` incluye:
+
+```sql
+create unique index if not exists profiles_user_id_unique on profiles(user_id);
+```
+
+La app guarda con `upsert` usando `user_id` como clave de conflicto. Eso permite crear el perfil la primera vez y actualizarlo en los siguientes guardados.
+
+### Prueba recomendada
+
+1. Crear una cuenta nueva.
+2. Completar y guardar el perfil.
+3. Cerrar sesión.
+4. Iniciar sesión otra vez.
+5. Verificar que `Mi perfil` carga los datos guardados.
+6. Tocar `Editar perfil`.
+7. Cambiar solo ciudad o disponibilidad.
+8. Guardar.
+9. Revisar en Supabase que sigue existiendo una sola fila para ese `user_id`.
+
 ## Cómo funciona la recomendación laboral
 
 La lógica está en:
