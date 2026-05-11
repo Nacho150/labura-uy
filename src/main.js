@@ -4,16 +4,16 @@ import { getCurrentUser, isAuthConfigured, signIn, signOut, signUp } from "./ser
 import { getAdminProfiles, getMyProfile, mapStoredProfile, saveCompanyInterest, saveProfile } from "./services/profiles/profileRepository.js";
 
 const interests = [
-  "Atencion al cliente",
+  "Atención al cliente",
   "Ventas",
-  "Hoteleria",
-  "Gastronomia",
+  "Hotelería",
+  "Gastronomía",
   "Limpieza",
   "Seguridad",
   "Choferes",
   "Mantenimiento",
-  "Construccion",
-  "Administracion basica",
+  "Construcción",
+  "Administración básica",
   "Cuidado de personas",
   "Trabajos zafrales",
 ];
@@ -65,43 +65,43 @@ function Header() {
   const user = getCurrentUser();
   return `
     <header class="site-header">
-      <a class="brand" href="#" data-action="home" aria-label="Labura UY inicio">
+      <a class="brand" href="#" data-action="home" aria-label="Laburá UY inicio">
         <span class="brand-mark" aria-hidden="true">
           <img src="${assets.profile}" alt="" />
         </span>
-        <img class="brand-logo" src="${assets.logo}" alt="Labura UY" />
+        <img class="brand-logo" src="${assets.logo}" alt="Laburá UY" />
       </a>
-      <nav class="header-nav" aria-label="Navegacion principal">
+      <nav class="header-nav" aria-label="Navegación principal">
         <button class="nav-link" type="button" data-action="home">Inicio</button>
-        <button class="nav-link" type="button" data-action="section" data-target="quienes-somos">Quienes somos</button>
-        <button class="nav-link" type="button" data-action="section" data-target="para-quien-es">Para quien es</button>
-        <button class="nav-link" type="button" data-action="section" data-target="como-se-usa">Como se usa</button>
+        <button class="nav-link" type="button" data-action="section" data-target="quiénes-somos">Quiénes somos</button>
+        <button class="nav-link" type="button" data-action="section" data-target="para-quien-es">Para quién es</button>
+        <button class="nav-link" type="button" data-action="section" data-target="como-se-usa">Cómo se usa</button>
         <button class="nav-link" type="button" data-action="section" data-target="changas">Changas</button>
         <button class="nav-link" type="button" data-action="start">Crear perfil</button>
         <button class="nav-link" type="button" data-action="profile">Mi perfil</button>
         ${user ? `<button class="nav-link" type="button" data-action="admin">Admin</button>` : ""}
       </nav>
       <span class="header-badge">Uruguay</span>
-      <button class="header-action" type="button" data-action="${user ? "logout" : "login"}">${user ? "Cerrar sesion" : "Iniciar sesion"}</button>
+      <button class="header-action" type="button" data-action="${user ? "logout" : "login"}">${user ? "Cerrar sesión" : "Iniciar sesión"}</button>
     </header>
   `;
 }
 
 function WhoWeAre() {
   return `
-    <section class="institution-section" id="quienes-somos">
+    <section class="institution-section" id="quiénes-somos">
       <div class="institution-card">
         <div class="split-section">
           <div>
-            <span class="panel-label">Quienes somos</span>
+            <span class="panel-label">Quiénes somos</span>
             <h2>Una herramienta uruguaya para transformar experiencia real en oportunidades.</h2>
           </div>
           <img class="section-art" src="${assets.trust}" alt="" />
         </div>
         <div class="institution-copy">
-          <p>Labura UY nace en Uruguay con una idea simple: ayudar a que mas personas puedan reconocer el valor de su experiencia y encontrar mejores oportunidades laborales.</p>
-          <p>Muchas veces, una persona sabe trabajar, tiene responsabilidad, oficio, trato con clientes o experiencia en tareas concretas, pero no sabe como mostrarlo en un CV o en una postulacion.</p>
-          <p>Tambien hay personas que no se sienten comodas usando plataformas laborales largas, con demasiados filtros o procesos complicados. Por eso Labura UY busca simplificar ese camino: contar que sabes hacer, recibir ideas de trabajo y presentarte mejor.</p>
+          <p>Laburá UY nace en Uruguay con una idea simple: ayudar a que más personas puedan reconocer el valor de su experiencia y encontrar mejores oportunidades laborales.</p>
+          <p>Muchas veces, una persona sabe trabajar, tiene responsabilidad, oficio, trato con clientes o experiencia en tareas concretas, pero no sabe cómo mostrarlo en un CV o en una postulación.</p>
+          <p>También hay personas que no se sienten cómodas usando plataformas laborales largas, con demasiados filtros o procesos complicados. Por eso Laburá UY busca simplificar ese camino: contar que sabés hacer, recibir ideas de trabajo y presentarte mejor.</p>
         </div>
       </div>
     </section>
@@ -112,13 +112,13 @@ function Hero() {
   return `
     <section class="hero">
       <div class="hero-content">
-        <img class="hero-logo" src="${assets.logo}" alt="Labura UY" />
+        <img class="hero-logo" src="${assets.logo}" alt="Laburá UY" />
         <div class="hero-kicker">Herramienta simple para buscar trabajo en Uruguay</div>
-        <h1>Encontra oportunidades laborales segun tu experiencia real.</h1>
-        <p>Labura UY te ayuda a descubrir trabajos posibles, armar tu perfil y postularte mejor, aunque no tengas un CV perfecto.</p>
+        <h1>Encontrá oportunidades laborales según tu experiencia real.</h1>
+        <p>Laburá UY te ayuda a descubrir trabajos posibles, armar tu perfil y postularte mejor, aunque no tengas un CV perfecto.</p>
         <div class="hero-actions">
           <button class="primary-button" type="button" data-action="start">Crear mi perfil</button>
-          <button class="secondary-button" type="button" data-action="section" data-target="como-se-usa">Ver como funciona</button>
+          <button class="secondary-button" type="button" data-action="section" data-target="como-se-usa">Ver cómo funciona</button>
         </div>
         <div class="trust-strip" aria-label="Beneficios principales">
           <span>Tu perfil solo lo ves vos</span>
@@ -134,9 +134,9 @@ function Hero() {
         </div>
         <h2>Con tu experiencia, estos trabajos pueden ser buenos para vos.</h2>
         <div class="preview-list"><span>Vendedor/a de local</span><strong>Alta</strong></div>
-        <div class="preview-list"><span>Auxiliar de limpieza</span><strong>Media</strong></div>
-        <div class="preview-list"><span>Repositor/a</span><strong>Media</strong></div>
-        <div class="hero-mini-note">Tu experiencia tambien vale, aunque no tengas un CV armado.</div>
+        <div class="preview-list"><span>Auxiliar de limpieza</span><strong>Medía</strong></div>
+        <div class="preview-list"><span>Repositor/a</span><strong>Medía</strong></div>
+        <div class="hero-mini-note">Tu experiencia también vale, aunque no tengas un CV armado.</div>
         <div class="hero-stats">
           <span><strong>5</strong> puestos</span>
           <span><strong>1</strong> mensaje</span>
@@ -151,23 +151,23 @@ function HowItWorks() {
   const steps = [
     {
       icon: assets.checklist,
-      title: "Creas tu perfil",
-      text: "Completas datos simples sobre experiencia, habilidades, ciudad, disponibilidad y tipo de trabajo que buscas.",
+      title: "Creás tu perfil",
+      text: "Completás datos simples sobre experiencia, habilidades, ciudad, disponibilidad y tipo de trabajo que buscas.",
     },
     {
       icon: assets.opportunity,
-      title: "Recibis recomendaciones",
-      text: "Labura UY analiza tu informacion y te muestra puestos laborales que podrian encajar contigo.",
+      title: "Recibís recomendaciones",
+      text: "Laburá UY analiza tu información y te muestra puestos laborales que podrían encajar contigo.",
     },
     {
       icon: assets.messageCv,
-      title: "Mejoras tu postulacion",
-      text: "Recibis un mini CV y un mensaje listo para copiar, mandar por WhatsApp o usar en una postulacion.",
+      title: "Mejorás tu postulación",
+      text: "Recibís un mini CV y un mensaje listo para copiar, mandar por WhatsApp o usar en una postulación.",
     },
     {
       icon: assets.companyLocation,
-      title: "Guardas y editas",
-      text: "Podes volver a tu perfil y actualizarlo cuando tengas nueva experiencia o cambie tu disponibilidad.",
+      title: "Guardás y editas",
+      text: "Podés volver a tu perfil y actualizarlo cuando tengas nueva experiencia o cambie tu disponibilidad.",
     },
   ];
 
@@ -176,8 +176,8 @@ function HowItWorks() {
       <div class="section-heading compact">
         <span class="section-icon" aria-hidden="true">02</span>
         <div>
-          <h2>Como se usa Labura UY</h2>
-          <p>Es simple, rapido y pensado para Uruguay. No necesitas tener un CV perfecto para empezar.</p>
+          <h2>Cómo se usa Laburá UY</h2>
+          <p>Es simple, rápido y pensado para Uruguay. No necesitás tener un CV perfecto para empezar.</p>
         </div>
       </div>
       <div class="info-grid">
@@ -207,13 +207,13 @@ function WhoIsItFor() {
   const items = [
     "Personas sin experiencia formal que quieren empezar por puestos de entrada.",
     "Personas que hicieron changas o trabajos informales.",
-    "Personas con experiencia en ventas, atencion al publico o caja.",
-    "Trabajadores de temporada y personas de hoteleria o gastronomia.",
+    "Personas con experiencia en ventas, atención al público o caja.",
+    "Trabajadores de temporada y personas de hotelería o gastronomía.",
     "Personas de limpieza, servicios, choferes, cadetes y reparto.",
-    "Personas con oficios: pintura, albanileria, jardineria, mantenimiento o electricidad basica.",
-    "Cuidadores, nineras, acompanantes y personas mayores que quieren reinsertarse.",
+    "Personas con oficios: pintura, albañileria, jardinería, mantenimiento o electricidad básica.",
+    "Cuidadores, niñeras, acompañantes y personas mayores que quieren reinsertarse.",
     "Jovenes que buscan su primera oportunidad o personas que no tienen CV armado.",
-    "Quienes necesitan un mensaje claro para postularse por WhatsApp.",
+    "Quiénes necesitan un mensaje claro para postularse por WhatsApp.",
   ];
 
   return `
@@ -221,9 +221,9 @@ function WhoIsItFor() {
       <div class="audience-panel">
         <div class="split-section">
           <div>
-            <span class="panel-label">Para quien es</span>
+            <span class="panel-label">Para quién es</span>
             <h2>Hecho para gente que quiere buscar mejor, sin complicarse.</h2>
-            <p>Labura UY esta pensado para personas que quieren trabajar, pero necesitan una forma mas simple de entender que oportunidades pueden encajar con su experiencia. No importa si fue formal, informal, zafral o por changas: lo importante es identificar que sabes hacer y como presentarlo mejor.</p>
+            <p>Laburá UY está pensado para personas que quieren trabajar, pero necesitan una forma más simple de entender qué oportunidades pueden encajar con su experiencia. No importa si fue formal, informal, zafral o por changas: lo importante es identificar que sabés hacer y cómo presentarlo mejor.</p>
           </div>
           <img class="section-art" src="${assets.profile}" alt="" />
         </div>
@@ -238,15 +238,15 @@ function WhoIsItFor() {
 
 function FeaturedCategories() {
   const categories = [
-    "Atencion al cliente",
+    "Atención al cliente",
     "Ventas",
-    "Gastronomia",
-    "Hoteleria",
+    "Gastronomía",
+    "Hotelería",
     "Limpieza",
     "Seguridad",
     "Reparto",
     "Mantenimiento",
-    "Administracion basica",
+    "Administración básica",
     "Cuidado de personas",
     "Temporada en Maldonado / Punta del Este",
   ];
@@ -256,8 +256,8 @@ function FeaturedCategories() {
       <div class="section-heading compact">
         <span class="section-icon image-icon" aria-hidden="true"><img src="${assets.companyLocation}" alt="" /></span>
         <div>
-          <h2>Rubros destacados en Uruguay</h2>
-          <p>La recomendacion se enfoca en rubros reales, de alta demanda y faciles de entender.</p>
+          <h2>Rubros destacádos en Uruguay</h2>
+          <p>La recomendación se enfoca en rubros reales, de alta demanda y fáciles de entender.</p>
         </div>
       </div>
       <div class="category-grid">
@@ -268,7 +268,7 @@ function FeaturedCategories() {
 }
 
 function LandingGigs() {
-  const examples = ["Limpieza por hora", "Jardineria", "Mandados", "Cuidado de mascotas", "Ayuda en eventos", "Reparto", "Cocina casera", "Atencion por WhatsApp"];
+  const examples = ["Limpieza por hora", "Jardinería", "Mandados", "Cuidado de mascotas", "Ayuda en eventos", "Reparto", "Cocina casera", "Atención por WhatsApp"];
 
   return `
     <section class="gig-landing" id="changas">
@@ -276,8 +276,8 @@ function LandingGigs() {
         <div class="split-section">
           <div>
             <span class="panel-label">Changas cerca de vos</span>
-            <h2>Ideas de trabajos por hora, por dia o por tarea segun tu perfil.</h2>
-            <p>Ademas de trabajos fijos o zafrales, Labura UY tambien te ayuda a descubrir changas que podrias ofrecer segun tus habilidades, tu zona y tu disponibilidad.</p>
+            <h2>Ideas de trabajos por hora, por día o por tarea según tu perfil.</h2>
+            <p>Además de trabajos fijos o zafrales, Laburá UY también te ayuda a descubrir changas que podrías ofrecer según tus habilidades, tu zona y tu disponibilidad.</p>
           </div>
           <img class="section-art" src="${assets.messageCv}" alt="" />
         </div>
@@ -305,10 +305,10 @@ function TrustSection() {
         </div>
         <div class="trust-grid">
           <p><strong>Privado por ahora.</strong>No vendemos tus datos ni pedimos cuenta para usar la herramienta.</p>
-          <p><strong>Practico.</strong>Esto no reemplaza una entrevista, pero te ayuda a llegar mejor preparado.</p>
-          <p><strong>Local.</strong>La recomendacion es orientativa y esta pensada para rubros reales de Uruguay.</p>
-          <p><strong>Control.</strong>Tus datos se usan para crear tu perfil laboral y mas adelante vas a poder editarlo o borrarlo.</p>
-          <p><strong>Permiso.</strong>No compartimos tu informacion publicamente sin tu permiso.</p>
+          <p><strong>Práctico.</strong>Esto no reemplaza una entrevista, pero te ayuda a llegar mejor preparado.</p>
+          <p><strong>Local.</strong>La recomendación es orientativa y esta pensada para rubros reales de Uruguay.</p>
+          <p><strong>Control.</strong>Tus datos se usan para crear tu perfil laboral y más adelante vas a poder editarlo o borrarlo.</p>
+          <p><strong>Permiso.</strong>No compartimos tu información públicamente sin tu permiso.</p>
         </div>
       </div>
     </section>
@@ -320,8 +320,8 @@ function CompanyCta() {
     <section class="company-cta">
       <div>
         <span class="panel-label">Para empresas</span>
-        <h2>Sos empresa o comercio?</h2>
-        <p>Mas adelante vas a poder encontrar candidatos segun zona, experiencia y disponibilidad.</p>
+        <h2>¿Sos empresa o comercio?</h2>
+        <p>Más adelante vas a poder encontrar candidatos según zona, experiencia y disponibilidad.</p>
       </div>
       <button class="secondary-button" type="button" data-action="company">Quiero recibir candidatos</button>
     </section>
@@ -333,11 +333,11 @@ function FinalCta() {
     <section class="final-cta">
       <img src="${assets.opportunity}" alt="" />
       <div>
-        <span class="panel-label">Empeza simple</span>
-        <h2>Crea tu perfil laboral en pocos minutos</h2>
-        <p>No necesitas tener todo perfecto. Empeza con lo que ya sabes hacer.</p>
+        <span class="panel-label">Empezá simple</span>
+        <h2>Creá tu perfil laboral en pocos minutos</h2>
+        <p>No necesitás tener todo perfecto. Empezá con lo que ya sabés hacer.</p>
       </div>
-      <button class="primary-button" type="button" data-action="start">Empezar ahora</button>
+      <button class="primary-button" type="button" data-action="start">Empezár ahora</button>
     </section>
   `;
 }
@@ -352,38 +352,38 @@ function AuthScreen() {
         <div class="results-heading auth-heading">
           <img class="results-art" src="${assets.trust}" alt="" />
           <span class="eyebrow">Cuenta personal</span>
-          <h1>${isSignUp ? "Crea tu cuenta para guardar tu perfil." : "Entra a tu cuenta de Labura UY."}</h1>
-          <p>Usamos Supabase Auth. Tu contrasena no se guarda en Labura UY y tu perfil queda asociado a tu usuario.</p>
+          <h1>${isSignUp ? "Creá tu cuenta para guardar tu perfil." : "Entrá a tu cuenta de Laburá UY."}</h1>
+          <p>Usamos Supabase Auth. Tu contraseña no se guarda en Laburá UY y tu perfil queda asociado a tu usuario.</p>
           <div class="profile-pills">
             <span>Tu perfil solo lo ves vos</span>
             <span>Podras editarlo</span>
-            <span>Sin compartir con empresas todavia</span>
+            <span>Sin compartir con empresas todavía</span>
           </div>
         </div>
 
         <div class="form-card auth-card">
           <div class="auth-tabs" role="tablist">
-            <button class="${!isSignUp ? "active" : ""}" type="button" data-action="auth-signin">Iniciar sesion</button>
+            <button class="${!isSignUp ? "active" : ""}" type="button" data-action="auth-signin">Iniciar sesión</button>
             <button class="${isSignUp ? "active" : ""}" type="button" data-action="auth-signup">Crear cuenta</button>
           </div>
-          ${!isReady ? `<div class="form-error">Supabase no esta configurado. Revisa las variables en Vercel.</div>` : ""}
+          ${!isReady ? `<div class="form-error">Supabase no está configurado. Revisa las variables en Vercel.</div>` : ""}
           ${authMessage ? `<div class="form-helper"><strong>Listo:</strong> ${authMessage}</div>` : ""}
           ${authError ? `<div class="form-error" role="alert">${authError}</div>` : ""}
           <form class="profile-form auth-form" id="auth-form">
             ${TextField("email", "Email", "", "tuemail@ejemplo.com", true, "wide", "Usalo despues para entrar a tu perfil.")}
             <label class="wide">
-              Contrasena
-              <input required name="password" type="password" minlength="6" placeholder="Minimo 6 caracteres" />
+              Contraseña
+              <input required name="password" type="password" minlength="6" placeholder="Mínimo 6 caracteres" />
               <span class="field-help">No la guardamos nosotros. La maneja Supabase Auth de forma segura.</span>
             </label>
             <div class="form-actions wide">
-              <button class="primary-button" type="submit">${isSignUp ? "Crear cuenta" : "Iniciar sesion"}</button>
+              <button class="primary-button" type="submit">${isSignUp ? "Crear cuenta" : "Iniciar sesión"}</button>
               <button class="secondary-button" type="button" data-action="home">Volver al inicio</button>
             </div>
           </form>
           <div class="privacy-note">
             <p>No compartimos tus datos sin tu permiso.</p>
-            <p>Mas adelante podras elegir si queres que empresas vean tu perfil.</p>
+            <p>Más adelante podrás elegír si querés que empresas vean tu perfil.</p>
           </div>
         </div>
       </div>
@@ -398,40 +398,40 @@ function ProfileForm(current) {
         <span class="section-icon image-icon" aria-hidden="true"><img src="${assets.checklist}" alt="" /></span>
         <div>
           <h1>Armemos tu perfil laboral</h1>
-          <p>Con unas pocas respuestas armamos una recomendacion clara, sin palabras raras ni formularios eternos.</p>
+          <p>Con unas pocas respuestas armamos una recomendación clara, sin palabras raras ni formularios eternos.</p>
         </div>
       </div>
       <div class="form-helper">
-        <strong>Tip:</strong> escribi como hablas. Si hiciste changas, cuidaste personas, limpiaste casas o ayudaste en un negocio, eso tambien cuenta.
-        ${getCurrentUser() ? "<br />Estas trabajando dentro de tu cuenta. Al guardar, el perfil queda solo para vos." : ""}
+        <strong>Tip:</strong> escribí como hablás. Si hiciste changas, cuidaste personas, limpiaste casas o ayudaste en un negocio, eso también cuenta.
+        ${getCurrentUser() ? "<br />Estás trabajando dentro de tu cuenta. Al guardar, el perfil queda solo para vos." : ""}
       </div>
       ${formError ? `<div class="form-error" role="alert">${formError}</div>` : ""}
 
       <div class="form-card">
       <form class="profile-form" id="profile-form">
         ${TextField("name", "Tu nombre", current.name, "Ej: Andrea", true, "", "Solo para personalizar el resultado.")}
-        ${TextField("location", "Ciudad o zona", current.location, "Ej: Pocitos, San Carlos, Las Piedras", true, "", "Asi podemos sugerir lugares cercanos.")}
+        ${TextField("location", "Ciudad o zona", current.location, "Ej: Pocitos, San Carlos, Las Piedras", true, "", "Así podemos sugerir lugares cercanos.")}
         ${TextField("department", "Departamento", current.department, "Ej: Montevideo, Canelones, Maldonado", false, "", "Ayuda a mejorar recomendaciones por temporada y zona.")}
-        ${TextField("age", "Edad (opcional)", current.age, "Ej: 29", false, "", "Si no queres ponerla, dejala vacia.")}
-        ${TextArea("experience", "Experiencia o changas", current.experience, "Ej: trabaje en comercio, hice limpieza, cuide personas, ayude en obra...", "Puede ser trabajo formal, informal, familiar o changas.")}
-        ${TextArea("skills", "Tareas que sabes hacer", current.skills, "Ej: atencion al publico, caja, cocina, pintura, computadora basica...", "Escribi tareas concretas, aunque parezcan simples.")}
+        ${TextField("age", "Edad (opcional)", current.age, "Ej: 29", false, "", "Si no querés ponerla, dejala vacía.")}
+        ${TextArea("experience", "Experiencia o changas", current.experience, "Ej: trabajé en comercio, hice limpieza, cuidé personas, ayudé en obra...", "Puede ser trabajo formal, informal, familiar o changas.")}
+        ${TextArea("skills", "Tareas que sabés hacer", current.skills, "Ej: atención al público, caja, cocina, pintura, computadora básica...", "Escribí tareas concretas, aunque parezcan simples.")}
         ${SelectField("education", "Nivel de estudios", current.education, [
           "",
           "Primaria completa",
-          "Ciclo basico incompleto",
-          "Ciclo basico completo",
+          "Ciclo básico incompleto",
+          "Ciclo básico completo",
           "Bachillerato incompleto",
           "Bachillerato completo",
-          "UTU o curso tecnico",
+          "UTU o curso técnico",
           "Terciario o universitario",
-        ], "Si no estas seguro, elegi la opcion mas cercana.")}
-        ${TextField("availability", "Horarios disponibles", current.availability, "Ej: manana, tarde, noche, fines de semana", true, "", "Contanos cuando podrias trabajar.")}
-        ${Segmented("hasTransport", "Locomocion propia", current.hasTransport, "Auto, moto, bici o forma propia de moverte.")}
-        ${Segmented("hasLicense", "Libreta de conducir", current.hasLicense, "Si tenes libreta, puede abrir opciones de reparto, cadete o chofer.")}
-        ${SelectField("workType", "Tipo de trabajo", current.workType, ["fijo", "zafral", "changas", "cualquiera"], "Si te sirve cualquier opcion, deja cualquiera.")}
+        ], "Si no estás seguro, elegí la opción más cercana.")}
+        ${TextField("availability", "Horarios disponibles", current.availability, "Ej: mañana, tarde, noche, fines de semana", true, "", "Contanos cuando podrías trabajar.")}
+        ${Segmented("hasTransport", "Locomoción propia", current.hasTransport, "Auto, moto, bici o forma propia de moverte.")}
+        ${Segmented("hasLicense", "Libreta de conducir", current.hasLicense, "Si tenés libreta, puede abrir opciones de reparto, cadete o chofer.")}
+        ${SelectField("workType", "Tipo de trabajo", current.workType, ["fijo", "zafral", "changas", "cualquiera"], "Si te sirve cualquier opción, deja cualquiera.")}
         <div class="wide">
           <p class="field-title">Rubros que te interesan</p>
-          <p class="field-help">Elegis uno o varios. Si no elegis, igual te recomendamos segun lo que escribiste.</p>
+          <p class="field-help">Elegís uno o varios. Si no elegís, igual te recomendamos según lo que escribiste.</p>
           <div class="chips">
             ${interests
               .map(
@@ -444,7 +444,7 @@ function ProfileForm(current) {
               .join("")}
           </div>
         </div>
-        ${TextField("contact", "Telefono o email (opcional)", current.contact, "Ej: 099 123 456 o tu email", false, "wide", "Se usa para armar tu perfil laboral si decidis guardarlo.")}
+        ${TextField("contact", "Teléfono o email (opcional)", current.contact, "Ej: 099 123 456 o tu email", false, "wide", "Se usa para armar tu perfil laboral si decidís guardarlo.")}
         <div class="form-actions wide">
           <button class="primary-button" type="submit">Ver mis trabajos recomendados</button>
           <button class="secondary-button" type="button" data-action="example">Probar con datos de ejemplo</button>
@@ -497,7 +497,7 @@ function Segmented(name, label, value, help = "") {
     <fieldset>
       <legend>${label}</legend>
       <div class="segmented">
-        <button class="${value === "si" ? "active" : ""}" type="button" data-field="${name}" data-value="si">Si</button>
+        <button class="${value === "si" ? "active" : ""}" type="button" data-field="${name}" data-value="si">Sí</button>
         <button class="${value === "no" ? "active" : ""}" type="button" data-field="${name}" data-value="no">No</button>
       </div>
       ${help ? `<span class="field-help">${help}</span>` : ""}
@@ -526,14 +526,14 @@ function Results(current, result) {
       <section class="trust-panel">
         <p>Tu perfil solo lo ves vos.</p>
         <p>No vendemos tus datos.</p>
-        <p>Mas adelante podras elegir si queres compartirlo con empresas.</p>
+        <p>Más adelante podrás elegír si querés compartirlo con empresas.</p>
         <p>Esto no reemplaza una entrevista, pero te ayuda a postularte mejor.</p>
-        <p>Tu experiencia tambien vale, aunque no tengas un CV armado.</p>
+        <p>Tu experiencia también vale, aunque no tengas un CV armado.</p>
       </section>
 
       <div class="results-label">
         <span>Trabajos recomendados</span>
-        <p>Ordenados segun lo que contaste en el formulario.</p>
+        <p>Ordenados según lo que contaste en el formulario.</p>
       </div>
 
       <div class="recommendations">
@@ -543,13 +543,13 @@ function Results(current, result) {
               <article class="job-card">
                 <div class="job-card-top">
                 <div>
-                  <span class="job-area">${job.area}</span>
+                  <span class="job-área">${job.area}</span>
                   <h2>${job.title}</h2>
                 </div>
                 <span class="compatibility ${job.compatibility}">${compatibilityText(job.compatibility)}</span>
               </div>
                 <div class="score-bar" aria-hidden="true"><span style="--score: ${compatibilityScore(job.compatibility)}%"></span></div>
-                <p><strong>Por que puede servirte:</strong> ${job.reason}</p>
+                <p><strong>Por qué puede servirte:</strong> ${job.reason}</p>
                 <p><strong>Que destacar:</strong> ${job.highlight}</p>
                 <p><strong>Donde postularte:</strong> ${job.companies}</p>
                 <div class="job-meta">
@@ -565,7 +565,7 @@ function Results(current, result) {
 
       ${result.secondaryOptions?.length ? `
         <section class="other-options">
-          <span class="panel-label">Otras opciones que tambien podrias considerar</span>
+          <span class="panel-label">Otras opciones que también podrías considerar</span>
           <div class="category-grid compact-badges">
             ${result.secondaryOptions.map((option) => `<span class="category-badge">${escapeHtml(option.title)}</span>`).join("")}
           </div>
@@ -581,7 +581,7 @@ function Results(current, result) {
 
       <section class="company-section">
         <div>
-          <span class="panel-label">Donde podrias postularte</span>
+          <span class="panel-label">Dónde podrías postularte</span>
           <h2>Tipos de empresas para buscar cerca tuyo</h2>
         </div>
         <img class="section-art small" src="${assets.companyLocation}" alt="" />
@@ -593,7 +593,7 @@ function Results(current, result) {
       <section class="next-steps">
         <div>
           <span class="panel-label">Proximos pasos</span>
-          <h2>Que hacer ahora</h2>
+          <h2>Qué hacer ahora</h2>
         </div>
         <div class="steps-list">
           ${result.nextSteps
@@ -610,17 +610,17 @@ function Results(current, result) {
       </section>
 
       <div class="output-grid">
-        ${TextOutput("mensaje", "Mensaje para WhatsApp", "Copialo y mandalo cuando encuentres una empresa o comercio que este tomando gente.", result.whatsappMessage, "Copiar mensaje")}
-        ${TextOutput("cv", "Mini CV textual", "Una base simple para pegar en una postulacion o mandar por mensaje.", result.miniCv, "Copiar mini CV")}
+        ${TextOutput("mensaje", "Mensaje para WhatsApp", "Copialo y mandalo cuando encuentres una empresa o comercio que este tomando gente.", result.WhatsAppMessage, "Copiar mensaje")}
+        ${TextOutput("cv", "Mini CV textual", "Una base simple para pegar en una postulación o mandar por mensaje.", result.miniCv, "Copiar mini CV")}
       </div>
 
       <div class="bottom-actions">
         <button class="primary-button" type="button" data-action="save-profile">${saveStatus === "saving" ? "Guardando..." : "Guardar o actualizar mi perfil"}</button>
         ${savedProfile ? `<button class="secondary-button" type="button" data-action="profile">Ver mi perfil</button>` : ""}
         <button class="primary-button" type="button" data-action="edit">Ajustar mis datos</button>
-        <button class="secondary-button" type="button" data-action="restart">Empezar de nuevo</button>
+        <button class="secondary-button" type="button" data-action="restart">Empezár de nuevo</button>
       </div>
-      ${saveStatus === "error" ? `<div class="form-error">No se pudo guardar. Revisa la configuracion de Supabase o proba de nuevo.</div>` : ""}
+      ${saveStatus === "error" ? `<div class="form-error">No se pudo guardar. Revisa la configuración de Supabase o probá de nuevo.</div>` : ""}
     </section>
   `;
 }
@@ -631,7 +631,7 @@ function BestOpportunity(job) {
       <span class="panel-label">Tu mejor oportunidad ahora</span>
       <div class="job-card-top">
         <div>
-          <span class="job-area">${job.area}</span>
+          <span class="job-área">${job.area}</span>
           <h2>${job.title}</h2>
         </div>
         <span class="compatibility ${job.compatibility}">${compatibilityText(job.compatibility)}</span>
@@ -658,8 +658,8 @@ function GigRecommendationsBlock(result, compact = false) {
       <div class="split-section">
         <div>
           <span class="panel-label">Changas cerca de vos</span>
-          <h2>${compact ? "Changas recomendadas para tu perfil" : "Ideas de changas segun lo que contaste"}</h2>
-          <p>Estas no son ofertas reales todavia. Son ideas de changas que podrias buscar u ofrecer en tu zona.</p>
+          <h2>${compact ? "Changas recomendadas para tu perfil" : "Ideas de changas según lo que contaste"}</h2>
+          <p>Estas no son ofertas reales todavía. Son ideas de changas que podrías buscar u ofrecer en tu zona.</p>
         </div>
         <img class="section-art small" src="${assets.messageCv}" alt="" />
       </div>
@@ -668,7 +668,7 @@ function GigRecommendationsBlock(result, compact = false) {
       </div>
       ${result.secondaryGigs?.length ? `
         <div class="other-gigs">
-          <span class="panel-label">Otras changas que podrias considerar</span>
+          <span class="panel-label">Otras changas que podrías considerar</span>
           <div class="category-grid compact-badges">
             ${result.secondaryGigs.map((item) => `<span class="category-badge">${escapeHtml(item.name)}</span>`).join("")}
           </div>
@@ -684,17 +684,17 @@ function GigCard(gig, index, compact) {
     <article class="gig-card">
       <div class="job-card-top">
         <div>
-          <span class="job-area">${escapeHtml(gig.category)}</span>
+          <span class="job-área">${escapeHtml(gig.category)}</span>
           <h3>${escapeHtml(gig.name)}</h3>
         </div>
         <span class="compatibility ${gig.compatibility}">${compatibilityText(gig.compatibility)}</span>
       </div>
-      <p><strong>Por que puede encajar:</strong> ${escapeHtml(gig.reason)}</p>
-      <p><strong>Que necesitas:</strong> ${escapeHtml(gig.needs)}</p>
+      <p><strong>Por qué puede encajar:</strong> ${escapeHtml(gig.reason)}</p>
+      <p><strong>Qué necesitás:</strong> ${escapeHtml(gig.needs)}</p>
       <p><strong>Pago estimado:</strong> ${escapeHtml(gig.payType)}</p>
-      <p><strong>Donde ofrecerte:</strong> ${escapeHtml(gig.places)}</p>
+      <p><strong>Dónde ofrecerte:</strong> ${escapeHtml(gig.places)}</p>
       <div class="job-meta">
-        <span>Facilidad: ${escapeHtml(gig.ease)}</span>
+        <span>Fácilidad: ${escapeHtml(gig.ease)}</span>
       </div>
       <textarea class="copy-source" id="${copyId}-text" readonly>${escapeHtml(gig.message)}</textarea>
       <button class="copy-button full" type="button" data-copy="${copyId}" data-label="Copiar mensaje">Copiar mensaje</button>
@@ -709,7 +709,7 @@ function SavedProfile(saved) {
         <img class="results-art" src="${assets.trust}" alt="" />
         <span class="eyebrow">Perfil creado</span>
         <h1>Tu perfil fue creado correctamente.</h1>
-        <p>${saved?.source === "supabase" ? "Quedo guardado en la base de datos de Labura UY." : "Quedo guardado en este navegador porque Supabase aun no esta configurado."}</p>
+        <p>${saved?.source === "supabase" ? "Quedó guardado en la base de datos de Laburá UY." : "Quedó guardado en este navegador porque Supabase aún no está configurado."}</p>
       </div>
       ${MyProfile(saved, false)}
     </section>
@@ -739,8 +739,8 @@ function MyProfile(saved, wrap = true) {
       </div>
     </section>
     <div class="output-grid">
-      ${TextOutput("perfil-mensaje", "Mensaje listo para postularte", "Copialo para escribirle a una empresa.", result.whatsappMessage, "Copiar mensaje")}
-      ${TextOutput("perfil-cv", "Mini CV", "Una version simple para mandar por WhatsApp o pegar en una postulacion.", result.miniCv, "Copiar mini CV")}
+      ${TextOutput("perfil-mensaje", "Mensaje listo para postularte", "Copialo para escribírle a una empresa.", result.WhatsAppMessage, "Copiar mensaje")}
+      ${TextOutput("perfil-cv", "Mini CV", "Una versión simple para mandar por WhatsApp o pegar en una postulación.", result.miniCv, "Copiar mini CV")}
     </div>
     ${GigRecommendationsBlock(result, true)}
     <div class="bottom-actions">
@@ -758,22 +758,22 @@ function CompanyInterestForm() {
       <div class="section-heading">
         <span class="section-icon image-icon" aria-hidden="true"><img src="${assets.companyLocation}" alt="" /></span>
         <div>
-          <h1>Interes para empresas</h1>
-          <p>Dejanos tus datos y necesidades de contratacion. Por ahora queda como lista de interes para la proxima etapa.</p>
+          <h1>Interés para empresas</h1>
+          <p>Dejanos tus datos y necesidades de contratación. Por ahora queda como lista de interés para la próxima etapa.</p>
         </div>
       </div>
-      ${companyStatus === "saved" ? `<div class="form-helper"><strong>Listo:</strong> recibimos el interes de la empresa.</div>` : ""}
-      ${companyStatus === "error" ? `<div class="form-error">No se pudo guardar el interes. Proba de nuevo.</div>` : ""}
+      ${companyStatus === "saved" ? `<div class="form-helper"><strong>Listo:</strong> recibimos el interés de la empresa.</div>` : ""}
+      ${companyStatus === "error" ? `<div class="form-error">No se pudo guardar el interés. Probá de nuevo.</div>` : ""}
       <div class="form-card">
         <form class="profile-form" id="company-form">
           ${TextField("companyName", "Nombre de la empresa", "", "Ej: Supermercado La Costa", true)}
           ${TextField("contactName", "Persona de contacto", "", "Ej: Martin", false)}
           ${TextField("email", "Email", "", "empresa@email.com", true)}
-          ${TextField("phone", "Telefono", "", "099 123 456", false)}
+          ${TextField("phone", "Teléfono", "", "099 123 456", false)}
           ${TextField("city", "Ciudad o zona", "", "Ej: Maldonado, Cordón, Las Piedras", false)}
-          ${TextArea("hiringNeeds", "Que perfiles te interesaria recibir?", "", "Ej: vendedores, limpieza, mozos para temporada, cadetes con libreta...", "Esto ayuda a preparar el futuro panel de empresas.")}
+          ${TextArea("hiringNeeds", "¿Qué perfiles te interesaría recibir?", "", "Ej: vendedores, limpieza, mozos para temporada, cadetes con libreta...", "Esto ayuda a preparar el futuro panel de empresas.")}
           <div class="form-actions wide">
-            <button class="primary-button" type="submit">${companyStatus === "saving" ? "Guardando..." : "Enviar interes"}</button>
+            <button class="primary-button" type="submit">${companyStatus === "saving" ? "Guardando..." : "Enviar interés"}</button>
             <button class="secondary-button" type="button" data-action="home">Volver al inicio</button>
           </div>
         </form>
@@ -804,7 +804,7 @@ function AdminProfilesPanel() {
       <div class="results-heading">
         <img class="results-art" src="${assets.trust}" alt="" />
         <span class="eyebrow">Admin privado</span>
-        <h1>Perfiles creados en Labura UY</h1>
+        <h1>Perfiles creados en Laburá UY</h1>
         <p>Vista interna para analizar demanda. Solo usuarios con rol admin pueden cargar estos datos.</p>
         <div class="profile-pills">
           <span>${adminProfiles.length} perfiles</span>
@@ -813,14 +813,14 @@ function AdminProfilesPanel() {
       </div>
 
       ${adminStatus === "loading" ? `<div class="form-helper"><strong>Cargando:</strong> buscando perfiles guardados.</div>` : ""}
-      ${adminStatus === "denied" ? `<div class="form-error">No tenes permisos de administrador para ver esta seccion.</div>` : ""}
+      ${adminStatus === "denied" ? `<div class="form-error">No tenés permisos de administrador para ver esta sección.</div>` : ""}
 
       <section class="admin-panel">
         <div class="split-section">
           <div>
             <span class="panel-label">Admin / Perfiles creados</span>
             <h2>Resumen para validar la plataforma</h2>
-            <p>No se muestran telefonos ni emails en esta tabla. La idea es analizar rubros, zonas y demanda.</p>
+            <p>No se muestran teléfonos ni emails en esta tabla. La idea es analizar rubros, zonas y demanda.</p>
           </div>
           <button class="secondary-button" type="button" data-action="admin">Actualizar</button>
         </div>
@@ -838,7 +838,7 @@ function AdminProfilesPanel() {
               </tr>
             </thead>
             <tbody>
-              ${rows || `<tr><td colspan="7">Todavia no hay perfiles para mostrar.</td></tr>`}
+              ${rows || `<tr><td colspan="7">Todavía no hay perfiles para mostrar.</td></tr>`}
             </tbody>
           </table>
         </div>
@@ -851,9 +851,9 @@ function Footer() {
   return `
     <footer class="site-footer">
       <div class="footer-brand">
-        <img class="footer-logo" src="${assets.logo}" alt="Labura UY" />
+        <img class="footer-logo" src="${assets.logo}" alt="Laburá UY" />
       </div>
-      <p>Herramienta simple para ordenar la busqueda laboral en Uruguay. Sin pagos, sin scraping y preparada para crecer con perfiles guardados.</p>
+      <p>Herramienta simple para ordenar la búsqueda laboral en Uruguay. Sin pagos, sin scraping y preparada para crecer con perfiles guardados.</p>
     </footer>
   `;
 }
@@ -862,7 +862,7 @@ function CompanySuggestionCard(suggestion) {
   return `
     <article class="company-card">
       <span class="company-type">${suggestion.type}</span>
-      <p><strong>Por que conviene:</strong> ${suggestion.reason}</p>
+      <p><strong>Por qué conviene:</strong> ${suggestion.reason}</p>
       <div class="company-message">
         <span>Mensaje corto</span>
         <p>${suggestion.message}</p>
@@ -975,7 +975,7 @@ function bindEvents() {
       if (authMode === "signup") {
         const result = await signUp(email, password);
         if (!result.session) {
-          authMessage = "Cuenta creada. Revisa tu email si Supabase te pide confirmar, y despues inicia sesion.";
+          authMessage = "Cuenta creada. Revisa tu email si Supabase te pide confirmar, y despues inicia sesión.";
           authMode = "signin";
           render();
           return;
@@ -999,7 +999,7 @@ function bindEvents() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {
       authMessage = "";
-      authError = error.message || "No se pudo entrar. Revisa email y contrasena.";
+      authError = error.message || "No se pudo entrar. Revisa email y contraseña.";
       render();
     }
   });
@@ -1034,11 +1034,11 @@ function validateProfile(current) {
   if (!current.name.trim()) missing.push("nombre");
   if (!current.location.trim()) missing.push("zona o departamento");
   if (!current.experience.trim()) missing.push("experiencia o changas");
-  if (!current.skills.trim()) missing.push("tareas que sabes hacer");
+  if (!current.skills.trim()) missing.push("tareas que sabés hacer");
   if (!current.availability.trim()) missing.push("horarios disponibles");
 
   if (!missing.length) return "";
-  return `Para darte un resultado util, completa: ${missing.join(", ")}.`;
+  return `Para darte un resultado útil, completa: ${missing.join(", ")}.`;
 }
 
 function syncFormField(event) {
@@ -1143,7 +1143,7 @@ async function handleAction(event) {
       pendingAfterAuth = "admin";
       authMode = "signin";
       authError = "";
-      authMessage = "Para entrar al panel admin, primero inicia sesion.";
+      authMessage = "Para entrar al panel admin, primero inicia sesión.";
       step = "auth";
     } else {
       await loadAdminProfiles();
@@ -1170,7 +1170,7 @@ async function saveCurrentProfile() {
   if (!getCurrentUser()) {
     pendingAfterAuth = "form";
     authMode = "signup";
-    authMessage = "Para guardar tu perfil, primero crea una cuenta o inicia sesion.";
+    authMessage = "Para guardar tu perfil, primero crea una cuenta o inicia sesión.";
     step = "auth";
     render();
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -1207,7 +1207,7 @@ async function loadMyProfile() {
       savedProfile = null;
       formError = "";
       step = "form";
-      authMessage = "Todavia no tenes perfil guardado. Completalo y guardalo cuando termines.";
+      authMessage = "Todavía no tenés perfil guardado. Completalo y guardalo cuando termines.";
       render();
       return;
     }
@@ -1291,8 +1291,8 @@ function compatibilityScore(value) {
 
 function formatWorkType(value) {
   const labels = {
-    fijo: "Busca fijo",
-    zafral: "Busca zafral",
+    fijo: "Busca trabajo fijo",
+    zafral: "Busca trabajo zafral",
     changas: "Busca changas",
     cualquiera: "Abierto a opciones",
   };

@@ -4,14 +4,14 @@ export const exampleProfile = {
   department: "Canelones",
   age: "34",
   experience:
-    "Trabaje en comercio, atencion al publico, ventas, reposicion y caja. Tambien hice limpieza en casas particulares.",
+    "Trabaje en comercio, atención al público, ventas, reposición y caja. También hice limpieza en casas particulares.",
   skills:
-    "Buen trato con clientes, manejo de caja, orden, limpieza, puntualidad, uso basico de computadora.",
-  education: "Ciclo basico completo",
+    "Buen trato con clientes, manejo de caja, orden, limpieza, puntualidad, uso básico de computadora.",
+  education: "Ciclo básico completo",
   availability: "Tarde y fines de semana",
   hasTransport: "no",
   hasLicense: "no",
   workType: "cualquiera",
-  interests: ["Atencion al cliente", "Ventas", "Limpieza", "Administracion basica"],
+  interests: ["Atención al cliente", "Ventas", "Limpieza", "Administración básica"],
   contact: "mariana@email.com",
 };

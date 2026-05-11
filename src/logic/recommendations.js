@@ -16,53 +16,53 @@ export const emptyProfile = {
 
 const sectors = {
   sales: {
-    area: "Atencion al cliente y ventas",
+    area: "Atención al cliente y ventas",
     companies: "Comercios, supermercados, tiendas, shoppings, farmacias, call centers y locales de barrio.",
     highlight: "Tu trato con clientes, responsabilidad, presencia, manejo de caja o ganas de aprender.",
   },
   hotel: {
-    area: "Hoteleria y turismo",
-    companies: "Hoteles, apart hoteles, hostels, inmobiliarias turisticas, complejos y empresas de temporada.",
+    area: "Hotelería y turismo",
+    companies: "Hoteles, apart hoteles, hostels, inmobiliarias turísticas, complejos y empresas de temporada.",
     highlight: "Tu prolijidad, buena presencia, puntualidad y disponibilidad para fines de semana o temporada.",
   },
   food: {
-    area: "Gastronomia",
-    companies: "Restaurantes, bares, cafeterias, rotiserias, paradores, hoteles y empresas de eventos.",
-    highlight: "Tu ritmo de trabajo, orden, buena disposicion y disponibilidad para horarios movidos.",
+    area: "Gastronomía",
+    companies: "Restaurantes, bares, cafeterías, rotiserías, paradores, hoteles y empresas de eventos.",
+    highlight: "Tu ritmo de trabajo, orden, buena disposición y disponibilidad para horarios movidos.",
   },
   cleaning: {
     area: "Limpieza y servicios",
     companies: "Empresas de limpieza, edificios, oficinas, hoteles, casas particulares y servicios por hora.",
-    highlight: "Tu prolijidad, confianza, rapidez, responsabilidad y referencias si las tenes.",
+    highlight: "Tu prolijidad, confianza, rapidez, responsabilidad y referencias si las tenés.",
   },
   security: {
     area: "Seguridad y vigilancia",
-    companies: "Empresas de seguridad, edificios, estacionamientos, eventos, porteria y control de acceso.",
-    highlight: "Tu responsabilidad, puntualidad, presencia, atencion y disponibilidad para turnos.",
+    companies: "Empresas de seguridad, edificios, estacionamientos, eventos, portería y control de acceso.",
+    highlight: "Tu responsabilidad, puntualidad, presencia, atención y disponibilidad para turnos.",
   },
   delivery: {
     area: "Choferes, cadetes y reparto",
-    companies: "Cadeterias, delivery, farmacias, supermercados, distribuidoras, comercios y empresas de reparto.",
-    highlight: "Tu libreta, locomocion, conocimiento de zonas, puntualidad y cuidado con la mercaderia.",
+    companies: "Cadeterías, delivery, farmacias, supermercados, distribuidoras, comercios y empresas de reparto.",
+    highlight: "Tu libreta, locomoción, conocimiento de zonas, puntualidad y cuidado con la mercadería.",
   },
   trades: {
-    area: "Construccion y oficios",
-    companies: "Obras, reformas, barracas, empresas de mantenimiento, particulares y servicios por dia.",
-    highlight: "Las herramientas que sabes usar, trabajos realizados, puntualidad y fuerza si aplica.",
+    area: "Construcción y oficios",
+    companies: "Obras, reformas, barracós, empresas de mantenimiento, particulares y servicios por día.",
+    highlight: "Las herramientas que sabés usar, trabajos realizados, puntualidad y fuerza si aplica.",
   },
   maintenance: {
     area: "Mantenimiento y edificios",
     companies: "Edificios, complejos, hoteles, clubes, inmobiliarias, administradores y casas particulares.",
-    highlight: "Tu capacidad para resolver tareas basicas, cuidar espacios comunes y trabajar con orden.",
+    highlight: "Tu capacidad para resolver tareas básicas, cuidar espacios comunes y trabajar con orden.",
   },
   admin: {
-    area: "Administracion basica",
-    companies: "Oficinas, inmobiliarias, consultorios, comercios, estudios, recepciones y empresas chicas.",
-    highlight: "Tu orden, comunicacion, computadora basica, agenda, datos y atencion telefonica.",
+    area: "Administración básica",
+    companies: "Oficinas, inmobiliarias, consultorios, comercios, estudios, recepciónes y empresas chicas.",
+    highlight: "Tu orden, comunicación, computadora básica, agenda, datos y atención telefónica.",
   },
   care: {
     area: "Cuidado de personas",
-    companies: "Residenciales, familias, cuidados domiciliarios, acompanamiento y servicios por hora.",
+    companies: "Residenciales, familias, cuidados domiciliarios, acompañamiento y servicios por hora.",
     highlight: "Tu paciencia, responsabilidad, confianza, trato humano y disponibilidad horaria.",
   },
   pets: {
@@ -72,7 +72,7 @@ const sectors = {
   },
   events: {
     area: "Eventos y temporada",
-    companies: "Organizadoras de eventos, salones, fiestas, paradores, hoteles, seguridad y promociones.",
+    companies: "Organizadoras de eventos, salónes, fiestas, paradores, hoteles, seguridad y promociónes.",
     highlight: "Tu disponibilidad, energia, puntualidad y flexibilidad para trabajos eventuales.",
   },
   rural: {
@@ -81,189 +81,189 @@ const sectors = {
     highlight: "Tu resistencia, experiencia al aire libre, cuidado de animales o mantenimiento de predios.",
   },
   logistics: {
-    area: "Deposito y logistica",
-    companies: "Depositos, supermercados, distribuidoras, e-commerce, cargas, pedidos y centros logisticos.",
-    highlight: "Tu orden, fuerza si aplica, puntualidad, control de stock y disposicion para moverte.",
+    area: "Depósito y logística",
+    companies: "Depósitos, supermercados, distribuidoras, e-commerce, cargas, pedidos y centros logisticos.",
+    highlight: "Tu orden, fuerza si aplica, puntualidad, control de stock y disposición para moverte.",
   },
   digital: {
     area: "Trabajos digitales simples",
-    companies: "Comercios, emprendimientos, ventas por redes, marketplaces, oficinas y atencion online.",
-    highlight: "Tu manejo de WhatsApp, redes, computadora basica, escritura clara y respuesta a clientes.",
+    companies: "Comercios, emprendimientos, ventas por redes, marketplaces, oficinas y atención online.",
+    highlight: "Tu manejo de WhatsApp, redes, computadora básica, escritura clara y respuesta a clientes.",
   },
   gigs: {
     area: "Changas y cuenta propia",
     companies: "Vecinos, comercios cercanos, grupos barriales, Instagram, WhatsApp, Google Maps y conocidos.",
-    highlight: "Tu disponibilidad, confianza, rapidez para responder y tareas concretas que podes resolver.",
+    highlight: "Tu disponibilidad, confianza, rapidez para responder y tareas concretas que podés resolver.",
   },
 };
 
 const roleCatalog = [
-  role("Vendedor/a", "sales", ["ventas", "vendedor", "comercio", "local", "mostrador", "clientes"], "fijo", "basico", "ventas"),
+  role("Vendedor/a", "sales", ["ventas", "vendedor", "comercio", "local", "mostrador", "clientes"], "fijo", "básico", "ventas"),
   role("Cajero/a", "sales", ["caja", "cajero", "cobro", "pos", "efectivo", "supermercado"], "fijo", "intermedio", "caja"),
-  role("Repositor/a", "sales", ["reposicion", "repositor", "stock", "supermercado", "orden", "mercaderia"], "fijo", "basico", "reposicion"),
-  role("Atencion al publico", "sales", ["atencion", "publico", "clientes", "consultas", "reclamos"], "fijo", "basico", "atencion"),
-  role("Promotor/a", "sales", ["promotor", "promocion", "ventas", "evento", "publico"], "zafral o eventual", "basico", "promocion"),
-  role("Recepcionista", "sales", ["recepcion", "telefono", "agenda", "clientes", "computadora"], "fijo", "intermedio", "recepcion"),
-  role("Teleoperador/a o call center", "sales", ["telefono", "call", "center", "ventas", "consultas", "reclamos"], "fijo", "basico", "telefono"),
-  role("Atencion por WhatsApp", "digital", ["whatsapp", "clientes", "mensajes", "redes", "respuesta"], "fijo o changa", "basico", "digital"),
-  role("Ventas por redes sociales", "digital", ["redes", "instagram", "facebook", "marketplace", "publicaciones", "ventas"], "changa o fijo", "basico", "digital"),
+  role("Repositor/a", "sales", ["reposición", "repositor", "stock", "supermercado", "orden", "mercadería"], "fijo", "básico", "reposición"),
+  role("Atención al público", "sales", ["atención", "público", "clientes", "consultas", "reclamos"], "fijo", "básico", "atención"),
+  role("Promotor/a", "sales", ["promotor", "promoción", "ventas", "evento", "público"], "zafral o eventual", "básico", "promoción"),
+  role("Recepcionista", "sales", ["recepción", "teléfono", "agenda", "clientes", "computadora"], "fijo", "intermedio", "recepción"),
+  role("Teleoperador/a o call center", "sales", ["teléfono", "call", "center", "ventas", "consultas", "reclamos"], "fijo", "básico", "teléfono"),
+  role("Atención por WhatsApp", "digital", ["WhatsApp", "clientes", "mensajes", "redes", "respuesta"], "fijo o changa", "básico", "digital"),
+  role("Ventas por redes sociales", "digital", ["redes", "instagram", "facebook", "marketplace", "publicaciones", "ventas"], "changa o fijo", "básico", "digital"),
 
-  role("Recepcionista de hotel", "hotel", ["hotel", "recepcion", "turismo", "huespedes", "reservas"], "fijo o zafral", "intermedio", "hotel"),
-  role("Mucama", "hotel", ["mucama", "hotel", "habitaciones", "limpieza", "camas"], "fijo o zafral", "basico", "hotel-limpieza"),
-  role("Auxiliar de limpieza hotelera", "hotel", ["hotel", "limpieza", "habitaciones", "servicios", "temporada"], "fijo o zafral", "basico", "hotel-limpieza"),
-  role("Bellboy / maletero", "hotel", ["hotel", "maletero", "bellboy", "huespedes", "equipaje"], "zafral o fijo", "basico", "hotel"),
-  role("Mozo/a de desayuno", "hotel", ["hotel", "desayuno", "mozo", "salon", "cafeteria"], "zafral o fijo", "basico", "hotel-food"),
-  role("Auxiliar de reservas", "hotel", ["reservas", "hotel", "telefono", "computadora", "agenda"], "fijo", "intermedio", "hotel-admin"),
-  role("Personal zafral de temporada", "events", ["temporada", "zafral", "verano", "turismo", "evento"], "zafral", "basico", "temporada"),
+  role("Recepcionista de hotel", "hotel", ["hotel", "recepción", "turismo", "huespedes", "reservas"], "fijo o zafral", "intermedio", "hotel"),
+  role("Mucama", "hotel", ["mucama", "hotel", "habitaciones", "limpieza", "camas"], "fijo o zafral", "básico", "hotel-limpieza"),
+  role("Auxiliar de limpieza hotelera", "hotel", ["hotel", "limpieza", "habitaciones", "servicios", "temporada"], "fijo o zafral", "básico", "hotel-limpieza"),
+  role("Bellboy / maletero", "hotel", ["hotel", "maletero", "bellboy", "huespedes", "equipaje"], "zafral o fijo", "básico", "hotel"),
+  role("Mozo/a de desayuno", "hotel", ["hotel", "desayuno", "mozo", "salón", "cafetería"], "zafral o fijo", "básico", "hotel-food"),
+  role("Auxiliar de reservas", "hotel", ["reservas", "hotel", "teléfono", "computadora", "agenda"], "fijo", "intermedio", "hotel-admin"),
+  role("Personal zafral de temporada", "events", ["temporada", "zafral", "verano", "turismo", "evento"], "zafral", "básico", "temporada"),
 
-  role("Mozo/a", "food", ["mozo", "restaurante", "bar", "salon", "bandeja", "clientes"], "fijo o zafral", "basico", "salon"),
-  role("Ayudante de cocina", "food", ["cocina", "ayudante", "preparacion", "comida", "restaurante"], "fijo o zafral", "basico", "cocina"),
-  role("Bachero/a", "food", ["bachero", "bacha", "lavado", "cocina", "limpieza"], "fijo o zafral", "basico", "bacha"),
-  role("Barista", "food", ["barista", "cafe", "cafeteria", "mostrador", "bebidas"], "fijo", "intermedio", "barista"),
-  role("Delivery gastronomico", "delivery", ["delivery", "moto", "bicicleta", "reparto", "comida"], "fijo o changa", "basico", "delivery", { mobility: true }),
+  role("Mozo/a", "food", ["mozo", "restaurante", "bar", "salón", "bandeja", "clientes"], "fijo o zafral", "básico", "salón"),
+  role("Ayudante de cocina", "food", ["cocina", "ayudante", "preparación", "comida", "restaurante"], "fijo o zafral", "básico", "cocina"),
+  role("Bachero/a", "food", ["bachero", "bacha", "lavado", "cocina", "limpieza"], "fijo o zafral", "básico", "bacha"),
+  role("Barista", "food", ["barista", "cafe", "cafetería", "mostrador", "bebidas"], "fijo", "intermedio", "barista"),
+  role("Delivery gastronómico", "delivery", ["delivery", "moto", "bicicleta", "reparto", "comida"], "fijo o changa", "básico", "delivery", { mobility: true }),
   role("Pizzero/a o parrillero/a", "food", ["pizza", "pizzero", "parrilla", "parrillero", "cocina"], "fijo o zafral", "con experiencia", "cocina"),
-  role("Personal para eventos", "events", ["evento", "fiesta", "salon", "mozo", "apoyo"], "changa o zafral", "basico", "eventos"),
+  role("Personal para eventos", "events", ["evento", "fiesta", "salón", "mozo", "apoyo"], "changa o zafral", "básico", "eventos"),
 
-  role("Auxiliar de limpieza", "cleaning", ["limpieza", "limpiar", "orden", "servicios", "oficinas"], "fijo o changa", "basico", "limpieza"),
-  role("Limpieza de casas", "cleaning", ["limpieza", "casas", "domestica", "hogar", "planchado"], "changa", "basico", "limpieza-hogar"),
-  role("Limpieza de edificios", "cleaning", ["edificio", "limpieza", "areas comunes", "porter", "servicios"], "fijo o changa", "basico", "limpieza-edificios"),
-  role("Limpieza post obra", "cleaning", ["post obra", "obra", "limpieza", "polvo", "construccion"], "changa", "intermedio", "limpieza-obra"),
-  role("Lavanderia y planchado", "cleaning", ["lavanderia", "plancha", "planchado", "ropa", "hotel"], "fijo o changa", "basico", "lavanderia"),
+  role("Auxiliar de limpieza", "cleaning", ["limpieza", "limpiar", "orden", "servicios", "oficinas"], "fijo o changa", "básico", "limpieza"),
+  role("Limpieza de casas", "cleaning", ["limpieza", "casas", "doméstica", "hogar", "planchado"], "changa", "básico", "limpieza-hogar"),
+  role("Limpieza de edificios", "cleaning", ["edificio", "limpieza", "áreas comunes", "porter", "servicios"], "fijo o changa", "básico", "limpieza-edificios"),
+  role("Limpieza post obra", "cleaning", ["post obra", "obra", "limpieza", "polvo", "construcción"], "changa", "intermedio", "limpieza-obra"),
+  role("Lavandería y planchado", "cleaning", ["lavandería", "plancha", "planchado", "ropa", "hotel"], "fijo o changa", "básico", "lavandería"),
 
-  role("Guardia de seguridad", "security", ["seguridad", "guardia", "vigilancia", "control", "turnos"], "fijo", "intermedio", "seguridad"),
-  role("Sereno", "security", ["sereno", "noche", "vigilancia", "seguridad", "predio"], "fijo", "basico", "seguridad"),
-  role("Porteria / control de acceso", "security", ["porteria", "control", "acceso", "edificio", "recepcion"], "fijo", "basico", "porteria"),
-  role("Seguridad para eventos", "events", ["seguridad", "eventos", "control", "ingreso", "fiestas"], "changa o zafral", "basico", "eventos"),
+  role("Guardía de seguridad", "security", ["seguridad", "guardía", "vigilancia", "control", "turnos"], "fijo", "intermedio", "seguridad"),
+  role("Sereno", "security", ["sereno", "noche", "vigilancia", "seguridad", "predio"], "fijo", "básico", "seguridad"),
+  role("Portería / control de acceso", "security", ["portería", "control", "acceso", "edificio", "recepción"], "fijo", "básico", "portería"),
+  role("Seguridad para eventos", "events", ["seguridad", "eventos", "control", "ingreso", "fiestas"], "changa o zafral", "básico", "eventos"),
 
-  role("Chofer", "delivery", ["chofer", "camioneta", "camion", "manejo", "conduccion"], "fijo", "con experiencia", "chofer", { license: true }),
-  role("Repartidor/a", "delivery", ["reparto", "repartidor", "moto", "auto", "entregas"], "fijo o changa", "basico", "reparto", { mobility: true }),
-  role("Cadete", "delivery", ["cadete", "mandados", "tramites", "moto", "bicicleta"], "fijo o changa", "basico", "cadete", { mobility: true }),
-  role("Auxiliar de logistica", "logistics", ["logistica", "deposito", "stock", "pedidos", "carga"], "fijo", "basico", "logistica"),
-  role("Peon de reparto", "delivery", ["reparto", "carga", "descarga", "mercaderia", "camioneta"], "fijo", "basico", "reparto"),
+  role("Chofer", "delivery", ["chofer", "camióneta", "camión", "manejo", "conduccion"], "fijo", "con experiencia", "chofer", { license: true }),
+  role("Repartidor/a", "delivery", ["reparto", "repartidor", "moto", "auto", "entregas"], "fijo o changa", "básico", "reparto", { mobility: true }),
+  role("Cadete", "delivery", ["cadete", "mandados", "trámites", "moto", "bicicleta"], "fijo o changa", "básico", "cadete", { mobility: true }),
+  role("Auxiliar de logística", "logistics", ["logística", "depósito", "stock", "pedidos", "carga"], "fijo", "básico", "logística"),
+  role("Peón de reparto", "delivery", ["reparto", "carga", "descarga", "mercadería", "camióneta"], "fijo", "básico", "reparto"),
 
-  role("Peon de obra", "trades", ["obra", "construccion", "peon", "albanil", "carga"], "fijo o changa", "basico", "obra"),
-  role("Albanil o ayudante", "trades", ["albanil", "obra", "mezcla", "ladrillo", "construccion"], "fijo o changa", "con experiencia", "obra"),
-  role("Pintor o ayudante de pintura", "trades", ["pintura", "pintor", "pared", "lijar", "rodillo"], "changa o fijo", "basico", "pintura"),
-  role("Electricista basico", "trades", ["electricidad", "electricista", "luces", "cables", "enchufe"], "changa o fijo", "intermedio", "electricidad"),
-  role("Sanitario basico", "trades", ["sanitaria", "caneria", "agua", "bano", "arreglos"], "changa o fijo", "intermedio", "sanitaria"),
-  role("Jardinero / cortador de pasto", "trades", ["jardin", "jardineria", "pasto", "cortar", "predio"], "changa o fijo", "basico", "jardin"),
+  role("Peón de obra", "trades", ["obra", "construcción", "peón", "albañil", "carga"], "fijo o changa", "básico", "obra"),
+  role("Albañil o ayudante", "trades", ["albañil", "obra", "mezcla", "ladrillo", "construcción"], "fijo o changa", "con experiencia", "obra"),
+  role("Pintor o ayudante de pintura", "trades", ["pintura", "pintor", "pared", "lijar", "rodillo"], "changa o fijo", "básico", "pintura"),
+  role("Electricista básico", "trades", ["electricidad", "electricista", "luces", "cables", "enchufe"], "changa o fijo", "intermedio", "electricidad"),
+  role("Sanitario básico", "trades", ["sanitaria", "cañería", "agua", "baño", "arreglos"], "changa o fijo", "intermedio", "sanitaria"),
+  role("Jardinero / cortador de pasto", "trades", ["jardin", "jardinería", "pasto", "cortar", "predio"], "changa o fijo", "básico", "jardin"),
   role("Piscinero", "maintenance", ["piscina", "piscinero", "agua", "mantenimiento", "complejo"], "changa o fijo", "intermedio", "piscina"),
   role("Mantenimiento general", "maintenance", ["mantenimiento", "arreglos", "herramientas", "reparaciones", "luces"], "fijo o changa", "intermedio", "mantenimiento"),
-  role("Encargado de edificio", "maintenance", ["edificio", "portero", "mantenimiento", "areas comunes", "bombas"], "fijo", "intermedio", "edificio"),
+  role("Encargado de edificio", "maintenance", ["edificio", "portero", "mantenimiento", "áreas comunes", "bombas"], "fijo", "intermedio", "edificio"),
 
-  role("Auxiliar administrativo", "admin", ["administracion", "oficina", "archivo", "facturacion", "datos"], "fijo", "basico", "admin"),
-  role("Data entry", "admin", ["datos", "data", "entry", "computadora", "planillas", "excel"], "fijo o changa", "basico", "datos"),
-  role("Recepcionista administrativa", "admin", ["recepcion", "agenda", "telefono", "email", "oficina"], "fijo", "intermedio", "admin"),
-  role("Agenda de turnos", "admin", ["turnos", "agenda", "telefono", "whatsapp", "consultorio"], "fijo", "basico", "admin"),
+  role("Auxiliar administrativo", "admin", ["administración", "oficina", "archivo", "facturación", "datos"], "fijo", "básico", "admin"),
+  role("Data entry", "admin", ["datos", "data", "entry", "computadora", "planillas", "excel"], "fijo o changa", "básico", "datos"),
+  role("Recepcionista administrativa", "admin", ["recepción", "agenda", "teléfono", "email", "oficina"], "fijo", "intermedio", "admin"),
+  role("Agenda de turnos", "admin", ["turnos", "agenda", "teléfono", "WhatsApp", "consultorio"], "fijo", "básico", "admin"),
 
-  role("Cuidador/a de adultos mayores", "care", ["adultos", "mayores", "cuidado", "acompanante", "paciente"], "fijo o por horas", "intermedio", "cuidados"),
-  role("Acompanante", "care", ["acompanante", "cuidado", "personas", "salud", "noche"], "fijo o por horas", "basico", "cuidados"),
-  role("Ninera", "care", ["ninos", "ninera", "cuidado", "familia", "escuela"], "por horas o fijo", "intermedio", "ninos"),
-  role("Apoyo domiciliario", "care", ["domicilio", "cuidado", "adultos", "acompanar", "asistencia"], "por horas o fijo", "basico", "cuidados"),
+  role("Cuidador/a de adultos mayores", "care", ["adultos", "mayores", "cuidado", "acompañante", "paciente"], "fijo o por horas", "intermedio", "cuidados"),
+  role("Acompañante", "care", ["acompañante", "cuidado", "personas", "salud", "noche"], "fijo o por horas", "básico", "cuidados"),
+  role("Niñera", "care", ["niños", "niñera", "cuidado", "familia", "escuela"], "por horas o fijo", "intermedio", "niños"),
+  role("Apoyo domiciliario", "care", ["domicilio", "cuidado", "adultos", "acompañar", "asistencia"], "por horas o fijo", "básico", "cuidados"),
 
-  role("Paseador/a de perros", "pets", ["perros", "mascotas", "paseo", "animales", "barrio"], "changa", "basico", "mascotas"),
-  role("Pet sitter / cuidado de mascotas", "pets", ["mascotas", "animales", "perros", "gatos", "cuidado"], "changa", "basico", "mascotas"),
+  role("Paseador/a de perros", "pets", ["perros", "mascotas", "paseo", "animales", "barrio"], "changa", "básico", "mascotas"),
+  role("Pet sitter / cuidado de mascotas", "pets", ["mascotas", "animales", "perros", "gatos", "cuidado"], "changa", "básico", "mascotas"),
   role("Casero/a o cuidado de casas", "pets", ["casero", "casa", "hogar", "mantenimiento", "predio"], "fijo o changa", "intermedio", "hogar"),
-  role("Mandados", "gigs", ["mandados", "tramites", "compras", "barrio", "cadete"], "changa", "basico", "mandados"),
+  role("Mandados", "gigs", ["mandados", "trámites", "compras", "barrio", "cadete"], "changa", "básico", "mandados"),
 
-  role("Armado de eventos", "events", ["eventos", "armado", "sillas", "mesas", "fiestas"], "changa o zafral", "basico", "eventos"),
-  role("Acreditacion y control de ingreso", "events", ["acreditacion", "control", "ingreso", "evento", "publico"], "changa", "basico", "eventos"),
-  role("Atencion en playa/paradores", "events", ["playa", "parador", "temporada", "verano", "turismo"], "zafral", "basico", "temporada"),
+  role("Armado de eventos", "events", ["eventos", "armado", "sillas", "mesas", "fiestas"], "changa o zafral", "básico", "eventos"),
+  role("Acreditación y control de ingreso", "events", ["acreditación", "control", "ingreso", "evento", "público"], "changa", "básico", "eventos"),
+  role("Atención en playa/paradores", "events", ["playa", "parador", "temporada", "verano", "turismo"], "zafral", "básico", "temporada"),
 
-  role("Peon rural", "rural", ["campo", "rural", "peon", "chacra", "animales"], "fijo o zafral", "basico", "rural"),
-  role("Viveros y riego", "rural", ["vivero", "riego", "plantas", "jardin", "chacra"], "fijo o zafral", "basico", "rural"),
-  role("Mantenimiento de predios", "rural", ["predio", "terreno", "alambrado", "limpieza", "pasto"], "changa o fijo", "basico", "rural"),
+  role("Peón rural", "rural", ["campo", "rural", "peón", "chacra", "animales"], "fijo o zafral", "básico", "rural"),
+  role("Viveros y riego", "rural", ["vivero", "riego", "plantas", "jardin", "chacra"], "fijo o zafral", "básico", "rural"),
+  role("Mantenimiento de predios", "rural", ["predio", "terreno", "alambrado", "limpieza", "pasto"], "changa o fijo", "básico", "rural"),
 
-  role("Auxiliar de deposito", "logistics", ["deposito", "stock", "orden", "mercaderia", "carga"], "fijo", "basico", "deposito"),
-  role("Picking / packing", "logistics", ["picking", "packing", "pedidos", "ecommerce", "deposito"], "fijo", "basico", "deposito"),
-  role("Carga y descarga", "logistics", ["carga", "descarga", "camion", "deposito", "fuerza"], "fijo o changa", "basico", "deposito"),
-  role("Armado de pedidos", "logistics", ["pedidos", "stock", "deposito", "orden", "packing"], "fijo", "basico", "deposito"),
+  role("Auxiliar de depósito", "logistics", ["depósito", "stock", "orden", "mercadería", "carga"], "fijo", "básico", "depósito"),
+  role("Picking / packing", "logistics", ["picking", "packing", "pedidos", "ecommerce", "depósito"], "fijo", "básico", "depósito"),
+  role("Carga y descarga", "logistics", ["carga", "descarga", "camión", "depósito", "fuerza"], "fijo o changa", "básico", "depósito"),
+  role("Armado de pedidos", "logistics", ["pedidos", "stock", "depósito", "orden", "packing"], "fijo", "básico", "depósito"),
 
-  role("Asistente virtual basico", "digital", ["asistente", "virtual", "computadora", "whatsapp", "email"], "changa o fijo", "basico", "digital"),
-  role("Publicacion de productos", "digital", ["publicaciones", "productos", "redes", "marketplace", "fotos"], "changa o fijo", "basico", "digital"),
-  role("Respuesta a clientes por redes", "digital", ["redes", "clientes", "mensajes", "instagram", "whatsapp"], "changa o fijo", "basico", "digital"),
+  role("Asistente virtual básico", "digital", ["asistente", "virtual", "computadora", "WhatsApp", "email"], "changa o fijo", "básico", "digital"),
+  role("Publicación de productos", "digital", ["publicaciones", "productos", "redes", "marketplace", "fotos"], "changa o fijo", "básico", "digital"),
+  role("Respuesta a clientes por redes", "digital", ["redes", "clientes", "mensajes", "instagram", "WhatsApp"], "changa o fijo", "básico", "digital"),
 
-  role("Limpieza por hora", "gigs", ["changa", "por hora", "limpieza", "casas", "oficinas"], "changa", "basico", "limpieza-hogar"),
-  role("Fletes pequenos", "gigs", ["flete", "mudanza", "camioneta", "carga", "traslado"], "changa", "basico", "fletes", { mobility: true }),
-  role("Ayuda en mudanzas", "gigs", ["mudanza", "carga", "ayuda", "muebles", "flete"], "changa", "basico", "mudanzas"),
+  role("Limpieza por hora", "gigs", ["changa", "por hora", "limpieza", "casas", "oficinas"], "changa", "básico", "limpieza-hogar"),
+  role("Fletes pequeños", "gigs", ["flete", "mudanza", "camióneta", "carga", "traslado"], "changa", "básico", "fletes", { mobility: true }),
+  role("Ayuda en mudanzas", "gigs", ["mudanza", "carga", "ayuda", "muebles", "flete"], "changa", "básico", "mudanzas"),
   role("Armado de muebles", "gigs", ["muebles", "armado", "herramientas", "reparaciones", "hogar"], "changa", "intermedio", "muebles"),
-  role("Lavado de autos", "gigs", ["autos", "lavado", "limpieza", "vehiculos"], "changa", "basico", "autos"),
+  role("Lavado de autos", "gigs", ["autos", "lavado", "limpieza", "vehículos"], "changa", "básico", "autos"),
   role("Cocina casera por pedido", "gigs", ["cocina", "comida", "pedido", "casera", "tortas"], "changa", "intermedio", "cocina-casera"),
 ];
 
-const touristLocations = ["maldonado", "punta del este", "punta", "san carlos", "piriapolis", "la barra", "jose ignacio", "rocha", "colonia", "atlantida"];
+const touristLocations = ["maldonado", "punta del este", "punta", "san carlos", "piriapolis", "la barra", "josé ignacio", "rocha", "colonia", "atlantida"];
 const noExperienceWords = ["sin experiencia", "no tengo experiencia", "ninguna", "primera oportunidad", "primer trabajo"];
 const changaSectors = ["gigs", "cleaning", "trades", "pets", "care", "events", "delivery"];
 const touristSectors = ["hotel", "food", "events", "cleaning", "maintenance", "sales"];
-const entryFamilies = ["reposicion", "limpieza", "cadete", "bacha", "deposito", "atencion", "temporada"];
+const entryFamilies = ["reposición", "limpieza", "cadete", "bacha", "depósito", "atención", "temporada"];
 
 const companySuggestions = [
-  suggestion("Hoteles", ["hotel", "hoteleria", "mucama", "habitaciones", "recepcion", "turismo"], ["Hoteleria y turismo", "Limpieza y servicios"], "pueden necesitar limpieza, habitaciones, recepcion, lavanderia, desayuno o apoyo de temporada."),
-  suggestion("Restaurantes", ["cocina", "mozo", "restaurante", "bar", "cafeteria", "bachero"], ["Gastronomia"], "encajan con cocina, salon, bacha, cafeteria, caja gastronomica o eventos."),
-  suggestion("Supermercados", ["ventas", "caja", "reposicion", "stock", "supermercado"], ["Atencion al cliente y ventas", "Deposito y logistica"], "suelen tomar perfiles para caja, reposicion, deposito, atencion y tareas de entrada."),
-  suggestion("Comercios", ["ventas", "local", "clientes", "mostrador", "whatsapp"], ["Atencion al cliente y ventas", "Trabajos digitales simples"], "son una buena opcion para atencion, ventas, mostrador o respuesta por WhatsApp."),
-  suggestion("Edificios", ["edificio", "porteria", "limpieza", "mantenimiento"], ["Limpieza y servicios", "Mantenimiento y edificios", "Seguridad y vigilancia"], "pueden necesitar limpieza, porteria, mantenimiento basico o control de acceso."),
-  suggestion("Empresas de limpieza", ["limpieza", "casas", "oficinas", "edificios"], ["Limpieza y servicios"], "convienen si tenes experiencia limpiando, ordenando o trabajando por hora."),
-  suggestion("Empresas de seguridad", ["seguridad", "vigilancia", "sereno", "porteria"], ["Seguridad y vigilancia"], "pueden servir si sos responsable, puntual y tenes disponibilidad para turnos."),
-  suggestion("Inmobiliarias", ["administracion", "recepcion", "telefono", "clientes", "agenda"], ["Administracion basica", "Atencion al cliente y ventas"], "pueden necesitar recepcion, agenda, llamadas, atencion y apoyo administrativo."),
-  suggestion("Depositos/logistica", ["deposito", "logistica", "stock", "reparto", "carga"], ["Deposito y logistica", "Choferes, cadetes y reparto"], "encajan con stock, armado de pedidos, reparto, carga o apoyo operativo."),
-  suggestion("Residenciales/cuidado de personas", ["cuidado", "adultos", "ninos", "acompanante"], ["Cuidado de personas"], "pueden ser buena opcion si tenes paciencia, responsabilidad y experiencia cuidando personas."),
+  suggestion("Hoteles", ["hotel", "hotelería", "mucama", "habitaciones", "recepción", "turismo"], ["Hotelería y turismo", "Limpieza y servicios"], "pueden necesitar limpieza, habitaciones, recepción, lavandería, desayuno o apoyo de temporada."),
+  suggestion("Restaurantes", ["cocina", "mozo", "restaurante", "bar", "cafetería", "bachero"], ["Gastronomía"], "encajan con cocina, salón, bacha, cafetería, caja gastronomica o eventos."),
+  suggestion("Supermercados", ["ventas", "caja", "reposición", "stock", "supermercado"], ["Atención al cliente y ventas", "Depósito y logística"], "suelen tomar perfiles para caja, reposición, depósito, atención y tareas de entrada."),
+  suggestion("Comercios", ["ventas", "local", "clientes", "mostrador", "WhatsApp"], ["Atención al cliente y ventas", "Trabajos digitales simples"], "son una buena opción para atención, ventas, mostrador o respuesta por WhatsApp."),
+  suggestion("Edificios", ["edificio", "portería", "limpieza", "mantenimiento"], ["Limpieza y servicios", "Mantenimiento y edificios", "Seguridad y vigilancia"], "pueden necesitar limpieza, portería, mantenimiento básico o control de acceso."),
+  suggestion("Empresas de limpieza", ["limpieza", "casas", "oficinas", "edificios"], ["Limpieza y servicios"], "convienen si tenés experiencia limpiando, ordenando o trabajando por hora."),
+  suggestion("Empresas de seguridad", ["seguridad", "vigilancia", "sereno", "portería"], ["Seguridad y vigilancia"], "pueden servir si sos responsable, puntual y tenés disponibilidad para turnos."),
+  suggestion("Inmobiliarias", ["administración", "recepción", "teléfono", "clientes", "agenda"], ["Administración básica", "Atención al cliente y ventas"], "pueden necesitar recepción, agenda, llamadas, atención y apoyo administrativo."),
+  suggestion("Depósitos/logística", ["depósito", "logística", "stock", "reparto", "carga"], ["Depósito y logística", "Choferes, cadetes y reparto"], "encajan con stock, armado de pedidos, reparto, carga o apoyo operativo."),
+  suggestion("Residenciales/cuidado de personas", ["cuidado", "adultos", "niños", "acompañante"], ["Cuidado de personas"], "pueden ser buena opción si tenés paciencia, responsabilidad y experiencia cuidando personas."),
   suggestion("Casas particulares y vecinos", ["changa", "limpieza", "pasto", "mascotas", "mandados"], ["Changas y cuenta propia", "Mascotas y hogar"], "sirven para empezar con changas por hora, tareas del hogar, mascotas o mandados."),
 ];
 
 const gigCatalog = [
-  gig("Limpieza por hora", "Hogar y limpieza", ["limpieza", "limpiar", "casas", "oficinas", "mucama"], "Por hora o por jornada", "Responsabilidad, puntualidad y referencias si tenes.", "Vecinos, edificios, grupos de barrio, inmobiliarias y comercios.", "facil"),
-  gig("Limpieza de casas", "Hogar y limpieza", ["limpieza", "casas", "hogar", "domestica"], "Por hora o por tarea", "Confianza, prolijidad y disponibilidad clara.", "Vecinos, familias, grupos barriales y recomendaciones.", "facil"),
-  gig("Limpieza de oficinas", "Hogar y limpieza", ["limpieza", "oficinas", "orden", "servicios"], "Por hora o por jornada", "Orden, constancia y horarios definidos.", "Oficinas chicas, consultorios, comercios y administradores.", "facil"),
-  gig("Limpieza post obra", "Hogar y limpieza", ["post obra", "obra", "construccion", "limpieza", "polvo"], "Por tarea o por dia", "Trabajo con detalle, fuerza y ganas de dejar prolijo.", "Constructoras chicas, reformas, arquitectos, vecinos y barracas.", "media"),
-  gig("Planchado o lavado de ropa", "Hogar y limpieza", ["planchado", "plancha", "lavado", "ropa", "lavanderia"], "Por tarea", "Prolijidad, cuidado de prendas y compromiso con horarios.", "Familias, residenciales, lavanderias y vecinos.", "facil"),
-  gig("Limpieza de apartamentos temporales", "Hogar y limpieza", ["apartamento", "temporal", "airbnb", "alquiler", "hotel", "mucama"], "Por tarea", "Rapidez, prolijidad y buena coordinacion de horarios.", "Inmobiliarias, propietarios, administradores y alojamientos.", "media", { tourist: true }),
+  gig("Limpieza por hora", "Hogar y limpieza", ["limpieza", "limpiar", "casas", "oficinas", "mucama"], "Por hora o por jornada", "Responsabilidad, puntualidad y referencias si tenés.", "Vecinos, edificios, grupos de barrio, inmobiliarias y comercios.", "fácil"),
+  gig("Limpieza de casas", "Hogar y limpieza", ["limpieza", "casas", "hogar", "doméstica"], "Por hora o por tarea", "Confianza, prolijidad y disponibilidad clara.", "Vecinos, familias, grupos barriales y recomendaciones.", "fácil"),
+  gig("Limpieza de oficinas", "Hogar y limpieza", ["limpieza", "oficinas", "orden", "servicios"], "Por hora o por jornada", "Orden, constancia y horarios definidos.", "Oficinas chicas, consultorios, comercios y administradores.", "fácil"),
+  gig("Limpieza post obra", "Hogar y limpieza", ["post obra", "obra", "construcción", "limpieza", "polvo"], "Por tarea o por día", "Trabajo con detalle, fuerza y ganas de dejar prolijo.", "Constructoras chicas, reformas, arquitectos, vecinos y barracós.", "media"),
+  gig("Planchado o lavado de ropa", "Hogar y limpieza", ["planchado", "plancha", "lavado", "ropa", "lavandería"], "Por tarea", "Prolijidad, cuidado de prendas y compromiso con horarios.", "Familias, residenciales, lavanderías y vecinos.", "fácil"),
+  gig("Limpieza de apartamentos temporales", "Hogar y limpieza", ["apartamento", "temporal", "airbnb", "alquiler", "hotel", "mucama"], "Por tarea", "Rapidez, prolijidad y buena coordinación de horarios.", "Inmobiliarias, propietarios, administradores y alojamientos.", "media", { tourist: true }),
 
-  gig("Corte de pasto", "Jardin y mantenimiento", ["pasto", "cortar", "jardin", "jardineria", "terreno"], "Por tarea o por dia", "Herramientas o posibilidad de coordinar, puntualidad y prolijidad.", "Casas, vecinos, complejos, administradores y grupos de barrio.", "facil"),
-  gig("Jardineria", "Jardin y mantenimiento", ["jardin", "jardineria", "plantas", "riego", "pasto"], "Por hora o por tarea", "Cuidado de plantas, orden y experiencia al aire libre.", "Casas, chacras, viveros, edificios y complejos.", "media"),
-  gig("Limpieza de terrenos o patios", "Jardin y mantenimiento", ["terreno", "patio", "predio", "limpieza", "pasto"], "Por dia o por tarea", "Ganas de trabajar al aire libre y tolerancia a tareas fisicas.", "Vecinos, inmobiliarias, chacras, administradores y propietarios.", "facil"),
-  gig("Piscinero basico", "Jardin y mantenimiento", ["piscina", "piscinero", "agua", "mantenimiento"], "Por visita o por mes", "Conocimiento basico de limpieza y control de piscina.", "Complejos, casas, hoteles chicos y administradores.", "requiere experiencia", { tourist: true }),
-  gig("Pintura por dia", "Jardin y mantenimiento", ["pintura", "pintor", "pared", "rodillo", "lijar", "herramientas", "mantenimiento"], "Por dia o por tarea", "Herramientas, prolijidad y ejemplos de trabajos si tenes.", "Casas, comercios, reformas, edificios y conocidos.", "media"),
-  gig("Reparaciones menores", "Jardin y mantenimiento", ["arreglos", "reparaciones", "herramientas", "mantenimiento"], "Por tarea", "Saber resolver arreglos simples y trabajar con responsabilidad.", "Vecinos, edificios, comercios, administradores y propietarios.", "media"),
-  gig("Armado de muebles", "Jardin y mantenimiento", ["muebles", "armado", "herramientas", "atornillar"], "Por tarea", "Paciencia, herramientas basicas y prolijidad.", "Vecinos, Marketplace, comercios de muebles y grupos barriales.", "media"),
+  gig("Corte de pasto", "Jardín y mantenimiento", ["pasto", "cortar", "jardin", "jardinería", "terreno"], "Por tarea o por día", "Herramientas o posibilidad de coordinar, puntualidad y prolijidad.", "Casas, vecinos, complejos, administradores y grupos de barrio.", "fácil"),
+  gig("Jardinería", "Jardín y mantenimiento", ["jardin", "jardinería", "plantas", "riego", "pasto"], "Por hora o por tarea", "Cuidado de plantas, orden y experiencia al aire libre.", "Casas, chacras, viveros, edificios y complejos.", "media"),
+  gig("Limpieza de terrenos o patios", "Jardín y mantenimiento", ["terreno", "patio", "predio", "limpieza", "pasto"], "Por día o por tarea", "Ganas de trabajar al aire libre y tolerancia a tareas físicas.", "Vecinos, inmobiliarias, chacras, administradores y propietarios.", "fácil"),
+  gig("Piscinero básico", "Jardín y mantenimiento", ["piscina", "piscinero", "agua", "mantenimiento"], "Por visita o por mes", "Conocimiento básico de limpieza y control de piscina.", "Complejos, casas, hoteles chicos y administradores.", "requiere experiencia", { tourist: true }),
+  gig("Pintura por día", "Jardín y mantenimiento", ["pintura", "pintor", "pared", "rodillo", "lijar", "herramientas", "mantenimiento"], "Por día o por tarea", "Herramientas, prolijidad y ejemplos de trabajos si tenés.", "Casas, comercios, reformas, edificios y conocidos.", "media"),
+  gig("Reparaciones menores", "Jardín y mantenimiento", ["arreglos", "reparaciones", "herramientas", "mantenimiento"], "Por tarea", "Saber resolver arreglos simples y trabajar con responsabilidad.", "Vecinos, edificios, comercios, administradores y propietarios.", "media"),
+  gig("Armado de muebles", "Jardín y mantenimiento", ["muebles", "armado", "herramientas", "atornillar"], "Por tarea", "Paciencia, herramientas básicas y prolijidad.", "Vecinos, Marketplace, comercios de muebles y grupos barriales.", "media"),
 
-  gig("Ninera por horas", "Cuidado de personas", ["ninos", "ninera", "cuidado", "familia"], "Por hora", "Responsabilidad, paciencia y referencias si tenes.", "Familias, vecinos, grupos de barrio y recomendaciones.", "media"),
-  gig("Acompanante de adulto mayor", "Cuidado de personas", ["adultos", "mayores", "acompanante", "cuidado"], "Por hora, noche o jornada", "Paciencia, confianza y buena comunicacion con la familia.", "Familias, residenciales y redes de conocidos.", "media"),
-  gig("Mandados para adultos mayores", "Cuidado de personas", ["mandados", "adultos", "compras", "tramites", "mayores"], "Por tarea o por hora", "Confianza, puntualidad y buen trato.", "Vecinos, familias, grupos barriales y residenciales.", "facil"),
-  gig("Compania por horas", "Cuidado de personas", ["compania", "acompanante", "adultos", "cuidado"], "Por hora", "Buen trato, responsabilidad y disponibilidad clara.", "Familias, vecinos y recomendaciones.", "facil"),
+  gig("Niñera por horas", "Cuidado de personas", ["niños", "niñera", "cuidado", "familia"], "Por hora", "Responsabilidad, paciencia y referencias si tenés.", "Familias, vecinos, grupos de barrio y recomendaciones.", "media"),
+  gig("Acompañante de adulto mayor", "Cuidado de personas", ["adultos", "mayores", "acompañante", "cuidado"], "Por hora, noche o jornada", "Paciencia, confianza y buena comunicación con la familia.", "Familias, residenciales y redes de conocidos.", "media"),
+  gig("Mandados para adultos mayores", "Cuidado de personas", ["mandados", "adultos", "compras", "trámites", "mayores"], "Por tarea o por hora", "Confianza, puntualidad y buen trato.", "Vecinos, familias, grupos barriales y residenciales.", "fácil"),
+  gig("Compañía por horas", "Cuidado de personas", ["compañía", "acompañante", "adultos", "cuidado"], "Por hora", "Buen trato, responsabilidad y disponibilidad clara.", "Familias, vecinos y recomendaciones.", "fácil"),
 
-  gig("Paseador/a de perros", "Mascotas", ["perros", "paseo", "mascotas", "animales"], "Por paseo o por semana", "Gusto por animales, responsabilidad y cuidado.", "Vecinos, veterinarias, grupos barriales e Instagram.", "facil"),
-  gig("Pet sitter", "Mascotas", ["mascotas", "perros", "gatos", "animales", "cuidado"], "Por visita o por dia", "Confianza, experiencia con animales y buena coordinacion.", "Vecinos, veterinarias, redes sociales y grupos de zona.", "facil"),
-  gig("Alimentar mascotas cuando viajan", "Mascotas", ["mascotas", "viaje", "alimentar", "animales"], "Por visita", "Responsabilidad, puntualidad y confianza.", "Vecinos, edificios, grupos barriales y conocidos.", "facil"),
-  gig("Traslado basico de mascotas", "Mascotas", ["mascotas", "traslado", "auto", "moto", "vehiculo"], "Por traslado", "Locomocion, cuidado y coordinacion.", "Veterinarias, vecinos, grupos de mascotas y redes.", "media", { mobility: true }),
+  gig("Paseador/a de perros", "Mascotas", ["perros", "paseo", "mascotas", "animales"], "Por paseo o por semana", "Gusto por animales, responsabilidad y cuidado.", "Vecinos, veterinarias, grupos barriales e Instagram.", "fácil"),
+  gig("Pet sitter", "Mascotas", ["mascotas", "perros", "gatos", "animales", "cuidado"], "Por visita o por día", "Confianza, experiencia con animales y buena coordinación.", "Vecinos, veterinarias, redes sociales y grupos de zona.", "fácil"),
+  gig("Alimentar mascotas cuando viajan", "Mascotas", ["mascotas", "viaje", "alimentar", "animales"], "Por visita", "Responsabilidad, puntualidad y confianza.", "Vecinos, edificios, grupos barriales y conocidos.", "fácil"),
+  gig("Traslado básico de mascotas", "Mascotas", ["mascotas", "traslado", "auto", "moto", "vehículo"], "Por traslado", "Locomoción, cuidado y coordinación.", "Veterinarias, vecinos, grupos de mascotas y redes.", "media", { mobility: true }),
 
-  gig("Mandados", "Reparto y mandados", ["mandados", "compras", "tramites", "barrio"], "Por tarea", "Responsabilidad, rapidez y buena comunicacion.", "Vecinos, adultos mayores, comercios y grupos barriales.", "facil"),
-  gig("Delivery independiente", "Reparto y mandados", ["delivery", "reparto", "moto", "bicicleta", "comida"], "Por tarea o por dia", "Locomocion, puntualidad y cuidado con entregas.", "Comercios, rotiserias, farmacias, emprendimientos y conocidos.", "media", { mobility: true }),
-  gig("Cadeteria", "Reparto y mandados", ["cadete", "tramites", "paquetes", "reparto", "moto"], "Por tarea o por jornada", "Locomocion, responsabilidad y conocimiento de zonas.", "Comercios, oficinas, farmacias y tiendas online.", "media", { mobility: true }),
-  gig("Fletes pequenos", "Reparto y mandados", ["flete", "camioneta", "auto", "mudanza", "traslado"], "Por tarea", "Vehiculo, cuidado al cargar y puntualidad.", "Vecinos, Marketplace, mudanzas chicas y grupos barriales.", "media", { mobility: true }),
+  gig("Mandados", "Reparto y mandados", ["mandados", "compras", "trámites", "barrio"], "Por tarea", "Responsabilidad, rapidez y buena comunicación.", "Vecinos, adultos mayores, comercios y grupos barriales.", "fácil"),
+  gig("Delivery independiente", "Reparto y mandados", ["delivery", "reparto", "moto", "bicicleta", "comida"], "Por tarea o por día", "Locomoción, puntualidad y cuidado con entregas.", "Comercios, rotiserías, farmacias, emprendimientos y conocidos.", "media", { mobility: true }),
+  gig("Cadetería", "Reparto y mandados", ["cadete", "trámites", "paquetes", "reparto", "moto"], "Por tarea o por jornada", "Locomoción, responsabilidad y conocimiento de zonas.", "Comercios, oficinas, farmacias y tiendas online.", "media", { mobility: true }),
+  gig("Fletes pequeños", "Reparto y mandados", ["flete", "camióneta", "auto", "mudanza", "traslado"], "Por tarea", "Vehículo, cuidado al cargar y puntualidad.", "Vecinos, Marketplace, mudanzas chicas y grupos barriales.", "media", { mobility: true }),
 
-  gig("Mozo/a eventual", "Eventos y temporada", ["mozo", "evento", "fiesta", "salon"], "Por evento", "Buena presencia, ritmo y disponibilidad nocturna o fin de semana.", "Salones, organizadores de eventos, hoteles y restaurantes.", "media", { tourist: true }),
-  gig("Ayuda en eventos", "Eventos y temporada", ["evento", "apoyo", "fiesta", "armado"], "Por evento o por dia", "Puntualidad, energia y disposicion para varias tareas.", "Salones, organizadores, fiestas, paradores y productoras.", "facil", { tourist: true }),
-  gig("Armado y desarmado de eventos", "Eventos y temporada", ["armado", "desarmado", "evento", "sillas", "mesas"], "Por evento", "Fuerza fisica, puntualidad y trabajo en equipo.", "Organizadores, salones, fiestas y empresas de sonido.", "facil"),
-  gig("Acreditacion o control de acceso", "Eventos y temporada", ["acreditacion", "control de acceso", "evento", "publico"], "Por evento", "Buena presencia, orden y trato con personas.", "Eventos, ferias, fiestas, congresos y productoras.", "facil"),
-  gig("Promotor/a eventual", "Eventos y temporada", ["promotor", "promocion", "ventas", "clientes", "publico"], "Por evento o por dia", "Buen trato, presencia y facilidad para hablar con personas.", "Eventos, supermercados, lanzamientos, comercios y agencias.", "facil"),
-  gig("Atencion en paradores", "Eventos y temporada", ["parador", "playa", "temporada", "verano", "turismo"], "Por dia o temporada", "Disponibilidad en temporada, buena presencia y trato con clientes.", "Paradores, restaurantes, hoteles y comercios de playa.", "facil", { tourist: true }),
+  gig("Mozo/a eventual", "Eventos y temporada", ["mozo", "evento", "fiesta", "salón"], "Por evento", "Buena presencia, ritmo y disponibilidad nocturna o fin de semana.", "Salones, organizadores de eventos, hoteles y restaurantes.", "media", { tourist: true }),
+  gig("Ayuda en eventos", "Eventos y temporada", ["evento", "apoyo", "fiesta", "armado"], "Por evento o por día", "Puntualidad, energia y disposición para varias tareas.", "Salones, organizadores, fiestas, paradores y productoras.", "fácil", { tourist: true }),
+  gig("Armado y desarmado de eventos", "Eventos y temporada", ["armado", "desarmado", "evento", "sillas", "mesas"], "Por evento", "Fuerza física, puntualidad y trabajo en equipo.", "Organizadores, salónes, fiestas y empresas de sonido.", "fácil"),
+  gig("Acreditación o control de acceso", "Eventos y temporada", ["acreditación", "control de acceso", "evento", "público"], "Por evento", "Buena presencia, orden y trato con personas.", "Eventos, ferias, fiestas, congresos y productoras.", "fácil"),
+  gig("Promotor/a eventual", "Eventos y temporada", ["promotor", "promoción", "ventas", "clientes", "público"], "Por evento o por día", "Buen trato, presencia y fácilidad para hablar con personas.", "Eventos, supermercados, lanzamientos, comercios y agencias.", "fácil"),
+  gig("Atención en paradores", "Eventos y temporada", ["parador", "playa", "temporada", "verano", "turismo"], "Por día o temporada", "Disponibilidad en temporada, buena presencia y trato con clientes.", "Paradores, restaurantes, hoteles y comercios de playa.", "fácil", { tourist: true }),
 
   gig("Cocina casera por pedido", "Cocina y alimentos", ["cocina", "comida", "casera", "pedido"], "Por pedido", "Orden, higiene y saber preparar comidas simples.", "Vecinos, oficinas, redes sociales, grupos de barrio y conocidos.", "media"),
-  gig("Viandas", "Cocina y alimentos", ["viandas", "comida", "cocina", "familias"], "Por pedido o por semana", "Organizacion, higiene y constancia.", "Oficinas, familias, estudiantes, grupos barriales e Instagram.", "media"),
+  gig("Viandas", "Cocina y alimentos", ["viandas", "comida", "cocina", "familias"], "Por pedido o por semana", "Organización, higiene y constancia.", "Oficinas, familias, estudíantes, grupos barriales e Instagram.", "media"),
   gig("Reposteria casera", "Cocina y alimentos", ["reposteria", "tortas", "postres", "cocina"], "Por pedido", "Buena presentacion, higiene y cumplimiento de entregas.", "Redes sociales, vecinos, cumpleaños, oficinas y conocidos.", "media"),
-  gig("Ayudante de cocina eventual", "Cocina y alimentos", ["cocina", "ayudante", "evento", "restaurante"], "Por dia o por evento", "Orden, rapidez y disposicion para apoyar al equipo.", "Restaurantes, eventos, rotiserias y hoteles.", "facil", { tourist: true }),
+  gig("Ayudante de cocina eventual", "Cocina y alimentos", ["cocina", "ayudante", "evento", "restaurante"], "Por día o por evento", "Orden, rapidez y disposición para apoyar al equipo.", "Restaurantes, eventos, rotiserías y hoteles.", "fácil", { tourist: true }),
 
-  gig("Publicacion de productos en Marketplace", "Digital simple", ["marketplace", "publicaciones", "productos", "fotos", "redes", "ventas", "casa"], "Por tarea", "Celular o computadora, buena redaccion y orden.", "Comercios, emprendimientos, vendedores y redes.", "facil"),
-  gig("Atencion por WhatsApp", "Digital simple", ["whatsapp", "mensajes", "clientes", "respuesta", "ventas", "atencion", "casa"], "Por hora o por mes", "Responder claro, buena ortografia y constancia.", "Comercios, emprendimientos, inmobiliarias y tiendas.", "facil"),
-  gig("Respuesta a Instagram", "Digital simple", ["instagram", "redes", "mensajes", "clientes"], "Por hora o por mes", "Manejo basico de redes y buen trato.", "Emprendimientos, comercios, servicios y marcas chicas.", "facil"),
-  gig("Carga de datos basica", "Digital simple", ["datos", "computadora", "excel", "planillas", "casa", "remoto"], "Por tarea o por hora", "Computadora, orden y atencion al detalle.", "Oficinas, comercios, profesionales y emprendimientos.", "facil"),
-  gig("Organizacion de agenda", "Digital simple", ["agenda", "turnos", "whatsapp", "telefono", "casa", "remoto"], "Por hora o por mes", "Orden, comunicacion y responsabilidad.", "Consultorios, servicios, profesionales, esteticas y comercios.", "facil"),
+  gig("Publicación de productos en Marketplace", "Digital simple", ["marketplace", "publicaciones", "productos", "fotos", "redes", "ventas", "casa"], "Por tarea", "Celular o computadora, buena redacción y orden.", "Comercios, emprendimientos, vendedores y redes.", "fácil"),
+  gig("Atención por WhatsApp", "Digital simple", ["WhatsApp", "mensajes", "clientes", "respuesta", "ventas", "atención", "casa"], "Por hora o por mes", "Responder claro, buena ortografía y constancia.", "Comercios, emprendimientos, inmobiliarias y tiendas.", "fácil"),
+  gig("Respuesta a Instagram", "Digital simple", ["instagram", "redes", "mensajes", "clientes"], "Por hora o por mes", "Manejo básico de redes y buen trato.", "Emprendimientos, comercios, servicios y marcas chicas.", "fácil"),
+  gig("Carga de datos básica", "Digital simple", ["datos", "computadora", "excel", "planillas", "casa", "remoto"], "Por tarea o por hora", "Computadora, orden y atención al detalle.", "Oficinas, comercios, profesionales y emprendimientos.", "fácil"),
+  gig("Organización de agenda", "Digital simple", ["agenda", "turnos", "WhatsApp", "teléfono", "casa", "remoto"], "Por hora o por mes", "Orden, comunicación y responsabilidad.", "Consultorios, servicios, profesionales, estéticas y comercios.", "fácil"),
 
-  gig("Ayuda en mudanzas", "Mudanzas y fuerza fisica", ["mudanza", "muebles", "carga", "descarga"], "Por tarea o por dia", "Fuerza fisica, cuidado y puntualidad.", "Vecinos, fletes, Marketplace y grupos barriales.", "facil"),
-  gig("Carga y descarga", "Mudanzas y fuerza fisica", ["carga", "descarga", "deposito", "camion"], "Por dia o por tarea", "Fuerza, disponibilidad y cuidado con mercaderia.", "Depositos, ferias, repartos, mudanzas y comercios.", "facil"),
-  gig("Orden de depositos", "Mudanzas y fuerza fisica", ["deposito", "orden", "stock", "mercaderia"], "Por dia", "Orden, fuerza si aplica y constancia.", "Depositos chicos, comercios, talleres y ferias.", "facil"),
-  gig("Apoyo en ferias o armado de puestos", "Mudanzas y fuerza fisica", ["feria", "puesto", "armado", "carga"], "Por dia o evento", "Puntualidad, fuerza y ganas de apoyar.", "Ferias, puestos, eventos, mercados y emprendimientos.", "facil"),
+  gig("Ayuda en mudanzas", "Mudanzas y fuerza física", ["mudanza", "muebles", "carga", "descarga"], "Por tarea o por día", "Fuerza física, cuidado y puntualidad.", "Vecinos, fletes, Marketplace y grupos barriales.", "fácil"),
+  gig("Carga y descarga", "Mudanzas y fuerza física", ["carga", "descarga", "depósito", "camión"], "Por día o por tarea", "Fuerza, disponibilidad y cuidado con mercadería.", "Depósitos, ferias, repartos, mudanzas y comercios.", "fácil"),
+  gig("Orden de depósitos", "Mudanzas y fuerza física", ["depósito", "orden", "stock", "mercadería"], "Por día", "Orden, fuerza si aplica y constancia.", "Depósitos chicos, comercios, talleres y ferias.", "fácil"),
+  gig("Apoyo en ferias o armado de puestos", "Mudanzas y fuerza física", ["feria", "puesto", "armado", "carga"], "Por día o evento", "Puntualidad, fuerza y ganas de apoyar.", "Ferias, puestos, eventos, mercados y emprendimientos.", "fácil"),
 ];
 
 function gig(name, category, keywords, payType, needs, places, ease, flags = {}) {
@@ -283,13 +283,13 @@ function role(title, sectorKey, keywords, workMode, level, family, flags = {}) {
   };
 }
 
-function suggestion(type, keywords, areas, reason) {
+function suggestion(type, keywords, áreas, reason) {
   return {
     type,
     keywords,
-    areas,
+    áreas,
     reason,
-    message: `Hola, buen dia. Estoy buscando trabajo y me interesa postularme en ${type}. Tengo disponibilidad y puedo enviar mi perfil si estan tomando personal.`,
+    message: `Hola, buen día. Estoy buscando trabajo y me interesa postularme en ${type}. Tengo disponibilidad y puedo enviar mi perfil si estan tomando personal.`,
   };
 }
 
@@ -330,7 +330,7 @@ export function createRecommendationResult(profile) {
     advice: createAdvice(profile, recommendations, context),
     nextSteps: createNextSteps(profile, recommendations),
     companySuggestions: createCompanySuggestions(profile, recommendations, context),
-    whatsappMessage: createWhatsappMessage(profile, recommendations),
+    WhatsAppMessage: createWhatsAppMessage(profile, recommendations),
     miniCv: createMiniCv(profile, recommendations),
   };
 }
@@ -400,7 +400,7 @@ function scoreRole(item, profile, context) {
   if (context.wantsChangas && changaSectors.includes(item.sectorKey) && interestMatch) score += 5;
   if (context.wantsChangas && item.workMode.includes("changa") && hasMatch) score += 3;
   if (context.wantsSeasonal && ["hotel", "food", "events", "cleaning", "sales"].includes(item.sectorKey)) score += hasMatch ? 7 : 3;
-  if (!context.hasExperience && (hasMatch || interestMatch || entryFamilies.includes(item.family)) && item.level === "basico") score += 8;
+  if (!context.hasExperience && (hasMatch || interestMatch || entryFamilies.includes(item.family)) && item.level === "básico") score += 8;
   if (context.text.includes("noche") && ["security", "care", "food"].includes(item.sectorKey)) score += 2;
   if (context.text.includes("fines de semana") && ["food", "hotel", "events", "sales"].includes(item.sectorKey)) score += 2;
   if (profile.workType === "fijo" && item.workMode.includes("fijo")) score += 3;
@@ -430,9 +430,9 @@ function scoreGig(item, profile, context) {
   if (context.interestText.includes("changa")) score += 5;
   if (context.wantsChangas) score += directSignal ? 8 : 4;
   if (context.wantsSeasonal && (item.tourist || item.category === "Eventos y temporada")) score += directSignal ? 6 : 3;
-  if (context.isTouristLocation && (item.tourist || ["Eventos y temporada", "Hogar y limpieza", "Cocina y alimentos", "Jardin y mantenimiento"].includes(item.category))) score += directSignal || item.tourist ? 5 : 1;
+  if (context.isTouristLocation && (item.tourist || ["Eventos y temporada", "Hogar y limpieza", "Cocina y alimentos", "Jardín y mantenimiento"].includes(item.category))) score += directSignal || item.tourist ? 5 : 1;
   if ((context.hasLicense || context.hasTransport) && (item.mobility || item.category === "Reparto y mandados")) score += 9;
-  if (!context.hasExperience && item.ease === "facil") score += directSignal ? 5 : 2;
+  if (!context.hasExperience && item.ease === "fácil") score += directSignal ? 5 : 2;
   if (profile.workType === "fijo" && item.payType.includes("Por mes")) score += 2;
 
   if (item.mobility && !context.hasLicense && !context.hasTransport) score -= 6;
@@ -450,7 +450,7 @@ function scoreGig(item, profile, context) {
 function selectGigs(scored, context) {
   const minimum = 8;
   const pool = scored.filter((item) => item.score >= minimum);
-  const fallbackNames = ["Limpieza por hora", "Mandados", "Ayuda en eventos", "Pet sitter", "Carga y descarga", "Publicacion de productos en Marketplace"];
+  const fallbackNames = ["Limpieza por hora", "Mandados", "Ayuda en eventos", "Pet sitter", "Carga y descarga", "Publicación de productos en Marketplace"];
   const fallback = fallbackNames.map((name) => scored.find((item) => item.name === name)).filter(Boolean);
   const selected = [];
   const categories = new Map();
@@ -459,7 +459,7 @@ function selectGigs(scored, context) {
     if (!item || selected.some((selectedItem) => selectedItem.name === item.name)) continue;
     if (selected.length >= 6) break;
     const categoryCount = categories.get(item.category) || 0;
-    const categoryLimit = item.category === "Digital simple" ? 4 : item.category === "Reparto y mandados" ? 3 : item.category === "Jardin y mantenimiento" ? 5 : 2;
+    const categoryLimit = item.category === "Digital simple" ? 4 : item.category === "Reparto y mandados" ? 3 : item.category === "Jardín y mantenimiento" ? 5 : 2;
     if (categoryCount >= categoryLimit) continue;
     selected.push(item);
     categories.set(item.category, categoryCount + 1);
@@ -485,29 +485,29 @@ function enrichGig(item, profile, context, index) {
 
 function createGigReason(item, context) {
   if (item.matches.length) {
-    return `Podria encajar contigo porque mencionaste ${item.matches.slice(0, 3).join(", ")}.`;
+    return `Podría encajar contigo porque mencionaste ${item.matches.slice(0, 3).join(", ")}.`;
   }
   if (context.wantsChangas) {
-    return "Como estas buscando changas o trabajos eventuales, esta puede ser una idea simple para ofrecer en tu zona.";
+    return "Como estás buscando changas o trabajos eventuales, esta puede ser una idea simple para ofrecer en tu zona.";
   }
-  if (!context.hasExperience && item.ease === "facil") {
+  if (!context.hasExperience && item.ease === "fácil") {
     return "Puede servir como entrada porque no exige gran experiencia previa y permite mostrar responsabilidad.";
   }
   if (context.isTouristLocation && item.tourist) {
     return "Tu zona puede tener movimiento de temporada, turismo o alquileres temporales.";
   }
-  return "Es una idea de changa posible segun tu disponibilidad, zona y habilidades.";
+  return "Es una idea de changa posible según tu disponibilidad, zona y habilidades.";
 }
 
 function createGigMessage(item, profile) {
   const location = profile.location || "la zona";
-  return `Hola, buenas. Estoy ofreciendo ${item.name.toLowerCase()} en ${location}. Tengo disponibilidad y soy una persona responsable. Les puedo pasar mas informacion si les interesa.`;
+  return `Hola, buenas. Estoy ofreciendo ${item.name.toLowerCase()} en ${location}. Tengo disponibilidad y soy una persona responsable. Les puedo pasar más información si les interesa.`;
 }
 
 function selectDiverse(scored, context) {
   const useful = scored.filter((item) => item.score >= 5);
   const fallback = roleCatalog
-    .filter((item) => ["Auxiliar de limpieza", "Repositor/a", "Atencion al publico", "Cadete", "Personal zafral de temporada", "Auxiliar de deposito"].includes(item.title))
+    .filter((item) => ["Auxiliar de limpieza", "Repositor/a", "Atención al público", "Cadete", "Personal zafral de temporada", "Auxiliar de depósito"].includes(item.title))
     .map((item) => scoreRole(item, {}, context))
     .filter((item) => context.hasExperience ? item.score >= 5 : item.score >= 8);
   const pool = [...useful, ...fallback].filter((item, index, list) => list.findIndex((other) => other.title === item.title) === index);
@@ -542,22 +542,22 @@ function enrichRole(item, context) {
 }
 
 function createReason(item, context) {
-  if (!context.hasExperience && item.level === "basico") {
-    return "Puede servirte como entrada si estas buscando empezar rapido y mostrar responsabilidad, disponibilidad y ganas de aprender.";
+  if (!context.hasExperience && item.level === "básico") {
+    return "Puede servirte como entrada si estás buscando empezar rápido y mostrar responsabilidad, disponibilidad y ganas de aprender.";
   }
   if (item.matches.length) {
-    return `Con lo que contaste, aparecen senales relacionadas con ${item.matches.slice(0, 3).join(", ")}. Por eso este puesto podria encajar contigo.`;
+    return `Con lo que contaste, aparecen senales relacionadas con ${item.matches.slice(0, 3).join(", ")}. Por eso este puesto podría encajar contigo.`;
   }
   if (context.isTouristLocation && touristSectors.includes(item.sectorKey)) {
-    return "Tu zona puede tener demanda en turismo, temporada, servicios, gastronomia u hoteleria.";
+    return "Tu zona puede tener demanda en turismo, temporada, servicios, gastronomía u hotelería.";
   }
-  return "Tu experiencia tambien suma, aunque no haya sido en una empresa formal. Este puesto puede ser una opcion real para explorar.";
+  return "Tu experiencia también suma, aunque no haya sido en una empresa formal. Este puesto puede ser una opción real para explorar.";
 }
 
 function createTip(item, context) {
-  if (context.wantsChangas) return "Podrias ofrecerte por WhatsApp, en comercios cercanos, grupos barriales o buscando empresas de tu zona.";
-  if (item.mobility || item.license) return "Aclaralo desde el primer mensaje: libreta, locomocion, zonas donde te moves y horarios.";
-  if (item.level === "basico") return "Mostra buena actitud, puntualidad, disponibilidad y tareas concretas que ya hiciste.";
+  if (context.wantsChangas) return "Podrías ofrecerte por WhatsApp, en comercios cercanos, grupos barriales o buscando empresas de tu zona.";
+  if (item.mobility || item.license) return "Aclarálo desde el primer mensaje: libreta, locomoción, zonas donde te moves y horarios.";
+  if (item.level === "básico") return "Mostrá buena actitud, puntualidad, disponibilidad y tareas concretas que ya hiciste.";
   return "Conta ejemplos simples y concretos de trabajos anteriores, aunque hayan sido changas o tareas informales.";
 }
 
@@ -566,12 +566,12 @@ function createCompanySuggestions(profile, recommendations, context) {
   return companySuggestions
     .map((item) => {
       const keywordScore = item.keywords.filter((keyword) => context.text.includes(normalize(keyword))).length * 2;
-      const areaScore = item.areas.filter((area) => areas.includes(area)).length * 3;
+      const áreaScore = item.areas.filter((área) => áreas.includes(área)).length * 3;
       const locationScore = context.isTouristLocation && ["Hoteles", "Restaurantes"].includes(item.type) ? 3 : 0;
       return {
         ...item,
-        score: keywordScore + areaScore + locationScore,
-        mapsTip: `Busca en Google Maps o Instagram: "${item.type} en ${profile.location || "tu zona"}" y escribile a lugares cercanos.`,
+        score: keywordScore + áreaScore + locationScore,
+        mapsTip: `Buscá en Google Maps o Instagram: "${item.type} en ${profile.location || "tu zona"}" y escribíle a lugares cercanos.`,
       };
     })
     .sort((a, b) => b.score - a.score || a.type.localeCompare(b.type))
@@ -581,42 +581,42 @@ function createCompanySuggestions(profile, recommendations, context) {
 function createProfileSummary(profile, recommendations, context) {
   const areas = [...new Set(recommendations.map((item) => item.area))].slice(0, 3).join(", ");
   const location = [profile.location, profile.department].filter(Boolean).join(", ") || "Uruguay";
-  const base = `${profile.name || "Tu perfil"} tiene informacion que puede servir para ${areas || "trabajos de entrada"} en ${location}.`;
-  if (!context.hasExperience) return `${base} Si no tenes experiencia formal, igual podes destacar responsabilidad, disponibilidad y ganas de aprender.`;
-  return `${base} Con lo que contaste, estas oportunidades podrian encajar contigo y ayudarte a postularte mejor.`;
+  const base = `${profile.name || "Tu perfil"} tiene información que puede servir para ${areas || "trabajos de entrada"} en ${location}.`;
+  if (!context.hasExperience) return `${base} Si no tenés experiencia formal, igual podés destacar responsabilidad, disponibilidad y ganas de aprender.`;
+  return `${base} Con lo que contaste, estas oportunidades podrían encajar contigo y ayudarte a postularte mejor.`;
 }
 
 function createAdvice(profile, recommendations, context) {
   const advice = [
-    "No necesitas tener un CV perfecto. Lo importante es contar claro que sabes hacer y cuando podes empezar.",
-    "Tu experiencia tambien suma, aunque haya sido informal, zafral, familiar o por changas.",
-    "Manda un mensaje corto, educado y directo. En Uruguay eso ayuda mucho.",
+    "No necesitás tener un CV perfecto. Lo importante es contar claro que sabés hacer y cuándo podés empezar.",
+    "Tu experiencia también suma, aunque haya sido informal, zafral, familiar o por changas.",
+    "Mandá un mensaje corto, educado y directo. En Uruguay eso ayuda mucho.",
   ];
-  if (!context.hasExperience) advice.push("Si estas empezando, destaca puntualidad, buena actitud y ganas de aprender.");
-  if (profile.hasLicense === "si") advice.push("Menciona la libreta de conducir desde el primer mensaje.");
-  if (profile.hasTransport === "si") advice.push("Aclara que tenes locomocion propia porque puede abrir opciones de reparto, cadeteria o zonas mas lejanas.");
-  if (recommendations.some((item) => item.workMode.includes("changa"))) advice.push("Para changas, ofrece tareas concretas, precio a coordinar y zonas donde podes moverte.");
+  if (!context.hasExperience) advice.push("Si estás empezando, destacá puntualidad, buena actitud y ganas de aprender.");
+  if (profile.hasLicense === "si") advice.push("Mencioná la libreta de conducir desde el primer mensaje.");
+  if (profile.hasTransport === "si") advice.push("Aclará que tenés locomoción propia porque puede abrir opciones de reparto, cadetería o zonas más lejanas.");
+  if (recommendations.some((item) => item.workMode.includes("changa"))) advice.push("Para changas, ofrecé tareas concretas, precio a coordinar y zonas donde podés moverte.");
   return advice.slice(0, 6);
 }
 
 function createNextSteps(profile, recommendations) {
-  const topRole = recommendations[0]?.title || "el puesto que mas te interese";
+  const topRole = recommendations[0]?.title || "el puesto que más te interese";
   return [
-    `Copia el mensaje de WhatsApp y adaptalo para postularte a ${topRole}.`,
-    "Busca empresas cercanas en Google Maps, Instagram o comercios de tu zona.",
-    "Guarda tu mini CV y revisa que horarios, zona y contacto esten bien.",
-    "Prepara dos ejemplos simples de tareas que hiciste bien, aunque hayan sido changas.",
-    "Actualiza tu perfil cuando cambie tu disponibilidad o sumes experiencia.",
+    `Copiá el mensaje de WhatsApp y adaptalo para postularte a ${topRole}.`,
+    "Buscá empresas cercanas en Google Maps, Instagram o comercios de tu zona.",
+    "Guardá tu mini CV y revisá que horarios, zona y contacto estén bien.",
+    "Prepará dos ejemplos simples de tareas que hiciste bien, aunque hayan sido changas.",
+    "Actualizá tu perfil cuando cambie tu disponibilidad o sumes experiencia.",
   ];
 }
 
-function createWhatsappMessage(profile, recommendations) {
+function createWhatsAppMessage(profile, recommendations) {
   const name = profile.name || "mi nombre";
   const location = profile.location || "Uruguay";
   const topRole = recommendations[0]?.title || "el puesto";
   const availability = profile.availability || "disponibilidad a coordinar";
-  const experience = profile.experience || "buena disposicion y ganas de trabajar";
-  return `Hola, buen dia. Mi nombre es ${name}, soy de ${location} y me interesa postularme para ${topRole}. Tengo experiencia o habilidades en ${experience}. Cuento con ${availability}. Quedo a las ordenes para enviar mas informacion o coordinar una entrevista. Muchas gracias.`;
+  const experience = profile.experience || "buena disposición y ganas de trabajar";
+  return `Hola, buen día. Mi nombre es ${name}, soy de ${location} y me interesa postularme para ${topRole}. Tengo experiencia o habilidades en ${experience}. Cuento con ${availability}. Quedo a las órdenes para enviar más información o coordinar una entrevista. Muchas gracias.`;
 }
 
 function createMiniCv(profile, recommendations) {
@@ -627,12 +627,12 @@ function createMiniCv(profile, recommendations) {
     profile.department ? `Departamento: ${profile.department}` : null,
     profile.age ? `Edad: ${profile.age}` : null,
     `Experiencia: ${profile.experience || "Sin experiencia formal declarada"}`,
-    `Tareas y habilidades: ${profile.skills || "Buena disposicion para aprender"}`,
+    `Tareas y habilidades: ${profile.skills || "Buena disposición para aprender"}`,
     `Estudios: ${profile.education || "Sin especificar"}`,
     `Disponibilidad: ${profile.availability || "A coordinar"}`,
     `Tipo de trabajo buscado: ${profile.workType || "cualquiera"}`,
-    `Locomocion propia: ${profile.hasTransport === "si" ? "Si" : "No"}`,
-    `Libreta de conducir: ${profile.hasLicense === "si" ? "Si" : "No"}`,
+    `Locomoción propia: ${profile.hasTransport === "si" ? "Sí" : "No"}`,
+    `Libreta de conducir: ${profile.hasLicense === "si" ? "Sí" : "No"}`,
     `Puestos recomendados: ${topRoles}`,
     profile.contact ? `Contacto: ${profile.contact}` : null,
   ]
