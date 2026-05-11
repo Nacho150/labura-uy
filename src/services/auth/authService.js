@@ -47,7 +47,7 @@ export function isAuthConfigured() {
 
 export async function signUp(email, password) {
   if (!hasSupabase()) {
-    throw new Error("Supabase no esta configurado todavia.");
+    throw new Error("Supabase no está configurado todavía.");
   }
 
   const response = await fetch(authUrl("signup"), {
@@ -67,7 +67,7 @@ export async function signUp(email, password) {
 
 export async function signIn(email, password) {
   if (!hasSupabase()) {
-    throw new Error("Supabase no esta configurado todavia.");
+    throw new Error("Supabase no está configurado todavía.");
   }
 
   const response = await fetch(authUrl("token?grant_type=password"), {
@@ -77,10 +77,10 @@ export async function signIn(email, password) {
   });
 
   const data = await response.json().catch(() => ({}));
-  if (!response.ok) throw new Error(data.msg || data.error_description || "Email o contrasena incorrectos.");
+  if (!response.ok) throw new Error(data.msg || data.error_description || "Email o contraseña incorrectos.");
 
   const session = normalizeSession(data);
-  if (!session) throw new Error("No se pudo iniciar sesion.");
+  if (!session) throw new Error("No se pudo iniciar sesión.");
   saveSession(session);
 
   return session;
@@ -97,7 +97,7 @@ export function signOut() {
 export function getAuthHeaders() {
   const session = getSession();
   if (!session?.access_token) {
-    throw new Error("Necesitas iniciar sesion para guardar o ver tu perfil.");
+    throw new Error("Necesitas iniciar sesión para guardar o ver tu perfil.");
   }
 
   return {

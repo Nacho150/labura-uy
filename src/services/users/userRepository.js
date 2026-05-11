@@ -2,7 +2,7 @@ export const userRepository = {
   async saveProfile(profileRecord) {
     return {
       ok: false,
-      reason: "No hay base de datos configurada todavia.",
+      reason: "No hay base de datos configurada todavía.",
       plannedRecord: profileRecord,
     };
   },

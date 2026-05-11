@@ -43,7 +43,7 @@ async function upsertOwnProfile(payload) {
 
   const session = getSession();
   if (!session?.user?.id) {
-    throw new Error("Necesitas iniciar sesion para guardar tu perfil.");
+    throw new Error("Necesitas iniciar sesión para guardar tu perfil.");
   }
 
   const record = {
@@ -105,12 +105,12 @@ export async function getAdminProfiles() {
   });
 
   if (!adminResponse.ok) {
-    throw new Error("No tenes permisos para ver el panel admin.");
+    throw new Error("No tenés permisos para ver el panel admin.");
   }
 
   const adminRows = await adminResponse.json();
   if (!adminRows.length) {
-    throw new Error("No tenes permisos para ver el panel admin.");
+    throw new Error("No tenés permisos para ver el panel admin.");
   }
 
   const response = await fetch(
@@ -126,7 +126,7 @@ export async function getAdminProfiles() {
 
   if (!response.ok) {
     const details = await response.text();
-    throw new Error(details || "No tenes permisos para ver el panel admin.");
+    throw new Error(details || "No tenés permisos para ver el panel admin.");
   }
 
   return response.json();
@@ -169,7 +169,7 @@ export async function saveProfile(profile, result) {
     desired_work_type: profile.workType,
     interested_categories: profile.interests || [],
     recommended_jobs: result.recommendations || [],
-    whatsapp_message: result.whatsappMessage,
+    WhatsApp_message: result.WhatsAppMessage,
     mini_cv: result.miniCv,
     updated_at: now,
   });
