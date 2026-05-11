@@ -52,14 +52,11 @@ async function upsertOwnProfile(payload) {
     email: payload.email || session.user.email || null,
   };
 
-  const existing = await getMyProfile();
-  const query = existing?.id ? `?id=eq.${encodeURIComponent(existing.id)}` : "";
-
-  const response = await fetch(restUrl("profiles", query), {
-    method: existing?.id ? "PATCH" : "POST",
+  const response = await fetch(restUrl("profiles", "?on_conflict=user_id"), {
+    method: "POST",
     headers: {
       ...getAuthHeaders(),
-      Prefer: "return=representation",
+      Prefer: "resolution=merge-duplicates,return=representation",
     },
     body: JSON.stringify(record),
   });
@@ -169,7 +166,7 @@ export async function saveProfile(profile, result) {
     desired_work_type: profile.workType,
     interested_categories: profile.interests || [],
     recommended_jobs: result.recommendations || [],
-    WhatsApp_message: result.WhatsAppMessage,
+    whatsapp_message: result.WhatsAppMessage,
     mini_cv: result.miniCv,
     updated_at: now,
   });
@@ -204,6 +201,21 @@ export function mapStoredProfile(row) {
     workType: row.desired_work_type || "cualquiera",
     interests: Array.isArray(row.interested_categories) ? row.interested_categories : [],
     contact: row.phone || row.email || "",
+  };
+}
+
+export function mapStoredResult(row, fallbackResult) {
+  if (!row) return fallbackResult;
+
+  const recommendedJobs = Array.isArray(row.recommended_jobs) && row.recommended_jobs.length
+    ? row.recommended_jobs
+    : fallbackResult.recommendations;
+
+  return {
+    ...fallbackResult,
+    recommendations: recommendedJobs,
+    WhatsAppMessage: row.whatsapp_message || row.WhatsApp_message || fallbackResult.WhatsAppMessage,
+    miniCv: row.mini_cv || fallbackResult.miniCv,
   };
 }
 
