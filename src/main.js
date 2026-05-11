@@ -337,7 +337,7 @@ function FinalCta() {
         <h2>Creá tu perfil laboral en pocos minutos</h2>
         <p>No necesitás tener todo perfecto. Empezá con lo que ya sabés hacer.</p>
       </div>
-      <button class="primary-button" type="button" data-action="start">Empezár ahora</button>
+      <button class="primary-button" type="button" data-action="start">Empezar ahora</button>
     </section>
   `;
 }
@@ -618,7 +618,7 @@ function Results(current, result) {
         <button class="primary-button" type="button" data-action="save-profile">${saveStatus === "saving" ? "Guardando..." : "Guardar o actualizar mi perfil"}</button>
         ${savedProfile ? `<button class="secondary-button" type="button" data-action="profile">Ver mi perfil</button>` : ""}
         <button class="primary-button" type="button" data-action="edit">Ajustar mis datos</button>
-        <button class="secondary-button" type="button" data-action="restart">Empezár de nuevo</button>
+        <button class="secondary-button" type="button" data-action="restart">Empezar de nuevo</button>
       </div>
       ${saveStatus === "error" ? `<div class="form-error">No se pudo guardar. Revisa la configuración de Supabase o probá de nuevo.</div>` : ""}
     </section>
