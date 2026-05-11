@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --blue: #0ea5e9;
   --blue-dark: #075985;
   --blue-mid: #38bdf8;
@@ -24,7 +24,8 @@
   --radius-sm: 10px;
   --button-radius: 10px;
   color: var(--text);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: Manrope, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 400;
   background: var(--bg);
 }
 
@@ -39,6 +40,8 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  font-weight: 400;
+  line-height: 1.5;
   background:
     linear-gradient(90deg, rgba(7, 89, 133, 0.045) 1px, transparent 1px),
     linear-gradient(180deg, rgba(7, 89, 133, 0.04) 1px, transparent 1px),
@@ -57,6 +60,20 @@ input,
 select,
 textarea {
   font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+strong {
+  font-weight: 600;
+}
+
+p,
+li,
+small {
+  font-weight: 400;
 }
 
 button {
@@ -129,7 +146,7 @@ textarea:focus-visible {
   color: #ffffff;
   display: inline-flex;
   font-size: 0.78rem;
-  font-weight: 950;
+  font-weight: 600;
   height: 42px;
   justify-content: center;
   min-width: 42px;
@@ -142,7 +159,7 @@ textarea:focus-visible {
   color: var(--blue-dark);
   display: none;
   font-size: 0.78rem;
-  font-weight: 950;
+  font-weight: 600;
   margin-left: auto;
   padding: 8px 12px;
 }
@@ -163,7 +180,7 @@ textarea:focus-visible {
   border: 1px solid transparent;
   border-radius: var(--button-radius);
   color: var(--blue-dark);
-  font-weight: 900;
+  font-weight: 500;
   min-height: 40px;
   padding: 0 12px;
   white-space: nowrap;
@@ -190,7 +207,7 @@ textarea:focus-visible {
 .brand-copy small {
   color: var(--muted-2);
   font-size: 0.72rem;
-  font-weight: 750;
+  font-weight: 400;
 }
 
 .header-action {
@@ -198,7 +215,7 @@ textarea:focus-visible {
   border: 1px solid var(--blue);
   border-radius: var(--button-radius);
   color: #ffffff;
-  font-weight: 850;
+  font-weight: 500;
   min-height: 42px;
   padding: 0 18px;
   box-shadow: 0 10px 22px rgba(14, 165, 233, 0.18);
@@ -272,7 +289,7 @@ textarea:focus-visible {
   border-radius: var(--button-radius);
   color: var(--blue-dark);
   font-size: 0.82rem;
-  font-weight: 900;
+  font-weight: 500;
   padding: 8px 10px;
 }
 
@@ -425,7 +442,7 @@ fieldset,
   color: var(--blue-dark);
   display: inline-flex;
   font-size: 0.82rem;
-  font-weight: 900;
+  font-weight: 500;
   letter-spacing: 0;
   padding: 7px 10px;
 }
@@ -480,7 +497,7 @@ fieldset,
   align-items: center;
   border-radius: var(--button-radius);
   display: inline-flex;
-  font-weight: 900;
+  font-weight: 500;
   justify-content: center;
   letter-spacing: 0;
   min-height: 56px;
@@ -545,7 +562,7 @@ fieldset,
   color: var(--blue-dark);
   display: inline-flex;
   font-size: 0.92rem;
-  font-weight: 850;
+  font-weight: 500;
   min-height: 38px;
   padding: 8px 12px;
 }
@@ -619,7 +636,7 @@ fieldset,
 
 .preview-list span {
   color: #ffffff;
-  font-weight: 800;
+  font-weight: 500;
 }
 
 .preview-list strong {
@@ -627,7 +644,7 @@ fieldset,
   border-radius: var(--button-radius);
   color: var(--blue-dark);
   font-size: 0.8rem;
-  font-weight: 950;
+  font-weight: 600;
   padding: 7px 10px;
   white-space: nowrap;
 }
@@ -637,7 +654,7 @@ fieldset,
   border: 1px solid rgba(224, 242, 254, 0.18);
   border-radius: var(--radius-sm);
   color: #e0f2fe;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.45;
   margin-top: 12px;
   padding: 12px;
@@ -659,7 +676,7 @@ fieldset,
   border-radius: var(--radius-sm);
   color: var(--sky-soft);
   font-size: 0.78rem;
-  font-weight: 800;
+  font-weight: 500;
   padding: 10px;
   text-align: center;
 }
@@ -689,7 +706,7 @@ fieldset,
   color: #ffffff;
   display: inline-flex;
   font-size: 0.9rem;
-  font-weight: 950;
+  font-weight: 600;
   height: 38px;
   justify-content: center;
   width: 38px;
@@ -745,7 +762,7 @@ fieldset,
   color: var(--blue-dark);
   display: inline-flex;
   font-size: 0.9rem;
-  font-weight: 900;
+  font-weight: 500;
   justify-content: center;
   min-height: 44px;
   padding: 10px 12px;
@@ -847,7 +864,7 @@ fieldset,
   color: var(--text);
   display: flex;
   gap: 10px;
-  font-weight: 760;
+  font-weight: 400;
   padding: 13px;
 }
 
@@ -859,7 +876,7 @@ fieldset,
   display: inline-flex;
   flex: 0 0 auto;
   font-size: 0.68rem;
-  font-weight: 950;
+  font-weight: 600;
   height: 28px;
   justify-content: center;
   width: 28px;
@@ -979,7 +996,7 @@ fieldset,
   background: var(--surface-2);
   color: var(--blue-dark);
   font-size: 0.78rem;
-  font-weight: 950;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -999,7 +1016,7 @@ fieldset,
   background: var(--danger-soft);
   border-color: #fecdd3;
   color: var(--danger);
-  font-weight: 850;
+  font-weight: 500;
 }
 
 .profile-form {
@@ -1016,7 +1033,7 @@ fieldset {
   color: var(--text);
   display: flex;
   flex-direction: column;
-  font-weight: 900;
+  font-weight: 500;
   gap: 8px;
   margin: 0;
   padding: 17px;
@@ -1084,7 +1101,7 @@ textarea {
   border: 0;
   border-radius: var(--button-radius);
   color: var(--muted);
-  font-weight: 900;
+  font-weight: 500;
   min-height: 44px;
 }
 
@@ -1096,14 +1113,14 @@ textarea {
 
 .field-title {
   color: var(--blue-dark);
-  font-weight: 950;
+  font-weight: 500;
   margin: 0 0 6px;
 }
 
 .field-help {
   color: var(--muted-2);
   font-size: 0.9rem;
-  font-weight: 650;
+  font-weight: 400;
   line-height: 1.42;
 }
 
@@ -1119,7 +1136,7 @@ textarea {
   border: 1px solid var(--border);
   border-radius: var(--button-radius);
   color: var(--text);
-  font-weight: 850;
+  font-weight: 500;
   min-height: 42px;
   padding: 0 14px;
 }
@@ -1174,7 +1191,7 @@ textarea {
 .compatibility {
   border-radius: var(--button-radius);
   font-size: 0.8rem;
-  font-weight: 950;
+  font-weight: 500;
   padding: 8px 10px;
   white-space: nowrap;
 }
@@ -1220,7 +1237,7 @@ textarea {
 .trust-panel p {
   border-left: 4px solid var(--sky);
   color: var(--text);
-  font-weight: 820;
+  font-weight: 500;
   line-height: 1.42;
   margin: 0;
   padding-left: 10px;
@@ -1235,7 +1252,7 @@ textarea {
 .results-label span {
   color: var(--blue-dark);
   font-size: 1.12rem;
-  font-weight: 950;
+  font-weight: 500;
 }
 
 .results-label p {
@@ -1277,7 +1294,7 @@ textarea {
   color: var(--blue);
   display: block;
   font-size: 0.8rem;
-  font-weight: 950;
+  font-weight: 500;
   margin-bottom: 5px;
 }
 
@@ -1426,7 +1443,7 @@ textarea {
 .company-type {
   color: var(--blue-dark);
   font-size: 1.08rem;
-  font-weight: 950;
+  font-weight: 600;
 }
 
 .company-message {
@@ -1681,3 +1698,4 @@ textarea {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
