@@ -1,49 +1,49 @@
-# Labura UY
+# Laburá UY
 
-Labura UY es una herramienta web para Uruguay que ayuda a personas a crear un perfil laboral simple, recibir recomendaciones de puestos posibles y postularse mejor con un mensaje de WhatsApp y un mini CV.
+Laburá UY es una herramienta web para Uruguay que ayuda a personas a crear un perfil laboral simple, recibir recomendaciones de puestos posibles y postularse mejor con un mensaje de WhatsApp y un mini CV.
 
-La app mantiene una landing publica, pero ahora permite crear cuenta e iniciar sesion con Supabase Auth para que cada persona tenga su propio perfil privado.
+La app mantiene una landing pública, pero ahora permite crear cuenta e iniciar sesión con Supabase Auth para que cada persona tenga su propio perfil privado.
 
-## Que hace
+## Qué hace
 
-- Registro e inicio de sesion con email y contrasena usando Supabase Auth.
-- No guarda contrasenas manualmente.
+- Registro e inicio de sesión con email y contraseña usando Supabase Auth.
+- No guarda contraseñas manualmente.
 - Permite crear, guardar, ver y editar un perfil laboral propio.
-- Recomienda puestos segun experiencia, habilidades, zona, disponibilidad, estudios, libreta, locomocion, rubros de interes y tipo de trabajo buscado.
+- Recomienda puestos según experiencia, habilidades, zona, disponibilidad, estudios, libreta, locomoción, rubros de interés y tipo de trabajo buscado.
 - Genera mensaje listo para WhatsApp y mini CV textual.
 - Protege perfiles con Row Level Security: cada usuario solo ve y edita su perfil.
 - Incluye un panel privado admin para ver perfiles creados y validar demanda.
-- Mantiene una lista de interes para empresas, sin panel publico todavia.
+- Mantiene una lista de interés para empresas, sin panel público todavía.
 
-## Secciones institucionales
+## Secciónes institucionales
 
 La landing incluye:
 
-- `Quienes somos`: explica el origen y proposito social de Labura UY.
-- `Para quien es`: muestra perfiles de personas para quienes la herramienta puede servir.
-- `Como se usa`: resume el flujo en pasos simples.
-- `Changas cerca de vos`: muestra ideas de trabajos por hora, por dia o eventuales segun el perfil.
+- `Quiénes somos`: explica el origen y propósito social de Laburá UY.
+- `Para quién es`: muestra perfiles de personas para quiénes la herramienta puede servir.
+- `Cómo se usa`: resume el flujo en pasos simples.
+- `Changas cerca de vos`: muestra ideas de trabajos por hora, por día o eventuales según el perfil.
 
-La navegacion superior permite ir a:
+La navegación superior permite ir a:
 
 - Inicio.
-- Quienes somos.
-- Para quien es.
-- Como se usa.
+- Quiénes somos.
+- Para quién es.
+- Cómo se usa.
 - Changas.
 - Crear perfil.
 - Mi perfil.
-- Iniciar sesion o cerrar sesion.
+- Iniciar sesión o cerrar sesión.
 
-## Tecnologia
+## Tecnología
 
-- App estatica con JavaScript puro.
+- App estática con JavaScript puro.
 - Estilos en CSS.
 - Supabase Auth y Supabase Database.
 - Sin React, Next.js ni Tailwind.
-- Sin scraping, pagos ni panel publico de candidatos.
+- Sin scraping, pagos ni panel público de candidatos.
 
-## Como correr localmente
+## Cómo correr localmente
 
 ```bash
 npm install
@@ -79,19 +79,19 @@ En Vercel van en:
 Project Settings > Environment Variables
 ```
 
-Usar solo la `Publishable key` o anon key publica. No usar `service_role` en el frontend.
+Usar solo la `Publishable key` o anon key pública. No usar `service_role` en el frontend.
 
 ## Configurar Supabase Auth
 
 1. En Supabase, entrar al proyecto.
 2. Ir a `Authentication > Providers`.
 3. Dejar habilitado `Email`.
-4. Para probar rapido, se puede desactivar temporalmente `Confirm email`.
-5. Si `Confirm email` queda activado, el usuario debe confirmar el correo antes de iniciar sesion.
+4. Para probar rápido, se puede desactivar temporalmente `Confirm email`.
+5. Si `Confirm email` queda activado, el usuario debe confirmar el correo antes de iniciar sesión.
 
-Elegimos email y contrasena porque es simple de probar y no depende de configurar enlaces de redireccion como magic link.
+Elegimos email y contraseña porque es simple de probar y no depende de configurar enlaces de redirección como magic link.
 
-## Crear tablas y politicas
+## Crear tablas y políticas
 
 1. Ir a `SQL Editor` en Supabase.
 2. Abrir el archivo `docs/supabase.sql`.
@@ -106,35 +106,35 @@ Ese SQL crea o actualiza:
 - `admin_users`
 - columna `profiles.user_id`
 - relacion con `auth.users.id`
-- politicas RLS para que cada usuario solo vea y edite su perfil
+- políticas RLS para que cada usuario solo vea y edite su perfil
 - politica RLS para que solo admins puedan listar todos los perfiles
-- insercion publica para interes de empresas
+- insercion pública para interés de empresas
 
-## Como probar el flujo completo
+## Cómo probar el flujo completo
 
 1. Entrar a la web.
 2. Tocar `Crear perfil`.
-3. Crear una cuenta con email y contrasena.
+3. Crear una cuenta con email y contraseña.
 4. Completar el formulario laboral.
 5. Ver recomendaciones.
 6. Tocar `Guardar o actualizar mi perfil`.
 7. Ir a Supabase > Table Editor > `profiles`.
 8. Deberia aparecer una fila con `user_id`.
-9. Cerrar sesion.
-10. Iniciar sesion otra vez.
+9. Cerrar sesión.
+10. Iniciar sesión otra vez.
 11. Tocar `Mi perfil`.
 12. Verificar que carga el perfil guardado.
 13. Editar datos y guardar otra vez.
 
-## Como funciona la recomendacion laboral
+## Cómo funciona la recomendación laboral
 
-La logica esta en:
+La lógica está en:
 
 ```text
 src/logic/recommendations.js
 ```
 
-El sistema usa puntajes segun:
+El sistema usa puntajes según:
 
 - Experiencia escrita.
 - Habilidades.
@@ -142,13 +142,13 @@ El sistema usa puntajes segun:
 - Disponibilidad.
 - Estudios.
 - Libreta de conducir.
-- Locomocion propia.
+- Locomoción propia.
 - Tipo de trabajo buscado: fijo, zafral, changas o cualquiera.
-- Rubros de interes.
+- Rubros de interés.
 - Palabras clave detectadas.
 - Si la persona tiene o no experiencia formal.
 
-Cada recomendacion incluye:
+Cada recomendación incluye:
 
 - Puesto recomendado.
 - Rubro.
@@ -157,59 +157,59 @@ Cada recomendacion incluye:
 - Que destacar.
 - Donde postularse.
 - Si puede ser fijo, zafral o changa.
-- Nivel de entrada: basico, intermedio o con experiencia.
+- Nivel de entrada: básico, intermedio o con experiencia.
 
-Tambien se muestran `Otras opciones que tambien podrias considerar` como chips.
+También se muestran `Otras opciones que también podrías considerar` como chips.
 
 ## Changas cerca de vos
 
-La app incluye una seccion orientativa llamada `Changas cerca de vos`.
+La app incluye una sección orientativa llamada `Changas cerca de vos`.
 
-Importante: por ahora no son ofertas reales ni vacantes publicadas por empresas. Son ideas de changas que una persona podria ofrecer o buscar segun su perfil.
+Importante: por ahora no son ofertas reales ni vacantes públicadas por empresas. Son ideas de changas que una persona podría ofrecer o buscar según su perfil.
 
 Aparece en:
 
-- La landing publica, como seccion informativa.
+- La landing pública, como sección informativa.
 - La pantalla de resultados, con changas recomendadas.
-- `Mi perfil`, como bloque de ideas segun los datos guardados.
+- `Mi perfil`, como bloque de ideas según los datos guardados.
 
 Cada changa incluye:
 
 - Nombre de la changa.
 - Categoria.
 - Compatibilidad.
-- Por que podria encajar.
+- Por qué podría encajar.
 - Que necesita la persona.
-- Tipo de pago estimado: por hora, por dia, por tarea o por evento.
-- Donde podria ofrecerse.
+- Tipo de pago estimado: por hora, por día, por tarea o por evento.
+- Donde podría ofrecerse.
 - Mensaje listo para copiar y enviar por WhatsApp.
-- Nivel de facilidad.
+- Nivel de fácilidad.
 
-La logica usa puntajes segun:
+La lógica usa puntajes según:
 
 - Experiencia y habilidades escritas.
 - Ciudad y departamento.
 - Disponibilidad.
 - Si busca changas, trabajo fijo, zafral o cualquiera.
-- Libreta de conducir y locomocion.
-- Rubros de interes.
-- Palabras clave como limpieza, cocina, mascotas, mandados, reparto, jardineria, ninos, adultos mayores, WhatsApp, redes o computadora.
+- Libreta de conducir y locomoción.
+- Rubros de interés.
+- Palabras clave como limpieza, cocina, mascotas, mandados, reparto, jardinería, niños, adultos mayores, WhatsApp, redes o computadora.
 
-Las categorias internas de changas son:
+Las categorías internas de changas son:
 
 - Hogar y limpieza.
-- Jardin y mantenimiento.
+- Jardín y mantenimiento.
 - Cuidado de personas.
 - Mascotas.
 - Reparto y mandados.
 - Eventos y temporada.
 - Cocina y alimentos.
 - Digital simple.
-- Mudanzas y fuerza fisica.
+- Mudanzas y fuerza física.
 
 Para agregar nuevas changas, sumar una linea al catalogo `gigCatalog` dentro de `src/logic/recommendations.js`.
 
-Mas adelante, si Labura UY se convierte en un marketplace real de changas, se podrian agregar campos como:
+Más adelante, si Laburá UY se convierte en un marketplace real de changas, se podrían agregar campos como:
 
 ```text
 preferred_work_modes
@@ -221,20 +221,20 @@ Por ahora las changas se calculan en la app y no se guardan como ofertas reales.
 
 ## Sectores laborales incluidos
 
-- Atencion al cliente y ventas.
-- Hoteleria y turismo.
-- Gastronomia.
+- Atención al cliente y ventas.
+- Hotelería y turismo.
+- Gastronomía.
 - Limpieza y servicios.
 - Seguridad y vigilancia.
 - Choferes, cadetes y reparto.
-- Construccion y oficios.
+- Construcción y oficios.
 - Mantenimiento y edificios.
-- Administracion basica.
+- Administración básica.
 - Cuidado de personas.
 - Mascotas y hogar.
 - Eventos y temporada.
 - Campo, rural y exterior.
-- Deposito y logistica.
+- Depósito y logística.
 - Trabajos digitales simples.
 - Changas y cuenta propia.
 
@@ -244,7 +244,7 @@ Para agregar nuevos puestos, sumar una linea al catalogo `roleCatalog` dentro de
 
 La tabla `profiles` tiene Row Level Security activo.
 
-Las politicas principales son:
+Las políticas principales son:
 
 - Insertar: solo si `auth.uid() = user_id`.
 - Leer: solo si `auth.uid() = user_id`.
@@ -262,12 +262,12 @@ El panel muestra:
 - Nombre.
 - Ciudad.
 - Departamento.
-- Rubros de interes.
+- Rubros de interés.
 - Disponibilidad.
 - Puestos recomendados.
 - Fecha de creacion.
 
-No muestra telefono ni email en la tabla admin.
+No muestra teléfono ni email en la tabla admin.
 
 Para definir tu usuario como admin:
 
@@ -282,14 +282,14 @@ where email = 'tu-email@ejemplo.com'
 on conflict (user_id) do nothing;
 ```
 
-4. Cerra sesion y volve a iniciar sesion en Labura UY.
+4. Cerra sesión y volve a iniciar sesión en Laburá UY.
 5. Toca `Admin`.
 
 Si un usuario comun toca `Admin`, Supabase no le devuelve los perfiles porque no esta en `admin_users`.
 
 ## Deploy en Vercel
 
-Configuracion recomendada:
+Configuración recomendada:
 
 ```text
 Framework Preset: Other
@@ -317,4 +317,4 @@ docs/supabase.sql
 
 ## Pendiente para admin futuro
 
-El panel admin actual sirve para validar demanda. Para una version comercial conviene agregar filtros, exportacion controlada, auditoria de accesos y roles mas detallados.
+El panel admin actual sirve para validar demanda. Para una versión comercial conviene agregar filtros, exportación controlada, auditoría de accesos y roles más detallados.
