@@ -18,14 +18,20 @@ create table if not exists profiles (
   desired_work_type text,
   interested_categories jsonb default '[]'::jsonb,
   recommended_jobs jsonb default '[]'::jsonb,
-  WhatsApp_message text,
+  whatsapp_message text,
   mini_cv text,
   created_at timestamptz default now(),
   updated_at timestamptz default now()
 );
 
 alter table profiles add column if not exists user_id uuid references auth.users(id) on delete cascade;
+alter table profiles add column if not exists whatsapp_message text;
 create unique index if not exists profiles_user_id_unique on profiles(user_id);
+
+-- Importante para evitar perfiles duplicados:
+-- la app guarda con upsert usando user_id como clave única.
+-- Si este índice falla al correrlo, revisa si ya existen perfiles duplicados
+-- para el mismo user_id y deja solo el más reciente antes de volver a ejecutarlo.
 
 create table if not exists companies_interest (
   id uuid primary key default gen_random_uuid(),
