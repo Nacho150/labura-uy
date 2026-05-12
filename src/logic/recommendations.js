@@ -624,8 +624,8 @@ function createExperienceTranslation(profile, recommendations, context) {
     ? [...new Set(detectedSkills)].slice(0, 6)
     : ["Responsabilidad", "Ganas de aprender", "Disponibilidad para trabajar", "Buena disposición"];
   const areas = [...new Set(recommendations.map((item) => item.area))].slice(0, 4);
-  const fallbackAreas = ["Limpieza y servicios", "Atención al cliente y ventas", "Changas y cuenta propia"];
-  const workAreas = areas.length ? areas : fallbackAreas;
+  const fallbackAreas = ["Limpieza y servicios", "Atención al cliente y ventas", "Trabajos por hora y cuenta propia"];
+  const workAreas = (areas.length ? areas : fallbackAreas).map(cleanProfessionalArea);
   const rawExperience = [profile.experience, profile.skills].filter(Boolean).join(" ");
   const summary = rawExperience.trim()
     ? `Tu experiencia muestra ${skills.slice(0, 3).map((item) => item.toLowerCase()).join(", ")}. Con lo que contaste, podés presentarte mejor para trabajos vinculados a ${workAreas.slice(0, 3).join(", ")}.`
@@ -633,11 +633,11 @@ function createExperienceTranslation(profile, recommendations, context) {
   const improvedText = `Persona responsable, con experiencia o habilidades en ${skills.slice(0, 4).map((item) => item.toLowerCase()).join(", ")}. Buena disposición para aprender, cumplir horarios y realizar tareas de confianza. Interés en oportunidades de ${workAreas.slice(0, 3).join(", ")}.`;
 
   return {
-    summary,
+    summary: sanitizeProfessionalText(summary),
     skills,
     areas: workAreas,
-    improvedText,
-    motivation: "Tu experiencia también vale, aunque haya sido informal, por changas o ayudando a conocidos. Lo importante es contarla claro y mostrar qué sabés resolver.",
+    improvedText: sanitizeProfessionalText(improvedText),
+    motivation: "Tu experiencia también vale, aunque haya sido informal o ayudando a conocidos. Lo importante es contarla claro y mostrar qué sabés resolver.",
   };
 }
 
@@ -657,27 +657,42 @@ function createWhatsAppMessage(profile, recommendations) {
   const location = profile.location || "Uruguay";
   const topRole = recommendations[0]?.title || "el puesto";
   const availability = profile.availability || "disponibilidad a coordinar";
-  const experience = profile.experience || "buena disposición y ganas de trabajar";
-  return `Hola, buen día. Mi nombre es ${name}, soy de ${location} y me interesa postularme para ${topRole}. Tengo experiencia o habilidades en ${experience}. Cuento con ${availability}. Quedo a las órdenes para enviar más información o coordinar una entrevista. Muchas gracias.`;
+  const experience = trimEndPunctuation(sanitizeProfessionalText(profile.experience || "buena disposición y ganas de trabajar"));
+  return sanitizeProfessionalText(`Hola, buen día. Mi nombre es ${name}, soy de ${location} y me interesa postularme para ${topRole}. Tengo experiencia o habilidades en ${experience}. Cuento con ${availability}. Quedo a las órdenes para enviar más información o coordinar una entrevista. Muchas gracias.`);
 }
 
 function createMiniCv(profile, recommendations) {
   const topRoles = recommendations.map((item) => item.title).join(", ");
-  return [
+  const workType = profile.workType === "changas" ? "trabajos por hora o eventuales" : profile.workType || "cualquiera";
+  return sanitizeProfessionalText([
     `Nombre: ${profile.name || "Sin especificar"}`,
-    `Ubicacion: ${profile.location || "Sin especificar"}`,
+    `Ubicación: ${profile.location || "Sin especificar"}`,
     profile.department ? `Departamento: ${profile.department}` : null,
     profile.age ? `Edad: ${profile.age}` : null,
-    `Experiencia: ${profile.experience || "Sin experiencia formal declarada"}`,
-    `Tareas y habilidades: ${profile.skills || "Buena disposición para aprender"}`,
+    `Experiencia: ${sanitizeProfessionalText(profile.experience || "Sin experiencia formal declarada")}`,
+    `Tareas y habilidades: ${sanitizeProfessionalText(profile.skills || "Buena disposición para aprender")}`,
     `Estudios: ${profile.education || "Sin especificar"}`,
     `Disponibilidad: ${profile.availability || "A coordinar"}`,
-    `Tipo de trabajo buscado: ${profile.workType || "cualquiera"}`,
+    `Tipo de trabajo buscado: ${workType}`,
     `Locomoción propia: ${profile.hasTransport === "si" ? "Sí" : "No"}`,
     `Libreta de conducir: ${profile.hasLicense === "si" ? "Sí" : "No"}`,
     `Puestos recomendados: ${topRoles}`,
     profile.contact ? `Contacto: ${profile.contact}` : null,
   ]
     .filter(Boolean)
-    .join("\n");
+    .join("\n"));
+}
+
+function cleanProfessionalArea(area) {
+  return String(area || "").replace("Changas y cuenta propia", "Trabajos por hora y cuenta propia");
+}
+
+function sanitizeProfessionalText(value) {
+  return String(value || "")
+    .replace(/\bchangas\b/gi, "trabajos por hora")
+    .replace(/\bchanga\b/gi, "trabajo por hora");
+}
+
+function trimEndPunctuation(value) {
+  return String(value || "").trim().replace(/[.!?¿¡]+$/g, "");
 }
