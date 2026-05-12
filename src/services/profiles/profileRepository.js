@@ -214,8 +214,8 @@ export function mapStoredResult(row, fallbackResult) {
   return {
     ...fallbackResult,
     recommendations: recommendedJobs,
-    WhatsAppMessage: row.whatsapp_message || row.WhatsApp_message || fallbackResult.WhatsAppMessage,
-    miniCv: row.mini_cv || fallbackResult.miniCv,
+    WhatsAppMessage: sanitizeProfessionalText(row.whatsapp_message || row.WhatsApp_message || fallbackResult.WhatsAppMessage),
+    miniCv: sanitizeProfessionalText(row.mini_cv || fallbackResult.miniCv),
   };
 }
 
@@ -227,4 +227,10 @@ function extractEmail(contact) {
 function extractPhone(contact) {
   const digits = String(contact || "").replace(/[^\d+]/g, "");
   return digits && !extractEmail(contact) ? digits : null;
+}
+
+function sanitizeProfessionalText(value) {
+  return String(value || "")
+    .replace(/\bchangas\b/gi, "trabajos por hora")
+    .replace(/\bchanga\b/gi, "trabajo por hora");
 }
