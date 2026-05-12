@@ -534,6 +534,8 @@ function Results(current, result) {
         <p>Tu experiencia también vale, aunque no tengas un CV armado.</p>
       </section>
 
+      ${ExperienceTranslatorBlock(result)}
+
       <div class="results-label">
         <span>Trabajos recomendados</span>
         <p>Ordenados según lo que contaste en el formulario.</p>
@@ -553,8 +555,8 @@ function Results(current, result) {
               </div>
                 <div class="score-bar" aria-hidden="true"><span style="--score: ${compatibilityScore(job.compatibility)}%"></span></div>
                 <p><strong>Por qué puede servirte:</strong> ${job.reason}</p>
-                <p><strong>Que destacar:</strong> ${job.highlight}</p>
-                <p><strong>Donde postularte:</strong> ${job.companies}</p>
+                <p><strong>Qué destacar:</strong> ${job.highlight}</p>
+                <p><strong>Dónde postularte:</strong> ${job.companies}</p>
                 <div class="job-meta">
                   <span>${job.workMode}</span>
                   <span>Nivel ${job.level}</span>
@@ -595,11 +597,11 @@ function Results(current, result) {
 
       <section class="next-steps">
         <div>
-          <span class="panel-label">Proximos pasos</span>
-          <h2>Qué hacer ahora</h2>
+          <span class="panel-label">Tu próximo paso</span>
+          <h2>Tres acciones simples para avanzar</h2>
         </div>
         <div class="steps-list">
-          ${result.nextSteps
+          ${NextActionSteps()
             .map(
               (item, index) => `
                 <div class="step-card">
@@ -613,7 +615,7 @@ function Results(current, result) {
       </section>
 
       <div class="output-grid">
-        ${TextOutput("mensaje", "Mensaje para WhatsApp", "Copialo y mandalo cuando encuentres una empresa o comercio que este tomando gente.", result.WhatsAppMessage, "Copiar mensaje")}
+        ${TextOutput("mensaje", "Mensaje para WhatsApp", "Copialo y mandalo cuando encuentres una empresa o comercio que esté tomando gente.", result.WhatsAppMessage, "Copiar mensaje")}
         ${TextOutput("cv", "Mini CV textual", "Una base simple para pegar en una postulación o mandar por mensaje.", result.miniCv, "Copiar mini CV")}
       </div>
 
@@ -626,6 +628,51 @@ function Results(current, result) {
       ${saveStatus === "error" ? `<div class="form-error">No se pudo guardar. Revisa la configuración de Supabase o probá de nuevo.</div>` : ""}
     </section>
   `;
+}
+
+function ExperienceTranslatorBlock(result) {
+  const translation = result.experienceTranslation;
+  if (!translation) return "";
+
+  return `
+    <section class="translator-card">
+      <div class="split-section">
+        <div>
+          <span class="panel-label">Traductor de experiencia</span>
+          <h2>Lo que sabés hacer, explicado en lenguaje laboral</h2>
+          <p>${escapeHtml(translation.summary)}</p>
+        </div>
+        <img class="section-art small" src="${assets.checklist}" alt="" />
+      </div>
+      <div class="translator-grid">
+        <div>
+          <h3>Habilidades detectadas</h3>
+          <div class="category-grid compact-badges">
+            ${translation.skills.map((item) => `<span class="category-badge">${escapeHtml(item)}</span>`).join("")}
+          </div>
+        </div>
+        <div>
+          <h3>Rubros posibles</h3>
+          <div class="category-grid compact-badges">
+            ${translation.areas.map((item) => `<span class="category-badge">${escapeHtml(item)}</span>`).join("")}
+          </div>
+        </div>
+      </div>
+      <div class="translated-text">
+        <strong>Texto mejorado para tu perfil</strong>
+        <p>${escapeHtml(translation.improvedText)}</p>
+      </div>
+      <p class="translator-motivation">${escapeHtml(translation.motivation)}</p>
+    </section>
+  `;
+}
+
+function NextActionSteps() {
+  return [
+    "Copiá tu mensaje para WhatsApp.",
+    "Elegí 5 lugares donde ofrecerte.",
+    "Actualizá tu perfil si ganás nueva experiencia.",
+  ];
 }
 
 function BestOpportunity(job) {
@@ -641,8 +688,8 @@ function BestOpportunity(job) {
       </div>
       <div class="score-bar" aria-hidden="true"><span style="--score: ${compatibilityScore(job.compatibility)}%"></span></div>
       <p>${job.reason}</p>
-      <p><strong>Que destacar:</strong> ${job.highlight}</p>
-      <p><strong>Donde postularte:</strong> ${job.companies}</p>
+      <p><strong>Qué destacar:</strong> ${job.highlight}</p>
+      <p><strong>Dónde postularte:</strong> ${job.companies}</p>
       <div class="job-meta">
         <span>${job.workMode}</span>
         <span>Nivel ${job.level}</span>
@@ -741,8 +788,9 @@ function MyProfile(saved, wrap = true) {
         <p><strong>Disponibilidad:</strong> ${escapeHtml(currentProfile.availability)}</p>
       </div>
     </section>
+    ${ExperienceTranslatorBlock(result)}
     <div class="output-grid">
-      ${TextOutput("perfil-mensaje", "Mensaje listo para postularte", "Copialo para escribírle a una empresa.", result.WhatsAppMessage, "Copiar mensaje")}
+      ${TextOutput("perfil-mensaje", "Mensaje listo para postularte", "Copialo para escribirle a una empresa.", result.WhatsAppMessage, "Copiar mensaje")}
       ${TextOutput("perfil-cv", "Mini CV", "Una versión simple para mandar por WhatsApp o pegar en una postulación.", result.miniCv, "Copiar mini CV")}
     </div>
     ${GigRecommendationsBlock(result, true)}

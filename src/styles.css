@@ -1204,6 +1204,7 @@ textarea {
 
 .best-card,
 .trust-panel,
+.translator-card,
 .guidance,
 .company-section,
 .next-steps,
@@ -1241,6 +1242,70 @@ textarea {
   line-height: 1.42;
   margin: 0;
   padding-left: 10px;
+}
+
+.translator-card {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(240, 249, 255, 0.9)),
+    #ffffff;
+  border-color: var(--sky-soft);
+  display: grid;
+  gap: 16px;
+}
+
+.translator-card h2,
+.translator-card h3 {
+  color: var(--text);
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.translator-card h2 {
+  font-size: 1.22rem;
+  line-height: 1.25;
+}
+
+.translator-card h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.translator-card p {
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.translator-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.translator-grid > div,
+.translated-text {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+}
+
+.translated-text {
+  border-left: 4px solid var(--sky);
+}
+
+.translated-text strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.translator-motivation {
+  background: var(--sky-soft);
+  border-radius: var(--radius-sm);
+  color: var(--blue-dark) !important;
+  font-weight: 500;
+  padding: 12px;
 }
 
 .results-label {

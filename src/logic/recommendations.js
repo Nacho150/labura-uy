@@ -323,6 +323,7 @@ export function createRecommendationResult(profile) {
 
   return {
     summary: createProfileSummary(profile, recommendations, context),
+    experienceTranslation: createExperienceTranslation(profile, recommendations, context),
     recommendations,
     secondaryOptions,
     gigRecommendations: gigResult.recommendations,
@@ -353,6 +354,7 @@ export function createGigRecommendations(profile, context = buildContext(profile
 }
 
 function buildContext(profile) {
+  const profileInterests = Array.isArray(profile.interests) ? profile.interests : [];
   const text = normalize([
     profile.experience,
     profile.skills,
@@ -361,12 +363,12 @@ function buildContext(profile) {
     profile.workType,
     profile.location,
     profile.department,
-    profile.interests.join(" "),
+    profileInterests.join(" "),
   ].join(" "));
 
   return {
     text,
-    interestText: normalize(profile.interests.join(" ")),
+    interestText: normalize(profileInterests.join(" ")),
     locationText: normalize([profile.location, profile.department].join(" ")),
     hasLicense: profile.hasLicense === "si",
     hasTransport: profile.hasTransport === "si",
@@ -599,6 +601,44 @@ function createAdvice(profile, recommendations, context) {
   if (profile.hasTransport === "si") advice.push("Aclará que tenés locomoción propia porque puede abrir opciones de reparto, cadetería o zonas más lejanas.");
   if (recommendations.some((item) => item.workMode.includes("changa"))) advice.push("Para changas, ofrecé tareas concretas, precio a coordinar y zonas donde podés moverte.");
   return advice.slice(0, 6);
+}
+
+const skillSignals = [
+  { skill: "Limpieza y orden", words: ["limpieza", "limpiar", "casas", "oficinas", "mucama", "orden", "planchado"] },
+  { skill: "Atención al público", words: ["clientes", "atencion", "publico", "ventas", "mostrador", "almacen", "comercio", "caja"] },
+  { skill: "Cuidado de personas", words: ["cuidado", "ninos", "niner", "adultos", "mayores", "acompanante", "familia"] },
+  { skill: "Cocina básica", words: ["cocina", "comida", "viandas", "reposteria", "restaurante", "ayudante"] },
+  { skill: "Mandados y tareas de confianza", words: ["mandados", "tramites", "compras", "cadete", "barrio"] },
+  { skill: "Reparto y movilidad", words: ["moto", "auto", "libreta", "reparto", "delivery", "chofer", "bicicleta"] },
+  { skill: "Mantenimiento y arreglos", words: ["mantenimiento", "pintura", "jardin", "pasto", "obra", "herramientas", "arreglos"] },
+  { skill: "Trabajo en temporada", words: ["temporada", "zafral", "hotel", "turismo", "punta", "parador", "evento"] },
+  { skill: "Uso de computadora y redes", words: ["computadora", "whatsapp", "redes", "instagram", "marketplace", "datos", "excel", "publicaciones"] },
+  { skill: "Responsabilidad y disponibilidad", words: ["responsable", "puntual", "disponibilidad", "horarios", "ganas", "aprender"] },
+];
+
+function createExperienceTranslation(profile, recommendations, context) {
+  const detectedSkills = skillSignals
+    .filter((item) => item.words.some((word) => context.text.includes(word)))
+    .map((item) => item.skill);
+  const skills = detectedSkills.length
+    ? [...new Set(detectedSkills)].slice(0, 6)
+    : ["Responsabilidad", "Ganas de aprender", "Disponibilidad para trabajar", "Buena disposición"];
+  const areas = [...new Set(recommendations.map((item) => item.area))].slice(0, 4);
+  const fallbackAreas = ["Limpieza y servicios", "Atención al cliente y ventas", "Changas y cuenta propia"];
+  const workAreas = areas.length ? areas : fallbackAreas;
+  const rawExperience = [profile.experience, profile.skills].filter(Boolean).join(" ");
+  const summary = rawExperience.trim()
+    ? `Tu experiencia muestra ${skills.slice(0, 3).map((item) => item.toLowerCase()).join(", ")}. Con lo que contaste, podés presentarte mejor para trabajos vinculados a ${workAreas.slice(0, 3).join(", ")}.`
+    : "Aunque todavía no hayas contado mucha experiencia, podés armar un perfil destacando responsabilidad, disponibilidad y ganas de aprender.";
+  const improvedText = `Persona responsable, con experiencia o habilidades en ${skills.slice(0, 4).map((item) => item.toLowerCase()).join(", ")}. Buena disposición para aprender, cumplir horarios y realizar tareas de confianza. Interés en oportunidades de ${workAreas.slice(0, 3).join(", ")}.`;
+
+  return {
+    summary,
+    skills,
+    areas: workAreas,
+    improvedText,
+    motivation: "Tu experiencia también vale, aunque haya sido informal, por changas o ayudando a conocidos. Lo importante es contarla claro y mostrar qué sabés resolver.",
+  };
 }
 
 function createNextSteps(profile, recommendations) {
