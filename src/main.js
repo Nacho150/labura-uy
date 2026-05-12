@@ -393,6 +393,7 @@ function AuthScreen() {
 }
 
 function ProfileForm(current) {
+  const safeCurrent = normalizeProfile(current);
   return `
     <section class="form-section" id="formulario">
       <div class="section-heading">
@@ -411,13 +412,13 @@ function ProfileForm(current) {
 
       <div class="form-card">
       <form class="profile-form" id="profile-form">
-        ${TextField("name", "Tu nombre", current.name, "Ej: Andrea", true, "", "Solo para personalizar el resultado.")}
-        ${TextField("location", "Ciudad o zona", current.location, "Ej: Pocitos, San Carlos, Las Piedras", true, "", "Así podemos sugerir lugares cercanos.")}
-        ${TextField("department", "Departamento", current.department, "Ej: Montevideo, Canelones, Maldonado", false, "", "Ayuda a mejorar recomendaciones por temporada y zona.")}
-        ${TextField("age", "Edad (opcional)", current.age, "Ej: 29", false, "", "Si no querés ponerla, dejala vacía.")}
-        ${TextArea("experience", "Experiencia o changas", current.experience, "Ej: trabajé en comercio, hice limpieza, cuidé personas, ayudé en obra...", "Puede ser trabajo formal, informal, familiar o changas.")}
-        ${TextArea("skills", "Tareas que sabés hacer", current.skills, "Ej: atención al público, caja, cocina, pintura, computadora básica...", "Escribí tareas concretas, aunque parezcan simples.")}
-        ${SelectField("education", "Nivel de estudios", current.education, [
+        ${TextField("name", "Tu nombre", safeCurrent.name, "Ej: Andrea", true, "", "Solo para personalizar el resultado.")}
+        ${TextField("location", "Ciudad o zona", safeCurrent.location, "Ej: Pocitos, San Carlos, Las Piedras", true, "", "Así podemos sugerir lugares cercanos.")}
+        ${TextField("department", "Departamento", safeCurrent.department, "Ej: Montevideo, Canelones, Maldonado", false, "", "Ayuda a mejorar recomendaciones por temporada y zona.")}
+        ${TextField("age", "Edad (opcional)", safeCurrent.age, "Ej: 29", false, "", "Si no querés ponerla, dejala vacía.")}
+        ${TextArea("experience", "Experiencia o changas", safeCurrent.experience, "Ej: trabajé en comercio, hice limpieza, cuidé personas, ayudé en obra...", "Puede ser trabajo formal, informal, familiar o changas.")}
+        ${TextArea("skills", "Tareas que sabés hacer", safeCurrent.skills, "Ej: atención al público, caja, cocina, pintura, computadora básica...", "Escribí tareas concretas, aunque parezcan simples.")}
+        ${SelectField("education", "Nivel de estudios", safeCurrent.education, [
           "",
           "Primaria completa",
           "Ciclo básico incompleto",
@@ -427,10 +428,10 @@ function ProfileForm(current) {
           "UTU o curso técnico",
           "Terciario o universitario",
         ], "Si no estás seguro, elegí la opción más cercana.")}
-        ${TextField("availability", "Horarios disponibles", current.availability, "Ej: mañana, tarde, noche, fines de semana", true, "", "Contanos cuando podrías trabajar.")}
-        ${Segmented("hasTransport", "Locomoción propia", current.hasTransport, "Auto, moto, bici o forma propia de moverte.")}
-        ${Segmented("hasLicense", "Libreta de conducir", current.hasLicense, "Si tenés libreta, puede abrir opciones de reparto, cadete o chofer.")}
-        ${SelectField("workType", "Tipo de trabajo", current.workType, ["fijo", "zafral", "changas", "cualquiera"], "Si te sirve cualquier opción, deja cualquiera.")}
+        ${TextField("availability", "Horarios disponibles", safeCurrent.availability, "Ej: mañana, tarde, noche, fines de semana", true, "", "Contanos cuando podrías trabajar.")}
+        ${Segmented("hasTransport", "Locomoción propia", safeCurrent.hasTransport, "Auto, moto, bici o forma propia de moverte.")}
+        ${Segmented("hasLicense", "Libreta de conducir", safeCurrent.hasLicense, "Si tenés libreta, puede abrir opciones de reparto, cadete o chofer.")}
+        ${SelectField("workType", "Tipo de trabajo", safeCurrent.workType, ["fijo", "zafral", "changas", "cualquiera"], "Si te sirve cualquier opción, deja cualquiera.")}
         <div class="wide">
           <p class="field-title">Rubros que te interesan</p>
           <p class="field-help">Elegís uno o varios. Si no elegís, igual te recomendamos según lo que escribiste.</p>
@@ -438,7 +439,7 @@ function ProfileForm(current) {
             ${interests
               .map(
                 (interest) => `
-                  <button class="chip ${current.interests.includes(interest) ? "selected" : ""}" type="button" data-interest="${escapeHtml(interest)}">
+                  <button class="chip ${safeCurrent.interests.includes(interest) ? "selected" : ""}" type="button" data-interest="${escapeHtml(interest)}">
                     ${interest}
                   </button>
                 `,
@@ -446,7 +447,7 @@ function ProfileForm(current) {
               .join("")}
           </div>
         </div>
-        ${TextField("contact", "Teléfono o email (opcional)", current.contact, "Ej: 099 123 456 o tu email", false, "wide", "Se usa para armar tu perfil laboral si decidís guardarlo.")}
+        ${TextField("contact", "Teléfono o email (opcional)", safeCurrent.contact, "Ej: 099 123 456 o tu email", false, "wide", "Se usa para armar tu perfil laboral si decidís guardarlo.")}
         <div class="form-actions wide">
           <button class="primary-button" type="submit">Ver mis trabajos recomendados</button>
           <button class="secondary-button" type="button" data-action="example">Probar con datos de ejemplo</button>
@@ -1053,10 +1054,23 @@ function syncFormField(event) {
   });
 }
 
+function normalizeProfile(value = {}) {
+  return {
+    ...emptyProfile,
+    ...value,
+    interests: Array.isArray(value.interests) ? value.interests : [],
+  };
+}
+
 function updateProfile(changes) {
   profile = {
-    ...profile,
+    ...normalizeProfile(profile),
     ...changes,
+    interests: Array.isArray(changes.interests)
+      ? changes.interests
+      : Array.isArray(profile.interests)
+        ? profile.interests
+        : [],
   };
 }
 
