@@ -73,7 +73,7 @@ const sectors = {
   events: {
     area: "Eventos y temporada",
     companies: "Organizadoras de eventos, salónes, fiestas, paradores, hoteles, seguridad y promociónes.",
-    highlight: "Tu disponibilidad, energia, puntualidad y flexibilidad para trabajos eventuales.",
+    highlight: "Tu disponibilidad, energía, puntualidad y flexibilidad para trabajos eventuales.",
   },
   rural: {
     area: "Campo, rural y exterior",
@@ -199,7 +199,7 @@ const entryFamilies = ["reposición", "limpieza", "cadete", "bacha", "depósito"
 
 const companySuggestions = [
   suggestion("Hoteles", ["hotel", "hotelería", "mucama", "habitaciones", "recepción", "turismo"], ["Hotelería y turismo", "Limpieza y servicios"], "pueden necesitar limpieza, habitaciones, recepción, lavandería, desayuno o apoyo de temporada."),
-  suggestion("Restaurantes", ["cocina", "mozo", "restaurante", "bar", "cafetería", "bachero"], ["Gastronomía"], "encajan con cocina, salón, bacha, cafetería, caja gastronomica o eventos."),
+  suggestion("Restaurantes", ["cocina", "mozo", "restaurante", "bar", "cafetería", "bachero"], ["Gastronomía"], "encajan con cocina, salón, bacha, cafetería, caja gastronómica o eventos."),
   suggestion("Supermercados", ["ventas", "caja", "reposición", "stock", "supermercado"], ["Atención al cliente y ventas", "Depósito y logística"], "suelen tomar perfiles para caja, reposición, depósito, atención y tareas de entrada."),
   suggestion("Comercios", ["ventas", "local", "clientes", "mostrador", "WhatsApp"], ["Atención al cliente y ventas", "Trabajos digitales simples"], "son una buena opción para atención, ventas, mostrador o respuesta por WhatsApp."),
   suggestion("Edificios", ["edificio", "portería", "limpieza", "mantenimiento"], ["Limpieza y servicios", "Mantenimiento y edificios", "Seguridad y vigilancia"], "pueden necesitar limpieza, portería, mantenimiento básico o control de acceso."),
@@ -243,7 +243,7 @@ const gigCatalog = [
   gig("Fletes pequeños", "Reparto y mandados", ["flete", "camióneta", "auto", "mudanza", "traslado"], "Por tarea", "Vehículo, cuidado al cargar y puntualidad.", "Vecinos, Marketplace, mudanzas chicas y grupos barriales.", "media", { mobility: true }),
 
   gig("Mozo/a eventual", "Eventos y temporada", ["mozo", "evento", "fiesta", "salón"], "Por evento", "Buena presencia, ritmo y disponibilidad nocturna o fin de semana.", "Salones, organizadores de eventos, hoteles y restaurantes.", "media", { tourist: true }),
-  gig("Ayuda en eventos", "Eventos y temporada", ["evento", "apoyo", "fiesta", "armado"], "Por evento o por día", "Puntualidad, energia y disposición para varias tareas.", "Salones, organizadores, fiestas, paradores y productoras.", "fácil", { tourist: true }),
+  gig("Ayuda en eventos", "Eventos y temporada", ["evento", "apoyo", "fiesta", "armado"], "Por evento o por día", "Puntualidad, energía y disposición para varias tareas.", "Salones, organizadores, fiestas, paradores y productoras.", "fácil", { tourist: true }),
   gig("Armado y desarmado de eventos", "Eventos y temporada", ["armado", "desarmado", "evento", "sillas", "mesas"], "Por evento", "Fuerza física, puntualidad y trabajo en equipo.", "Organizadores, salónes, fiestas y empresas de sonido.", "fácil"),
   gig("Acreditación o control de acceso", "Eventos y temporada", ["acreditación", "control de acceso", "evento", "público"], "Por evento", "Buena presencia, orden y trato con personas.", "Eventos, ferias, fiestas, congresos y productoras.", "fácil"),
   gig("Promotor/a eventual", "Eventos y temporada", ["promotor", "promoción", "ventas", "clientes", "público"], "Por evento o por día", "Buen trato, presencia y fácilidad para hablar con personas.", "Eventos, supermercados, lanzamientos, comercios y agencias.", "fácil"),
@@ -251,7 +251,7 @@ const gigCatalog = [
 
   gig("Cocina casera por pedido", "Cocina y alimentos", ["cocina", "comida", "casera", "pedido"], "Por pedido", "Orden, higiene y saber preparar comidas simples.", "Vecinos, oficinas, redes sociales, grupos de barrio y conocidos.", "media"),
   gig("Viandas", "Cocina y alimentos", ["viandas", "comida", "cocina", "familias"], "Por pedido o por semana", "Organización, higiene y constancia.", "Oficinas, familias, estudíantes, grupos barriales e Instagram.", "media"),
-  gig("Reposteria casera", "Cocina y alimentos", ["reposteria", "tortas", "postres", "cocina"], "Por pedido", "Buena presentacion, higiene y cumplimiento de entregas.", "Redes sociales, vecinos, cumpleaños, oficinas y conocidos.", "media"),
+  gig("Repostería casera", "Cocina y alimentos", ["repostería", "tortas", "postres", "cocina"], "Por pedido", "Buena presentación, higiene y cumplimiento de entregas.", "Redes sociales, vecinos, cumpleaños, oficinas y conocidos.", "media"),
   gig("Ayudante de cocina eventual", "Cocina y alimentos", ["cocina", "ayudante", "evento", "restaurante"], "Por día o por evento", "Orden, rapidez y disposición para apoyar al equipo.", "Restaurantes, eventos, rotiserías y hoteles.", "fácil", { tourist: true }),
 
   gig("Publicación de productos en Marketplace", "Digital simple", ["marketplace", "publicaciones", "productos", "fotos", "redes", "ventas", "casa"], "Por tarea", "Celular o computadora, buena redacción y orden.", "Comercios, emprendimientos, vendedores y redes.", "fácil"),
@@ -283,13 +283,13 @@ function role(title, sectorKey, keywords, workMode, level, family, flags = {}) {
   };
 }
 
-function suggestion(type, keywords, áreas, reason) {
+function suggestion(type, keywords, areas, reason) {
   return {
     type,
     keywords,
-    áreas,
+    areas,
     reason,
-    message: `Hola, buen día. Estoy buscando trabajo y me interesa postularme en ${type}. Tengo disponibilidad y puedo enviar mi perfil si estan tomando personal.`,
+    message: `Hola, buen día. Estoy buscando trabajo y me interesa postularme en ${type}. Tengo disponibilidad y puedo enviar mi perfil si están tomando personal.`,
   };
 }
 
@@ -361,12 +361,12 @@ function buildContext(profile) {
     profile.workType,
     profile.location,
     profile.department,
-    profile.interests?.join(" "),
+    profile.interests.join(" "),
   ].join(" "));
 
   return {
     text,
-    interestText: normalize(profile.interests?.join(" ")),
+    interestText: normalize(profile.interests.join(" ")),
     locationText: normalize([profile.location, profile.department].join(" ")),
     hasLicense: profile.hasLicense === "si",
     hasTransport: profile.hasTransport === "si",
@@ -546,7 +546,7 @@ function createReason(item, context) {
     return "Puede servirte como entrada si estás buscando empezar rápido y mostrar responsabilidad, disponibilidad y ganas de aprender.";
   }
   if (item.matches.length) {
-    return `Con lo que contaste, aparecen senales relacionadas con ${item.matches.slice(0, 3).join(", ")}. Por eso este puesto podría encajar contigo.`;
+    return `Con lo que contaste, aparecen señales relacionadas con ${item.matches.slice(0, 3).join(", ")}. Por eso este puesto podría encajar contigo.`;
   }
   if (context.isTouristLocation && touristSectors.includes(item.sectorKey)) {
     return "Tu zona puede tener demanda en turismo, temporada, servicios, gastronomía u hotelería.";
@@ -565,12 +565,14 @@ function createCompanySuggestions(profile, recommendations, context) {
   const areas = recommendations.map((item) => item.area);
   return companySuggestions
     .map((item) => {
-      const keywordScore = item.keywords.filter((keyword) => context.text.includes(normalize(keyword))).length * 2;
-      const áreaScore = item.areas.filter((área) => áreas.includes(área)).length * 3;
+      const keywords = Array.isArray(item.keywords) ? item.keywords : [];
+      const itemAreas = Array.isArray(item.areas) ? item.areas : [];
+      const keywordScore = keywords.filter((keyword) => context.text.includes(normalize(keyword))).length * 2;
+      const areaScore = itemAreas.filter((area) => areas.includes(area)).length * 3;
       const locationScore = context.isTouristLocation && ["Hoteles", "Restaurantes"].includes(item.type) ? 3 : 0;
       return {
         ...item,
-        score: keywordScore + áreaScore + locationScore,
+        score: keywordScore + areaScore + locationScore,
         mapsTip: `Buscá en Google Maps o Instagram: "${item.type} en ${profile.location || "tu zona"}" y escribíle a lugares cercanos.`,
       };
     })
